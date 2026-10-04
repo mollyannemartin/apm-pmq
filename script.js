@@ -22,7 +22,39 @@ const topics = [
       "Project life cycle vs extended life cycle: delivery of the project vs the wider period through transition/adoption and benefits realisation.",
       "Review vs assurance: a review assesses progress/viability; assurance provides confidence to governance that the project is on track."
     ],
-    "scenario": "A project has uncertain user requirements and needs regular user feedback. Which life cycle is likely to be more suitable, and why?"
+    "scenario": "A project has uncertain user requirements and needs regular user feedback. Which life cycle is likely to be more suitable, and why?",
+    "applyScenarios": [
+      {
+        "model": "Linear",
+        "scenario": "A new office building has a stable specification, statutory requirements are known, and construction activities must follow a defined sequence before handover.",
+        "answer": "A linear life cycle is a strong fit because the requirements and sequence are relatively stable and the work can be planned through defined phases. The project can progress through those phases in a structured order, with reviews before major commitments."
+      },
+      {
+        "model": "Incremental",
+        "scenario": "An organisation needs a new digital service but cannot wait two years for the complete solution. A basic version could deliver useful functionality first, followed by additional releases that add capability.",
+        "answer": "An incremental life cycle is suitable because the target state can be reached through a series of smaller deliveries. Each increment adds functionality or value, allowing earlier benefits while the full solution is developed."
+      },
+      {
+        "model": "Iterative",
+        "scenario": "Users are unsure exactly what they need from a new internal application. The team can develop prototypes, obtain user feedback and repeatedly refine the solution.",
+        "answer": "An iterative life cycle is suitable because uncertainty is high and learning from feedback is important. The team repeats development and refinement cycles, using what it learns to improve the solution."
+      },
+      {
+        "model": "Evolutionary",
+        "scenario": "A company is entering a new market where customer expectations are uncertain. It plans several major versions of its product, with each version shaped by feedback and learning from the previous one.",
+        "answer": "An evolutionary life cycle is suitable because deployment happens through major transitions, with each transition informed by feedback from the preceding one. This allows the solution to evolve as understanding of the market improves."
+      },
+      {
+        "model": "Hybrid",
+        "scenario": "A major website transformation has fixed governance, funding and release milestones, but the user-facing software needs agile development and frequent feedback within those boundaries.",
+        "answer": "A hybrid life cycle is suitable because different parts of the project have different needs. Predictive or linear elements can provide governance and major milestones, while iterative methods can be used for the uncertain software development work."
+      },
+      {
+        "model": "Extended",
+        "scenario": "A new HR system has been delivered, but the project team remains accountable for training, adoption, operational handover and measuring whether the expected efficiency benefits are actually realised.",
+        "answer": "An extended life cycle is appropriate because the work does not stop at technical delivery. It adds adoption and benefits-realisation activity so that the outputs become embedded in operations and the intended benefits can be measured."
+      }
+    ]
   },
   {
     "id": "governance",
@@ -47,7 +79,20 @@ const topics = [
       "Project manager vs sponsor: the PM manages day-to-day delivery; the sponsor owns the business need and provides senior direction.",
       "PMO vs project team: a PMO supports governance, standards and coordination; the project team performs delivery work."
     ],
-    "scenario": "A project is forecast to exceed an agreed tolerance. What should the project manager do rather than quietly absorbing the variance?"
+    "scenario": "A project is forecast to exceed an agreed tolerance. What should the project manager do rather than quietly absorbing the variance?",
+    "applyAnswer": "The PM should assess the forecast against the agreed tolerance and escalate through the governance route if the tolerance will be exceeded. The PM should not simply absorb the variance because tolerances define the authority delegated to the PM. The appropriate decision maker can then decide the response, such as corrective action, re-planning or accepting a justified change.",
+    "extraScenarios": [
+      {
+        "label": "Tolerance",
+        "scenario": "The PM can keep a delay within the agreed time tolerance, but a decision would affect the project sponsor's financial tolerance. What should happen?",
+        "answer": "The PM can manage within delegated authority only where the relevant tolerance remains within their authority. If the financial impact exceeds the PM's delegated tolerance, the matter should be escalated through governance for a decision."
+      },
+      {
+        "label": "Decision rights",
+        "scenario": "A project team member wants to approve a significant scope decision because the sponsor is unavailable. What should the PM check first?",
+        "answer": "The PM should check the agreed governance arrangements and delegated authority. A decision should be made by the person or body with the appropriate authority, or escalated if the decision exceeds the team member's authority."
+      }
+    ]
   },
   {
     "id": "sustainability",
@@ -69,7 +114,8 @@ const topics = [
       "Short-term cost vs whole-life value: a cheaper initial option may create greater operating or environmental costs later.",
       "Compliance vs sustainability: legal compliance is a minimum requirement; sustainability can drive additional positive outcomes."
     ],
-    "scenario": "Two solutions meet the functional requirement, but one has lower whole-life energy use and slightly higher purchase cost. What should the project team consider?"
+    "scenario": "Two solutions meet the functional requirement, but one has lower whole-life energy use and slightly higher purchase cost. What should the project team consider?",
+    "applyAnswer": "The team should compare the options using whole-life value, not purchase price alone. The lower-energy option may have higher upfront cost but lower operating impact and may support environmental, social or economic objectives. The decision should consider the project's requirements, business case, risks, benefits and relevant stakeholder priorities."
   },
   {
     "id": "business-case",
@@ -91,7 +137,15 @@ const topics = [
       "Output vs outcome vs benefit: what is delivered vs what changes because of it vs measurable improvement/value.",
       "Business case vs project management plan: why the investment is justified vs how the project will be delivered."
     ],
-    "scenario": "A project has delivered its planned website, but users have not adopted it and the expected efficiency improvement has not occurred. Has the project automatically delivered its benefits?"
+    "scenario": "A project has delivered its planned website, but users have not adopted it and the expected efficiency improvement has not occurred. Has the project automatically delivered its benefits?",
+    "applyAnswer": "No. Delivering the website is an output; it does not automatically prove that the intended outcome or benefit has been achieved. The project should examine why adoption has not occurred, whether the business case remains valid and what actions are needed to enable the expected outcome and benefit to be realised.",
+    "extraScenarios": [
+      {
+        "label": "Viability",
+        "scenario": "A major risk has increased expected cost while the expected benefits remain unchanged. What should the PM do?",
+        "answer": "The PM should reassess the business case and investment justification, including cost, risk and benefits. If the change affects viability, it should be escalated through the appropriate governance route rather than assuming the original justification still holds."
+      }
+    ]
   },
   {
     "id": "procurement",
@@ -114,7 +168,8 @@ const topics = [
       "Procurement strategy vs supplier selection: the overall approach to obtaining supply vs choosing a particular supplier.",
       "Fixed price vs cost-plus: supplier carries more cost risk under fixed price; cost-plus reimburses defined costs with an agreed fee."
     ],
-    "scenario": "A project depends on a specialist component with uncertain supply and strict quality requirements. What should the procurement strategy address?"
+    "scenario": "A project depends on a specialist component with uncertain supply and strict quality requirements. What should the procurement strategy address?",
+    "applyAnswer": "The strategy should address the specialist requirement, supplier capability and availability, quality requirements, timing, supply-chain risk, contract approach, evaluation criteria and overall value. Because supply is uncertain, the team should understand and allocate the relevant risks rather than selecting a supplier on price alone."
   },
   {
     "id": "reviews",
@@ -137,7 +192,8 @@ const topics = [
       "Review vs routine reporting: a review is a structured assessment; reporting provides ongoing information to stakeholders.",
       "Decision gate vs checkpoint: a gate can support a formal go/no-go or approval decision."
     ],
-    "scenario": "A project reaches a phase boundary and its expected benefits have weakened significantly. What should the review focus on?"
+    "scenario": "A project reaches a phase boundary and its expected benefits have weakened significantly. What should the review focus on?",
+    "applyAnswer": "The review should test whether the project remains viable and justified. It should examine the weakened benefits, assumptions, risks, costs, schedule, strategic alignment and available options, then make a clear decision or recommendation such as continue, change direction, re-plan or stop."
   },
   {
     "id": "assurance",
@@ -160,7 +216,15 @@ const topics = [
       "Assurance vs quality control: assurance gives confidence that appropriate processes and controls are being applied; quality control checks outputs against requirements.",
       "Assurance vs audit: audit is a particular form of independent examination; assurance is the broader confidence-giving activity."
     ],
-    "scenario": "A project manager reports that everything is on track, but an independent review identifies weak risk controls. Why is assurance valuable here?"
+    "scenario": "A project manager reports that everything is on track, but an independent review identifies weak risk controls. Why is assurance valuable here?",
+    "applyAnswer": "Assurance provides independent, objective confidence to governance rather than relying solely on the PM's own report. The finding about weak risk controls gives decision makers evidence that the project may not be as well controlled as reported, allowing corrective action or escalation before the weakness causes a larger problem.",
+    "extraScenarios": [
+      {
+        "label": "Assurance",
+        "scenario": "The PM has completed their own checks and says the project is compliant. Governance asks for independent confidence. What is the value of assurance?",
+        "answer": "Independent assurance provides an objective challenge and confidence beyond the project team's own self-checking. It can test whether governance, controls and plans are actually working as intended."
+      }
+    ]
   },
   {
     "id": "transition",
@@ -183,7 +247,8 @@ const topics = [
       "Handover vs closure: handover transfers outputs into use; closure formally completes the project and its administration.",
       "Output vs benefit: delivery of the thing does not guarantee the improvement it was intended to create."
     ],
-    "scenario": "A new system is technically complete but staff have not been trained and support arrangements are not ready. Is the project ready for successful transition?"
+    "scenario": "A new system is technically complete but staff have not been trained and support arrangements are not ready. Is the project ready for successful transition?",
+    "applyAnswer": "No. Technical completion is not the same as operational readiness. Successful transition requires trained users, support arrangements, ownership, documentation, acceptance and readiness for the receiving organisation. These gaps should be addressed before or as part of an agreed transition plan."
   },
   {
     "id": "benefits",
@@ -206,7 +271,15 @@ const topics = [
       "Output vs outcome vs benefit: deliverable vs change in behaviour/state vs measurable improvement/value.",
       "Benefit realisation vs project completion: benefits may continue after the project team has closed."
     ],
-    "scenario": "A project delivers a new automated process. The output is live, but the expected saving will only appear if staff change how they work. What should benefits management address?"
+    "scenario": "A project delivers a new automated process. The output is live, but the expected saving will only appear if staff change how they work. What should benefits management address?",
+    "applyAnswer": "Benefits management should identify the required behaviour or business change, the owner of that change, the baseline and target measures, and when/how the saving will be measured. The project output enables the change, but the benefit may only be realised after the organisation adopts the new way of working.",
+    "extraScenarios": [
+      {
+        "label": "Output vs benefit",
+        "scenario": "A new booking system is delivered and works correctly, but waiting times have not reduced. What should the PM investigate?",
+        "answer": "The output has been delivered, but the intended outcome and benefit have not necessarily been realised. Benefits management should investigate adoption, process change, baseline measures and the conditions required for the benefit to occur."
+      }
+    ]
   },
   {
     "id": "stakeholders",
@@ -229,7 +302,8 @@ const topics = [
       "Communication vs engagement: transmitting/receiving information vs building understanding, support and commitment.",
       "Influence vs interest: a stakeholder may have high influence but low day-to-day interest, requiring a different approach."
     ],
-    "scenario": "A senior stakeholder has high influence but little time and is becoming concerned about a project. How might you adapt engagement?"
+    "scenario": "A senior stakeholder has high influence but little time and is becoming concerned about a project. How might you adapt engagement?",
+    "applyAnswer": "The PM should recognise the stakeholder's high influence and concern, then tailor engagement accordingly. Keep the stakeholder appropriately informed, focus communication on what matters to them, provide concise evidence and create opportunities for questions or decisions. The aim is to manage expectations and maintain support rather than simply sending more information."
   },
   {
     "id": "conflict",
@@ -252,7 +326,8 @@ const topics = [
       "Position vs interest: what someone says they want vs why they want it.",
       "BATNA vs ZOPA: your best alternative if no agreement is reached vs the range in which agreement may be possible."
     ],
-    "scenario": "Two teams both need the same specialist resource at the same time. How could the project manager resolve the conflict without simply choosing one team?"
+    "scenario": "Two teams both need the same specialist resource at the same time. How could the project manager resolve the conflict without simply choosing one team?",
+    "applyAnswer": "The PM should understand the underlying interests and constraints of both teams, establish the facts and explore options such as sequencing the work, sharing the specialist, changing priorities or finding additional capacity. The aim is to reach a workable agreement while protecting project objectives and relationships, rather than imposing a solution without understanding the cause of the conflict."
   },
   {
     "id": "leadership",
@@ -275,7 +350,8 @@ const topics = [
       "Leadership vs management: influencing and enabling people toward a goal vs planning, organising and controlling work; effective PMs need both.",
       "Coaching vs mentoring: coaching often focuses on helping someone find solutions and improve performance; mentoring draws on experience to support development."
     ],
-    "scenario": "A highly capable team is becoming frustrated by excessive direction from the project manager. What leadership adjustment might improve performance?"
+    "scenario": "A highly capable team is becoming frustrated by excessive direction from the project manager. What leadership adjustment might improve performance?",
+    "applyAnswer": "The PM should reduce unnecessary direction and use a more empowering or coaching approach. A capable team may perform better when given clear objectives, boundaries and authority to decide how to achieve them. The PM should remain available for support, challenge and escalation rather than micromanaging."
   },
   {
     "id": "teams",
@@ -321,7 +397,8 @@ const topics = [
       "Diversity vs inclusion: having differences represented vs ensuring those differences can contribute meaningfully.",
       "Equality vs equity: treating people fairly may require adjustments to account for different needs."
     ],
-    "scenario": "A team repeatedly hears ideas only from the loudest members. What could the PM do to create a more inclusive decision-making environment?"
+    "scenario": "A team repeatedly hears ideas only from the loudest members. What could the PM do to create a more inclusive decision-making environment?",
+    "applyAnswer": "The PM should deliberately create opportunities for quieter members to contribute, for example through structured turn-taking, written input before discussion or facilitated decision-making. The PM should challenge dominance and bias and ensure that different perspectives are considered rather than allowing the loudest voices to determine the outcome."
   },
   {
     "id": "ethics",
@@ -344,7 +421,8 @@ const topics = [
       "Ethics vs compliance: doing what is morally/professionally responsible vs meeting formal legal/regulatory requirements; good practice requires attention to both.",
       "Competence gap vs lack of effort: recognise when specialist advice or development is required."
     ],
-    "scenario": "A project can save time by bypassing a required control. What should the project manager consider before allowing the shortcut?"
+    "scenario": "A project can save time by bypassing a required control. What should the project manager consider before allowing the shortcut?",
+    "applyAnswer": "The PM should first establish what control is required and why, including relevant law, regulation, policy, standards, safety or professional obligations. A schedule saving does not justify bypassing a mandatory control. If the control creates a genuine problem, the issue should be raised through the appropriate governance route and an authorised alternative considered."
   },
   {
     "id": "requirements",
@@ -367,7 +445,8 @@ const topics = [
       "Requirement vs solution: what needs to be achieved vs how it will be achieved.",
       "Requirement vs scope: an individual need/condition vs the defined boundary of what the project will deliver."
     ],
-    "scenario": "A stakeholder asks for an extra feature after the requirements baseline has been agreed. What should happen before work begins?"
+    "scenario": "A stakeholder asks for an extra feature after the requirements baseline has been agreed. What should happen before work begins?",
+    "applyAnswer": "The feature should not simply be added. The request should be captured and assessed for its effect on requirements, scope, benefits, cost, schedule, quality, risk and other dependencies. It should then go through the agreed change/control and approval process before implementation if it changes the baseline."
   },
   {
     "id": "solutions",
@@ -390,7 +469,8 @@ const topics = [
       "Requirement vs option vs solution: need/condition vs possible way forward vs selected/refined way of satisfying it.",
       "MVP vs gold-plated solution: sufficient initial value and learning vs unnecessary additional features."
     ],
-    "scenario": "A team wants to build many features that users have not requested. What should the PM ask before approving the work?"
+    "scenario": "A team wants to build many features that users have not requested. What should the PM ask before approving the work?",
+    "applyAnswer": "The PM should first ask what problem the features solve and whether they trace back to validated requirements, user needs, benefits and the business case. Building unrequested features can consume time and money without creating value. Options should be evaluated against agreed criteria before work is authorised."
   },
   {
     "id": "quality",
@@ -413,7 +493,15 @@ const topics = [
       "Quality assurance vs quality control: confidence in the process/system vs checking the resulting output.",
       "Quality vs gold plating: meeting agreed requirements and being fit for purpose vs adding unnecessary features."
     ],
-    "scenario": "Testing finds that a deliverable does not meet an agreed acceptance criterion. Is this primarily a quality assurance activity or quality control activity?"
+    "scenario": "Testing finds that a deliverable does not meet an agreed acceptance criterion. Is this primarily a quality assurance activity or quality control activity?",
+    "applyAnswer": "This is primarily quality control because testing has identified a deliverable that does not meet an agreed acceptance criterion. Quality assurance is concerned with confidence that the appropriate processes and controls are being used; quality control checks the actual output and identifies defects or non-conformance.",
+    "extraScenarios": [
+      {
+        "label": "QA vs QC",
+        "scenario": "A project reviews whether its agreed testing process is being followed before testing begins. Is this more closely assurance or control?",
+        "answer": "This is more closely quality assurance because it is checking whether the appropriate process and controls are in place and being followed. Quality control would examine the resulting product/output for defects or non-conformance."
+      }
+    ]
   },
   {
     "id": "integrated-planning",
@@ -436,7 +524,8 @@ const topics = [
       "Integrated plan vs schedule: the integrated plan covers multiple management areas; the schedule focuses on time-based activities and dependencies.",
       "Baseline vs forecast: an approved reference point vs the current expected outcome."
     ],
-    "scenario": "A two-week delay in a key activity affects cost, resources and a benefit milestone. Why should the PM update more than the schedule?"
+    "scenario": "A two-week delay in a key activity affects cost, resources and a benefit milestone. Why should the PM update more than the schedule?",
+    "applyAnswer": "The delay can affect cost, resource availability, dependencies, benefits and potentially risk and stakeholder commitments. An integrated plan exists so that changes in one area are assessed for their effects elsewhere. Updating only the schedule could hide the wider consequences and lead to inconsistent plans."
   },
   {
     "id": "schedule",
@@ -460,7 +549,8 @@ const topics = [
       "Critical path vs critical chain: dependency-driven critical sequence vs resource-constrained approach.",
       "Smoothing vs levelling: adjust resource timing within available float where possible vs change activity timing to resolve resource conflicts."
     ],
-    "scenario": "Two critical activities require the same specialist at the same time. What scheduling/resource problem exists and what could the PM consider?"
+    "scenario": "Two critical activities require the same specialist at the same time. What scheduling/resource problem exists and what could the PM consider?",
+    "applyAnswer": "The problem is resource contention/over-allocation: two activities require the same specialist simultaneously. The PM could examine priorities and dependencies, use resource smoothing if float allows, consider levelling if dates must move, sequence the work differently or obtain additional capacity. The choice should reflect project priorities and constraints."
   },
   {
     "id": "resources",
@@ -483,7 +573,8 @@ const topics = [
       "Responsible vs accountable: the person doing the work vs the person ultimately answerable for it.",
       "Resource management vs resource capacity planning: project-level deployment vs broader organisational planning of future capacity."
     ],
-    "scenario": "A task has three people working on it, but no one has final ownership for accepting the result. Which RACI role is missing or unclear?"
+    "scenario": "A task has three people working on it, but no one has final ownership for accepting the result. Which RACI role is missing or unclear?",
+    "applyAnswer": "Accountable is missing or unclear. Responsible people perform the work, while the Accountable person has final ownership and is answerable for the result. The PM should clarify who is accountable so that responsibility for acceptance and decisions is unambiguous."
   },
   {
     "id": "budget",
@@ -507,7 +598,8 @@ const topics = [
       "Budget vs forecast: agreed financial plan/reference point vs current prediction of future cost.",
       "Actual cost vs earned value: what has been spent vs the value of work actually achieved according to the measurement system."
     ],
-    "scenario": "Actual spending is below budget but less work has been completed than planned. Why might this not mean the project is performing well?"
+    "scenario": "Actual spending is below budget but less work has been completed than planned. Why might this not mean the project is performing well?",
+    "applyAnswer": "Low spending is not automatically good performance because spending must be considered alongside the amount of work actually achieved. If less work has been completed than planned, the project may be behind even though it has spent less. The PM should investigate cost and schedule performance together and understand the forecast final position."
   },
   {
     "id": "risk-issues",
@@ -534,7 +626,15 @@ const topics = [
       "Risk response vs contingency: planned response to a risk vs actions/resources prepared for a consequence if it occurs.",
       "Threat vs opportunity: possible negative impact vs possible positive impact."
     ],
-    "scenario": "A supplier says delivery will definitely be two weeks late. Is this a risk or an issue? Explain why."
+    "scenario": "A supplier says delivery will definitely be two weeks late. Is this a risk or an issue? Explain why.",
+    "applyAnswer": "It is an issue because the supplier has stated that the delay is definite rather than uncertain. The event has effectively occurred as a forecast deviation requiring management action. The PM should assess the impact, record it, determine whether it exceeds tolerance and escalate or assign ownership as appropriate.",
+    "extraScenarios": [
+      {
+        "label": "Risk or issue",
+        "scenario": "A supplier might be two weeks late if a shipping problem occurs. Is this a risk or an issue?",
+        "answer": "It is a risk because the late delivery is uncertain. The PM should assess probability and impact and plan an appropriate response rather than treating the delay as an existing issue."
+      }
+    ]
   },
   {
     "id": "change-control",
@@ -557,7 +657,15 @@ const topics = [
       "Change control vs configuration management: controlling whether/how changes are approved vs controlling the identity/status/version of controlled items.",
       "Change request vs approved change: a proposal for alteration vs an authorised decision."
     ],
-    "scenario": "A stakeholder asks a developer to add a feature directly because it will only take a day. What should the project manager do?"
+    "scenario": "A stakeholder asks a developer to add a feature directly because it will only take a day. What should the project manager do?",
+    "applyAnswer": "The developer should not implement the request informally. The change should be captured, its impact assessed and the appropriate authority should decide whether to approve, reject or defer it. If approved, the relevant plans, baselines, configuration records and stakeholders should be updated and the change implemented in a controlled way.",
+    "extraScenarios": [
+      {
+        "label": "Small change",
+        "scenario": "A developer says a requested feature will take only one hour and will have no obvious technical impact. Can they add it immediately?",
+        "answer": "Not automatically. The request still needs to be assessed against the agreed baseline and governance. Even a small change can have consequences for scope, requirements, testing, documentation, benefits or configuration, so it should follow the agreed change-control process."
+      }
+    ]
   }
 ];
 const quizQuestions = [
@@ -880,9 +988,31 @@ function renderTopics(filter=""){
       body.innerHTML += `<div class="revision-grid"><div><h4>🧠 KNOW</h4><ul>${topic.know.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><h4>🔍 UNDERSTAND / APPLY</h4><ul>${topic.apply.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
       body.innerHTML += `<div class="distinctions"><h4>⚖️ KEY DISTINCTIONS</h4><ul>${topic.distinctions.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
       const scenario=document.createElement("div"); scenario.className="scenario";
-      scenario.innerHTML=`<h4>🎯 APPLY — Scenario</h4><p>${esc(topic.scenario)}</p>`;
-      const reveal=document.createElement("details"); reveal.className="reveal"; reveal.innerHTML=`<summary>Reveal model approach</summary><p>${esc(topic.apply[0])} Link the answer directly to the scenario and explain why.</p>`;
-      scenario.appendChild(reveal); body.appendChild(scenario);
+      if(topic.applyScenarios){
+        scenario.innerHTML=`<h4>🎯 APPLY — Six life-cycle scenarios</h4><p class="hint">For each scenario, identify the most suitable model <strong>before</strong> revealing the answer. Then explain why the model fits the uncertainty, requirements, feedback, delivery pattern and project context.</p>`;
+        const grid=document.createElement("div"); grid.className="scenario-grid";
+        topic.applyScenarios.forEach(item=>{
+          const card=document.createElement("details"); card.className="life-cycle-scenario";
+          card.innerHTML=`<summary>${esc(item.model)}</summary><div class="scenario-question"><strong>Scenario</strong><p>${esc(item.scenario)}</p></div><div class="reveal-answer"><strong>Model answer</strong><p>${esc(item.answer)}</p></div>`;
+          grid.appendChild(card);
+        });
+        scenario.appendChild(grid);
+      } else {
+        scenario.innerHTML=`<h4>🎯 APPLY — Scenario</h4><p class="scenario-question"><strong>Question</strong><br>${esc(topic.scenario)}</p>`;
+        const reveal=document.createElement("details"); reveal.className="reveal"; reveal.innerHTML=`<summary>Reveal model answer</summary><div class="reveal-answer"><strong>Model answer</strong><p>${esc(topic.applyAnswer || topic.apply[0])}</p><p class="self-check"><strong>Self-check:</strong> Did your answer identify the concept, explain the reasoning and apply it directly to the scenario?</p></div>`;
+        scenario.appendChild(reveal);
+        if(topic.extraScenarios){
+          const extraTitle=document.createElement("h4"); extraTitle.className="extra-scenario-title"; extraTitle.textContent="🎯 More application practice"; scenario.appendChild(extraTitle);
+          const extraGrid=document.createElement("div"); extraGrid.className="scenario-grid";
+          topic.extraScenarios.forEach(item=>{
+            const card=document.createElement("details"); card.className="life-cycle-scenario";
+            card.innerHTML=`<summary>${esc(item.label)}</summary><div class="scenario-question"><strong>Scenario</strong><p>${esc(item.scenario)}</p></div><div class="reveal-answer"><strong>Model answer</strong><p>${esc(item.answer)}</p></div>`;
+            extraGrid.appendChild(card);
+          });
+          scenario.appendChild(extraGrid);
+        }
+      }
+      body.appendChild(scenario);
       body.innerHTML += `<div class="explain-box"><h4>🗣️ EXPLAIN</h4><p>Close this card and explain the topic aloud in your own words. If you cannot, it is not understood yet.</p></div>`;
       const actions=document.createElement("div"); actions.className="topic-actions";
       const b=document.createElement("button"); b.className=progress[topic.id]?"secondary understood":"primary"; b.textContent=progress[topic.id]?"✓ Understood — click to reset":"Mark understood";
@@ -939,6 +1069,115 @@ if(document.getElementById("resetProgress")) document.getElementById("resetProgr
 if(searchInput) searchInput.addEventListener("input",()=>renderTopics(searchInput.value));
 if(topicContainer){ renderTopics(); renderWeakAreas(); updateStats(); }
 if(document.getElementById("clearWeak")) document.getElementById("clearWeak").onclick=()=>{if(confirm("Clear this week\'s weak areas?")) clearWeakWeek();};
+
+
+const writtenQuestions = [
+  {
+    command: "Explain",
+    area: "Setting up for success",
+    q: "Explain why a project manager should keep the business case under review throughout the project life cycle.",
+    model: "The business case should remain under review because the justification for the investment can change as the project develops. Changes to expected benefits, costs, risks, assumptions, timing or strategic alignment may alter whether the project remains viable. Reviewing it allows the appropriate decision makers to continue, change direction, re-plan or stop the project when the evidence no longer supports the original case.",
+    checklist: [
+      "States that the business case is not simply a one-off document and should remain relevant through the life cycle.",
+      "Explains that benefits, costs, risks or assumptions can change.",
+      "Links those changes to continued viability/justification.",
+      "Explains that review supports an informed governance decision.",
+      "Applies the point to possible actions such as continue, change, re-plan or stop."
+    ]
+  },
+  {
+    command: "Describe",
+    area: "Planning & managing deployment",
+    q: "Describe the main process a project manager should follow when an issue is identified.",
+    model: "The issue should be recorded and evaluated to understand its impact. If appropriate, it is escalated to the sponsor or steering group when delegated tolerances are forecast to be or have been exceeded, and an owner is appointed. The agreed response is implemented and monitored at review points until the issue is resolved and closed out.",
+    checklist: [
+      "Identifies that the issue is logged/recorded.",
+      "Includes evaluation of its impact.",
+      "Recognises escalation when tolerances are exceeded or forecast to be exceeded.",
+      "Includes ownership and implementation of an appropriate response.",
+      "Includes monitoring, resolution and close-out."
+    ]
+  },
+  {
+    command: "Differentiate",
+    area: "Planning & managing deployment",
+    q: "Differentiate between a risk and an issue, using a project example to show the difference.",
+    model: "A risk is an uncertainty that may affect project objectives if it occurs, whereas an issue is a problem or deviation that has happened or is forecast to exceed an agreed tolerance and therefore requires management action. For example, a supplier might be two weeks late if a shipping problem occurs: that is a risk. If the supplier confirms the two-week delay will happen, it becomes an issue requiring assessment and management.",
+    checklist: [
+      "Defines risk as uncertainty.",
+      "Defines issue as something that has happened or is forecast to exceed tolerance/require action.",
+      "Makes clear that risk management is proactive while issue management deals with an actual/forecast problem.",
+      "Gives a relevant project example.",
+      "Explains why the example changes from risk to issue."
+    ]
+  },
+  {
+    command: "Outline",
+    area: "People & behaviours",
+    q: "Outline how a project manager can tailor stakeholder engagement.",
+    model: "The project manager should first understand stakeholders' interests, influence, impact and information needs. Engagement can then be tailored by deciding what information is needed, who needs it, when it is needed, why it matters and the most suitable communication or involvement method. The approach should be reviewed as stakeholders and the project context change.",
+    checklist: [
+      "Identifies stakeholder interests/influence/impact or information needs.",
+      "Recognises that different stakeholders need different approaches.",
+      "Covers what information is needed and by whom.",
+      "Covers timing and suitable communication/involvement methods.",
+      "Recognises that engagement should be reviewed and adapted."
+    ]
+  },
+  {
+    command: "State",
+    area: "Planning & managing deployment",
+    q: "State five areas that should be considered when assessing the impact of a proposed project change.",
+    model: "Relevant areas include scope/requirements, benefits, time/schedule, cost, quality, resources, risk, dependencies and stakeholders. A strong answer only needs five, provided they are relevant and accurately stated.",
+    checklist: [
+      "Names a relevant impact area 1.",
+      "Names a relevant impact area 2.",
+      "Names a relevant impact area 3.",
+      "Names a relevant impact area 4.",
+      "Names a relevant impact area 5."
+    ]
+  },
+  {
+    command: "Explain",
+    area: "Planning & managing deployment",
+    q: "A project has a resource peak that can be moved within available float without changing the planned project finish date. Explain the difference between resource smoothing and resource levelling in this situation.",
+    model: "Resource smoothing adjusts the timing of resource use within available schedule flexibility, such as float, so that resource peaks are reduced without changing the planned project completion date. Resource levelling is used when resource over-allocation needs to be resolved and may require activities to move beyond available float, potentially changing the project dates. In this scenario, smoothing is the appropriate concept because the work can be moved within available float without moving the planned finish.",
+    checklist: [
+      "Explains what resource smoothing does.",
+      "Links smoothing to available float/flexibility.",
+      "Explains that smoothing does not normally change the planned finish date.",
+      "Contrasts this with resource levelling and possible date movement.",
+      "Applies the distinction directly to the scenario."
+    ]
+  }
+];
+let writtenIndex=0, writtenStart=null;
+function startWritten(){ writtenIndex=0; writtenStart=Date.now(); showWritten(); document.getElementById('writtenArea').scrollIntoView({behavior:'smooth',block:'start'}); }
+function showWritten(){
+  const q=writtenQuestions[writtenIndex];
+  const area=document.getElementById('writtenArea');
+  area.innerHTML=`<div class="written-top"><span><strong>${esc(q.command)}</strong> • ${esc(q.area)}</span><strong>Question ${writtenIndex+1} of ${writtenQuestions.length} • 5 marks</strong></div><h3>${esc(q.q)}</h3><p class="hint"><strong>Before you reveal anything:</strong> write your answer as if you were in the exam. For 5 marks, aim for clear, relevant points and explain/apply them where the command word requires it.</p><textarea id="writtenText" rows="10" placeholder="Write your answer here..."></textarea><div class="written-actions"><button class="primary" id="revealWritten">Reveal model answer & marking checklist</button><button class="secondary" id="skipWritten">Skip question</button></div><div id="writtenFeedback"></div>`;
+  document.getElementById('revealWritten').onclick=()=>revealWritten(q);
+  document.getElementById('skipWritten').onclick=()=>{writtenIndex=(writtenIndex+1)%writtenQuestions.length;showWritten();};
+}
+function revealWritten(q){
+  const feedback=document.getElementById('writtenFeedback');
+  feedback.innerHTML=`<div class="written-model"><h4>Model approach</h4><p>${esc(q.model)}</p><h4>Self-marking checklist</h4><p class="hint">Give yourself 1 mark for each checklist point you genuinely covered. This is a revision rubric, <strong>not an official APM mark scheme</strong>.</p><div class="mark-list">${q.checklist.map((x,i)=>`<label><input type="checkbox" data-mark="${i}"> <span>${esc(x)}</span></label>`).join('')}</div><div class="mark-score"><span>Your score:</span><strong id="writtenScore">0 / 5</strong></div><div class="written-rating"><button class="rating-good" id="writtenGot">✓ I can explain this</button><button class="rating-bad" id="writtenWeak">✗ Add to weak areas</button></div></div>`;
+  const checks=[...feedback.querySelectorAll('input[data-mark]')];
+  const score=feedback.querySelector('#writtenScore');
+  checks.forEach(c=>c.addEventListener('change',()=>{score.textContent=`${checks.filter(x=>x.checked).length} / 5`; }));
+  feedback.querySelector('#writtenGot').onclick=()=>rateWritten(true,q,checks);
+  feedback.querySelector('#writtenWeak').onclick=()=>rateWritten(false,q,checks);
+  document.getElementById('revealWritten').disabled=true;
+}
+function rateWritten(gotIt,q,checks){
+  const marks=checks.filter(x=>x.checked).length;
+  const passed=marks>=4 && gotIt;
+  recordWeak('Written practice', `${q.command}: ${q.q}`, q.area, passed, `${marks}/5 self-mark`);
+  const buttons=document.querySelectorAll('.written-rating button'); buttons.forEach(b=>b.disabled=true);
+  const note=document.createElement('p'); note.className='hint'; note.textContent=passed?`Marked ${marks}/5 and understood for this attempt.`:`Marked ${marks}/5 and added to this week's weak areas. Re-attempt it later without looking.`; document.querySelector('.written-rating').after(note);
+}
+if(document.getElementById('startWritten')) document.getElementById('startWritten').onclick=startWritten;
 
 const mockArea=document.getElementById("mockArea"); let mockIndex=0,mockStart=null;
 function startMock(){mockIndex=0;mockStart=Date.now();showMock();mockArea.scrollIntoView({behavior:'smooth',block:'start'});}
