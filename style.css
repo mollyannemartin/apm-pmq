@@ -34,3 +34,7 @@
 .written-rating .rating-bad{background:#f6dddd;color:#7a2e2e}
 @media(max-width:900px){.command-guide{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.command-guide{grid-template-columns:1fr 1fr}.written-runner{padding:18px}}
+
+
+/* Harder exam-style section tests */
+.check-option.disabled{cursor:default;opacity:.95}.check-option.correct{background:#dceee2;border-color:#8eb79a}.check-option.wrong{background:#f6dddd;border-color:#c58c8c}.check-option input{margin-right:7px}.section-submit{margin-top:8px}.test-runner textarea{width:100%;padding:14px;border:1px solid #cbd3d8;border-radius:8px;font:inherit;line-height:1.55;resize:vertical;margin:10px 0}.select-line select{font:inherit;border:1px solid #cbd3d8;border-radius:7px}.select-line select.correct{background:#dceee2;border-color:#8eb79a}.select-line select.wrong{background:#f6dddd;border-color:#c58c8c}.section-next{margin-top:8px}.test-runner .written-rating button{border:0;border-radius:7px;padding:10px 14px;cursor:pointer;font:inherit}.test-runner .written-rating .rating-good{background:#dceee2;color:#245a34}.test-runner .written-rating .rating-bad{background:#f6dddd;color:#7a2e2e}.test-runner .written-rating{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.test-runner .written-rating button:disabled{opacity:.6;cursor:default}
