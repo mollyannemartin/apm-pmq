@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APM PMQ Revision Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <p class="eyebrow">APM PROJECT MANAGEMENT QUALIFICATION</p>
+    <h1>PMQ Revision Hub</h1>
+    <p class="tagline">Understand → Apply → Explain</p>
+    <nav class="main-nav">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#topics">Topics</a>
+      <a href="#quiz">Test Yourself</a>
+      <a href="#exam">Exam Strategy</a>
+      <a href="#mock">Mini Mock</a>
+      <a href="flashcards.html">Flashcards</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="dashboard" class="hero-card">
+  <div>
+    <h2>Your PMQ revision tool</h2>
+    <p>Built around the current PMQ structure and your 2026 joining instructions. Use it to learn the concept, connect it to other areas, and practise applying it to scenarios.</p>
+  </div>
+  <div class="exam-summary">
+    <strong>Exam</strong>
+    <span>2.5 hours • 40 questions • 90 marks</span>
+    <small>Choose: 2 Nov or 6 Nov 2026 at 10:00 — update this after you complete Annex B.</small>
+  </div>
+</section>
+
+<section class="dashboard-grid">
+  <article class="stat-card"><span id="topicCount">24</span><small>Learning objectives</small></article>
+  <article class="stat-card"><span id="understoodCount">0</span><small>Marked understood</small></article>
+  <article class="stat-card"><span id="quizScore">—</span><small>Last quiz score</small></article>
+  <article class="stat-card"><span id="quizBest">—</span><small>Best quiz score</small></article>
+  <article class="stat-card"><span id="weakCount">0</span><small>Weak areas this week</small></article>
+</section>
+
+<section class="callout">
+  <h2>How to use this site</h2>
+  <ol>
+    <li><strong>Know:</strong> learn the core concept and terminology.</li>
+    <li><strong>Understand:</strong> explain why it matters and how it connects to other areas.</li>
+    <li><strong>Apply:</strong> work through the scenario without looking at the answer.</li>
+    <li><strong>Explain:</strong> practise giving a clear, structured exam answer.</li>
+  </ol>
+  <p class="warning"><strong>Important:</strong> Your course workbook, instructor material and any updated course guidance take priority over this revision tool. This site is a study aid, not an official APM publication.</p>
+</section>
+
+<section id="topics" class="content-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">24 LEARNING OBJECTIVES</p>
+      <h2>Revision topics</h2>
+    </div>
+    <input id="search" type="search" placeholder="Search topics, definitions or keywords..." aria-label="Search PMQ topics">
+  </div>
+  <div id="topicContainer"></div>
+</section>
+<div id="sectionTestArea" class="test-runner"></div>
+
+<section id="quiz" class="content-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">ACTIVE RECALL</p>
+      <h2>Test Yourself</h2>
+    </div>
+  </div>
+  <div class="quiz-controls">
+    <button id="startQuiz" class="primary">Start 10-question quiz</button>
+    <button id="resetProgress" class="secondary">Reset progress</button>
+  </div>
+  <div id="quizArea" class="quiz-area">
+    <p>Don't start by looking at the answer. Read the question, decide, then reveal your result.</p>
+  </div>
+</section>
+
+
+<section id="mock" class="content-section">
+  <div class="section-heading">
+    <div><p class="eyebrow">EXAM PRACTICE</p><h2>Mini Mock Assessment</h2></div>
+    <div class="mock-meta"><strong>18 marks</strong><span>Mixed question formats</span></div>
+  </div>
+  <p>Practice the current exam-style formats: multiple response, select from list, short response and long response. The select-from-list questions use a missing-word style to practise the same selection skill. Written answers are checked with a structure guide rather than pretending there is only one correct wording.</p>
+  <div class="format-grid"><span><strong>Multiple response</strong><small>Select all correct answers.</small></span><span><strong>Select from list</strong><small>Choose the missing term.</small></span><span><strong>Short response</strong><small>Practise concise 2-mark answers.</small></span><span><strong>Long response</strong><small>Practise structured 5-mark answers.</small></span></div>
+  <button id="startMock" class="primary">Start mini mock</button>
+  <div id="mockArea" class="mock-area"><p>When you start, answer each question before revealing the feedback.</p></div>
+</section>
+
+<section id="weak" class="content-section weak-section">
+  <div class="section-heading">
+    <div><p class="eyebrow">TARGETED REVISION</p><h2>Weak Areas</h2><p>This week's trouble spots are collected automatically from section tests, the 10-question quiz, the mini mock and typed flashcards.</p></div>
+    <button id="clearWeak" class="secondary">Clear this week's weak areas</button>
+  </div>
+  <div id="weakAreaList" class="weak-area-list"><p class="empty">No weak areas recorded yet. Start a test or flashcard session.</p></div>
+</section>
+
+<section id="exam" class="content-section">
+  <p class="eyebrow">EXAM MODE</p>
+  <h2>Exam strategy</h2>
+
+  <div class="exam-grid">
+    <article>
+      <h3>Know the format</h3>
+      <ul>
+        <li>Closed-book online exam.</li>
+        <li>2.5 hours, split into two parts with an optional break of up to 30 minutes.</li>
+        <li>40 questions and 90 marks.</li>
+        <li>20 multiple-response questions × 1 mark.</li>
+        <li>5 select-from-list questions × 2 marks.</li>
+        <li>5 short-response questions × 2 marks.</li>
+        <li>10 long-response questions × 5 marks.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>For written answers</h3>
+      <ul>
+        <li>Answer the exact command in the question.</li>
+        <li>For <strong>outline</strong>, give the requested points concisely.</li>
+        <li>For <strong>describe</strong>, give characteristics or features.</li>
+        <li>For <strong>explain</strong>, give the point <em>and why/how it matters</em>.</li>
+        <li>For <strong>differentiate</strong>, compare the items rather than describing one and then the other.</li>
+        <li>Use the scenario when one is provided. Generic textbook dumping wastes effort.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>A sensible pacing starting point</h3>
+      <ul>
+        <li>Do not spend five minutes wrestling with a 1-mark question.</li>
+        <li>Use the higher-mark questions to demonstrate understanding clearly.</li>
+        <li>Leave time to check unanswered questions and improve weak responses.</li>
+        <li>Practise typing concise, structured answers because your real exam is online.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Your answer structure</h3>
+      <p><strong>Point → Explanation → Application.</strong></p>
+      <p>For example: name the relevant concept, explain why it matters, then connect it directly to the scenario. For a long response, repeat this structure for each distinct point requested.</p>
+    </article>
+  </div>
+
+  <div class="command-box">
+    <h3>Command verbs to practise</h3>
+    <div class="verb-grid">
+      <span><strong>State</strong><small>Give the fact.</small></span>
+      <span><strong>Outline</strong><small>Give the main features/points.</small></span>
+      <span><strong>Describe</strong><small>Give characteristics or a clear account.</small></span>
+      <span><strong>Explain</strong><small>Say what it is and why/how it matters.</small></span>
+      <span><strong>Differentiate</strong><small>Show the meaningful differences.</small></span>
+      <span><strong>Interpret</strong><small>Use the information to reach a reasoned meaning/conclusion.</small></span>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <p class="eyebrow">REVISION PLAN</p>
+  <h2>How I would revise if I were you</h2>
+  <div class="plan">
+    <div><strong>Phase 1 — Before the course</strong><p>Build familiarity. Work through the 24 topics. Do not try to memorise everything. Mark anything you cannot explain in your own words.</p></div>
+    <div><strong>Phase 2 — During the course</strong><p>Use this site alongside the workbook. Add corrections and examples from the instructor. If the course teaches a different/current definition, update this site.</p></div>
+    <div><strong>Phase 3 — Between teaching days</strong><p>Use active recall. Pick weak topics, hide the answers, and explain them aloud. Complete the homework/mock exam seriously.</p></div>
+    <div><strong>Phase 4 — Final run-in</strong><p>Stop endlessly rereading. Do timed questions. Focus on application, command verbs, distinctions and your weakest learning objectives.</p></div>
+  </div>
+</section>
+
+<section class="sources content-section">
+  <h2>Source hierarchy</h2>
+  <p>Use these in this order when something conflicts:</p>
+  <ol>
+    <li>Your current course workbook and instructor teaching.</li>
+    <li>Your current joining instructions and official course guidance.</li>
+    <li>The current APM PMQ syllabus/handbook.</li>
+    <li>This revision site.</li>
+  </ol>
+  <p class="small">The site deliberately summarises rather than reproduces APM material.</p>
+</section>
+</main>
+
+<footer>
+  <p>APM PMQ Revision Hub • Molly • Personal study tool</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

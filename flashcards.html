@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APM PMQ Key Definitions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header compact-header">
+  <div class="header-inner">
+    <p class="eyebrow">APM PMQ REVISION</p>
+    <h1>Key Definitions Flashcards</h1>
+    <p class="tagline">Five minutes? Pick a few. Twenty minutes? Work through the deck.</p>
+    <nav class="main-nav">
+      <a href="index.html#dashboard">Dashboard</a>
+      <a href="index.html#topics">Topics</a>
+      <a href="index.html#mock">Mini Mock</a>
+      <a href="index.html#weak">Weak Areas</a>
+      <a href="index.html#exam">Exam Strategy</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="content-section flashcard-page">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">QUICK REVISION</p>
+        <h2>PMQ Key Definitions</h2>
+        <p>Look at the term, say the definition from memory, then click to reveal it. The deck covers the main terminology across the PMQ learning objectives.</p>
+      </div>
+      <div class="flash-controls">
+        <input id="flashcardSearch" type="search" placeholder="Search definitions..." aria-label="Search definitions">
+        <button id="shuffleCards" class="secondary">Shuffle</button>
+        <button id="freeTypeMode" class="primary">Free-type mode</button>
+      </div>
+    </div>
+    <div class="flash-stats">
+      <span><strong id="flashCount">0</strong> cards shown</span>
+      <span>•</span>
+      <span id="flashModeHint">Click a card to reveal</span>
+    </div>
+    <div id="flashcardGrid" class="flashcard-grid"></div>
+  </section>
+
+  <section id="freeTypePanel" class="content-section free-type-panel" hidden>
+    <div class="section-heading">
+      <div><p class="eyebrow">ACTIVE RECALL</p><h2>Free-type Flashcards</h2><p>Type your answer before revealing the model. Then mark yourself honestly: <strong>Got it</strong> or <strong>Need to revise</strong>.</p></div>
+      <button id="closeFreeType" class="secondary">Back to cards</button>
+    </div>
+    <div id="freeTypeCard" class="free-type-card"></div>
+  </section>
+
+  <section class="callout">
+    <h2>How to use this page</h2>
+    <ol>
+      <li><strong>Look at the term.</strong></li>
+      <li><strong>Say the definition aloud</strong> before revealing it.</li>
+      <li>Click the card and compare your answer.</li>
+      <li>If you missed it, don't just reread it — explain what the term means in a project scenario.</li>
+      <li>Shuffle the deck so you cannot rely on remembering the order.</li>
+    </ol>
+    <p><strong>Five minutes:</strong> do 5–10 cards. <strong>Twenty minutes:</strong> work through the deck. <strong>After the course:</strong> add any instructor-specific definitions or wording that differs.</p>
+    <p class="warning"><strong>Important:</strong> These are revision summaries, not official APM wording. Your course workbook and instructor teaching take priority.</p>
+  </section>
+</main>
+<footer><p>APM PMQ Revision Hub • Personal study tool</p></footer>
+<script src="script.js"></script>
+</body>
+</html>
