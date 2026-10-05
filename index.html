@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APM PMQ Revision Hub</title>
 <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="learning-system.css">
 </head>
 <body>
 <header class="site-header">
@@ -15,13 +16,15 @@
     <nav class="main-nav">
       <a href="#dashboard">Dashboard</a>
       <a href="#learn">🎮 Learn & Play</a>
+      <a href="#life">🧠 My Life → PMQ</a>
       <a href="#topics">Topics</a>
       <a href="#quiz">Test Yourself</a>
       <a href="#exam">Exam Strategy</a>
       <a href="#written">Written Practice</a>
       <a href="#mock">Mini Mock</a>
       <a href="flashcards.html">Flashcards</a>
-    </nav>
+        <a href="#learn-with-me">⚡ Learn With Me</a>
+</nav>
   </div>
 </header>
 
@@ -89,6 +92,47 @@
     <input id="search" type="search" placeholder="Search topics, definitions or keywords..." aria-label="Search PMQ topics">
   </div>
   <div id="topicContainer"></div>
+</section>
+
+<section id="life" class="content-section life-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">PERSONALISED MEMORY MODE</p>
+      <h2>🧠 My Life → PMQ</h2>
+      <p>Turn PMQ concepts into things you already understand. The aim is not to memorise that “risk = risk”; it is to recognise the same project-management idea when it appears in kickboxing, driving, work, family routines, your website or an exam scenario.</p>
+    </div>
+    <div class="life-controls">
+      <label for="lifeContext"><strong>Choose a world</strong></label>
+      <select id="lifeContext" aria-label="Choose a real-life context">
+        <option value="all">All my examples</option>
+        <option value="website">My welfare website / coding</option>
+        <option value="work">Army / work / IHUB</option>
+        <option value="kickboxing">Kickboxing</option>
+        <option value="driving">Driving</option>
+        <option value="family">Family / nursery / days out</option>
+        <option value="court">Court / multi-stakeholder process</option>
+      </select>
+      <button id="lifeRandom" class="primary">🎲 Make it make sense</button>
+    </div>
+  </div>
+
+  <div class="life-method">
+    <div><strong>1. Recognise</strong><span>See the PMQ concept.</span></div>
+    <div><strong>2. Connect</strong><span>Attach it to something familiar.</span></div>
+    <div><strong>3. Retrieve</strong><span>Answer without looking.</span></div>
+    <div><strong>4. Translate</strong><span>Turn your experience into exam language.</span></div>
+  </div>
+
+  <div id="lifeLab" class="life-lab">
+    <div class="life-empty"><div class="learn-icon">🧠</div><h3>Ready to connect PMQ to your real life?</h3><p>Pick a context or press <strong>Make it make sense</strong>. You will get one concept at a time so it does not become another wall of text.</p><button class="primary" id="startLifeLab">Start Life Lab</button></div>
+  </div>
+
+  <details class="life-browse">
+    <summary>Browse all my real-life PMQ connections</summary>
+    <div id="lifeBrowseGrid" class="life-browse-grid"></div>
+  </details>
+
+  <p class="small life-disclaimer"><strong>Memory aid, not official PMQ content:</strong> these examples are deliberately personalised. If an analogy makes a concept clearer, use it. If it becomes distracting or does not accurately fit the PMQ idea, discard it. Your course materials and instructor guidance take priority.</p>
 </section>
 <div id="sectionTestArea" class="test-runner"></div>
 
@@ -230,11 +274,20 @@
   </ol>
   <p class="small">The site deliberately summarises rather than reproduces APM material.</p>
 </section>
-</main>
+
+        <section id="learn-with-me" class="topic-section">
+            <h2>⚡ Learn With Me</h2>
+            <p>Start from zero. Learn a small chunk, connect it to real life, practise with guidance, then retrieve and apply it.</p>
+            <div id="pmq-learning-app"></div>
+        </section>
+
+\1
 
 <footer>
   <p>APM PMQ Revision Hub • Molly • Personal study tool</p>
 </footer>
 <script src="script.js"></script>
+    <script src="learning-system.js"></script>
+    <script>document.addEventListener("DOMContentLoaded",function(){if(window.PMQLearningSystem)PMQLearningSystem.menu();});</script>
 </body>
 </html>
