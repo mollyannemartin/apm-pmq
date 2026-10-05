@@ -1,0 +1,15 @@
+
+/* Tidy multi-page shell */
+.site-header{background:#172A3A;color:#fff;padding:18px 22px}
+.site-header-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.site-brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.2rem}
+.site-nav{display:flex;gap:12px;flex-wrap:wrap}
+.site-nav a{color:#fff;text-decoration:none;padding:7px 9px;border-radius:7px}
+.site-nav a:hover{background:rgba(255,255,255,.12)}
+.site-main{max-width:1100px;margin:28px auto;padding:0 18px;min-height:70vh}
+.page-hero,.page-card{background:#fff;border:1px solid #ddd;border-radius:14px;padding:24px;margin-bottom:18px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+.page-hero{background:linear-gradient(135deg,#172A3A,#24465f);color:#fff}
+.page-hero h1{margin:.3rem 0 .6rem}
+.page-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.page-button{display:inline-block;background:#172A3A;color:#fff;text-decoration:none;border-radius:9px;padding:11px 16px;font-weight:700}
+@media(max-width:700px){.site-header-inner{align-items:flex-start}.page-grid{grid-template-columns:1fr}.site-nav{width:100%}}

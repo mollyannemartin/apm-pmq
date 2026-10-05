@@ -47,8 +47,29 @@
 .pmq-steps span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#ddd;color:#666;font-size:.8rem}
 .pmq-steps span.on{background:#172A3A;color:#fff}
 .pmq-complete{text-align:center;padding:40px}
-.hidden{display:none!important}
+#pmq-learning-app .hidden{display:none!important}
 @media(max-width:700px){
  .pmq-mode-grid,.pmq-life-grid,.pmq-topic-list,.pmq-chunks{grid-template-columns:1fr}
  #pmq-learning-app{padding:0 10px}
+}
+
+
+/* Pause-safe learning context: always tells Molly what she is learning and what to do. */
+.pmq-current-context{
+  background:#eaf3f7;
+  border-left:6px solid #172A3A;
+  border-radius:12px;
+  padding:16px 18px;
+  margin:0 0 16px;
+  color:#172A3A;
+  line-height:1.55;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.pmq-current-context>div:first-child{font-size:.92rem;letter-spacing:.03em;margin-bottom:4px}
+.pmq-current-context>div:nth-child(2){font-size:1.02rem}
+.pmq-current-context small{display:block;margin-top:9px;color:#596771}
+.pmq-current-context b{font-weight:800}
+@media(max-width:600px){
+  .pmq-current-context{padding:14px;margin-bottom:12px}
+  .pmq-current-context>div:nth-child(2){font-size:.98rem}
 }

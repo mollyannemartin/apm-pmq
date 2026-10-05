@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flashcards | APM PMQ Revision</title>
+<title>Learn With Me | APM PMQ Revision</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="learning-system.css">
 <link rel="stylesheet" href="site-tidy.css">
@@ -25,18 +25,14 @@
 <main class="site-main">
 
 <section class="page-hero">
-  <span class="pmq-kicker">QUICK RECALL</span>
-  <h1>🧠 Flashcards</h1>
-  <p>Use this page for short recall sessions. Start with learning mode if the definitions are new, then move towards free recall.</p>
+  <span class="pmq-kicker">PMQ TRAINING SYSTEM</span>
+  <h1>⚡ Learn With Me</h1>
+  <p>Start from zero. Learn a small chunk, connect it to real life, practise with guidance, then retrieve and apply it.</p>
 </section>
-<div class="page-card">
-  <h2>Flashcards</h2>
-  <p>Your existing flashcard system remains in the main revision hub for now. Use the link below to open it.</p>
-  <a class="page-button" href="index.html#flashcards">Open flashcards →</a>
-</div>
+<div id="pmq-learning-app"></div>
 
 </main>
 <footer><p>APM PMQ Revision Tool — Molly</p></footer>
-
+<script src="learning-system.js"></script><script>document.addEventListener("DOMContentLoaded",function(){PMQLearningSystem.menu();});</script>
 </body>
 </html>

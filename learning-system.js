@@ -180,13 +180,13 @@
   };
 
   const stateKey="pmq5min_state_v1";
-  let state=JSON.parse(localStorage.getItem(stateKey)||'{"done":{},"weak":{},"streak":0}');
+  let state=JSON.parse(localStorage.getItem(stateKey)||'{"done":{},"weak":{},"streak":0,"currentId":null,"currentStep":0}');
   let current=null, step=0;
 
   function save(){localStorage.setItem(stateKey,JSON.stringify(state));}
   function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
   function rootEl(){return document.getElementById("pmq-learning-app");}
-  function render(html){rootEl().innerHTML=html; window.scrollTo({top:0,behavior:"smooth"});}
+  function render(html){rootEl().innerHTML=html;}
 
   function menu(){
     const completed=Object.keys(state.done).length;
@@ -219,6 +219,10 @@
     start(next.id);
   }
   function continueLearning(){
+    if(state.currentId){
+      const saved=lessons.find(l=>l.id===state.currentId);
+      if(saved && state.currentStep<8) return start(saved.id, Number(state.currentStep)||0);
+    }
     const next=lessons.find(l=>!state.done[l.id])||lessons[0];
     start(next.id);
   }
@@ -228,19 +232,50 @@
     if(l) start(l.id); else menu();
   }
 
-  function start(id){
-    current=lessons.find(l=>l.id===id)||lessons[0]; step=0; showStep();
+  function start(id, resumeStep=0){
+    current=lessons.find(l=>l.id===id)||lessons[0];
+    step=Math.max(0, Math.min(8, Number(resumeStep)||0));
+    state.currentId=current.id;
+    state.currentStep=step;
+    save();
+    showStep();
   }
 
   function header(){
     return `<div class="pmq-step-head"><button class="pmq-back" data-action="menu">← Learn menu</button><span>${esc(current.area)}</span><b>${esc(current.topic)}</b></div>`;
   }
 
+  function taskFor(l, step){
+    if(step===2){
+      const tasks={
+        "Projects vs BAU":"For each example, decide whether it is a PROJECT or BAU.",
+        "Risk vs Issue":"For each example, decide whether it is a RISK or an ISSUE.",
+        "Stakeholders":"For each example, decide whether it is a STAKEHOLDER or NOT A STAKEHOLDER.",
+        "Change Control":"For each example, decide whether it shows GOOD or POOR CHANGE CONTROL.",
+        "Linear Life Cycle":"For each example, decide whether it points towards a LINEAR approach or a different approach.",
+        "Iterative Life Cycle":"For each example, decide whether it points towards an ITERATIVE approach or a different approach.",
+        "Output, Outcome & Benefit":"For each example, identify whether it is an OUTPUT, OUTCOME, BENEFIT or NONE of these."
+      };
+      return tasks[l.topic] || `For each example, identify the best PMQ label for ${l.topic}.`;
+    }
+    if(step===0) return `Read this short introduction to ${l.topic}. You do not need to memorise it yet.`;
+    if(step===1) return `Connect ${l.topic} to something you already understand.`;
+    if(step===3) return `Fill the gap using what you have just learned about ${l.topic}.`;
+    if(step===4) return `Use ${l.topic} to work through the scenario. You are practising the reasoning, not trying to be perfect.`;
+    if(step===5) return `Without looking back, retrieve the key idea from ${l.topic}.`;
+    if(step===6) return `Explain ${l.topic} in your own words using the structure below.`;
+    return `Answer this exam-style question about ${l.topic}. Focus on applying the idea to the scenario.`;
+  }
+
   function showStep(){
     const l=current;
-    let body="";
+    state.currentId=current.id;
+    state.currentStep=step;
+    save();
+    const task=taskFor(l,step);
+    let body=`<div class="pmq-current-context"><div><b>YOU ARE LEARNING:</b> ${esc(l.topic)}</div><div><b>YOUR JOB:</b> ${esc(task)}</div><small>🧸 Interrupted? No problem. Come back to this box first — it tells you exactly what you were doing.</small></div>`;
     if(step===0){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">1 · MEET THE IDEA</span>
         <h2>${esc(l.title)}</h2>
         <p class="pmq-big">${esc(l.teach)}</p>
@@ -248,7 +283,7 @@
         <button class="pmq-primary" data-action="next">I've read it →</button>
       </div>`;
     } else if(step===1){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">2 · MAKE IT MAKE SENSE</span>
         <h2>Connect it to your world</h2>
         <div class="pmq-life-box"><b>${esc(lifeMap[l.anchor]?.name||"Your life")}</b><p>${esc(l.life)}</p></div>
@@ -256,16 +291,17 @@
         <button class="pmq-primary" data-action="next">I see the connection →</button>
       </div>`;
     } else if(step===2){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">3 · RECOGNISE</span>
         <h2>Can you spot it?</h2>
-        <p>You're not expected to explain it yet. Just identify the best label.</p>
+        <p><strong>${esc(task)}</strong></p>
+        <p>You are only identifying the category here. You do <em>not</em> need to explain the concept yet.</p>
         <div id="recognise-list">${l.recognise.map((r,i)=>`<button class="pmq-choice" data-rec="${i}"><span>${esc(r[0])}</span><b>?</b></button>`).join("")}</div>
         <div id="rec-result" class="pmq-result"></div>
         <button class="pmq-primary hidden" id="rec-next" data-action="next">Guided practice →</button>
       </div>`;
     } else if(step===3){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">4 · BUILD IT</span>
         <h2>Build the idea</h2>
         <p>${esc(l.gap)}</p>
@@ -275,7 +311,7 @@
         <div id="gap-result" class="pmq-result"></div>
       </div>`;
     } else if(step===4){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">5 · GUIDED APPLICATION</span>
         <h2>Use the idea</h2>
         <div class="pmq-scenario"><b>Scenario</b><p>${esc(l.apply)}</p></div>
@@ -288,7 +324,7 @@
         <button class="pmq-primary hidden" id="apply-next" data-action="next">Now retrieve it →</button>
       </div>`;
     } else if(step===5){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">6 · RETRIEVE</span>
         <h2>Now it disappears</h2>
         <p>Complete this without looking back.</p>
@@ -297,7 +333,7 @@
         <div id="retrieval-result" class="pmq-result"></div>
       </div>`;
     } else if(step===6){
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">7 · EXPLAIN</span>
         <h2>Teach it back: ${esc(l.topic)}</h2>
         <p>Use this structure:</p>
@@ -308,7 +344,7 @@
         <div id="self-rate" class="hidden pmq-rate"><p>How does it feel?</p><button data-rate="got">🟢 Got it</button><button data-rate="again">🟠 Need another go</button></div>
       </div>`;
     } else {
-      body=`<div class="pmq-lesson">
+      body+=`<div class="pmq-lesson">
         <span class="pmq-kicker">8 · EXAM BRIDGE</span>
         <h2>Now try the PMQ version</h2>
         <div class="pmq-scenario"><b>Exam-style prompt</b><p>${esc(l.exam)}</p></div>
@@ -328,6 +364,8 @@
 
   function finish(rating){
     state.done[current.id]=Date.now();
+    state.currentId=null;
+    state.currentStep=0;
     if(rating==="again") state.weak[current.id]=(state.weak[current.id]||0)+1;
     else if(state.weak[current.id]) delete state.weak[current.id];
     save();
@@ -347,7 +385,7 @@
       if(act==="continue") return continueLearning();
       if(act==="weak") return weak();
       if(act==="life"){ return render(`<div class="pmq-learn-shell"><div class="pmq-hero"><span class="pmq-kicker">MY LIFE → PMQ</span><h2>🧠 Make it make sense</h2><p>Pick an anchor. We'll use it to build a memory hook for PMQ concepts.</p></div><div class="pmq-life-grid">${Object.entries(lifeMap).map(([k,v])=>`<button class="pmq-card" data-life="${k}"><b>${v.name}</b><span>${v.desc}</span></button>`).join("")}</div><button class="pmq-secondary" data-action="menu">← Back</button></div>`); }
-      if(act==="next"){step=Math.min(8,step+1);return showStep();}
+      if(act==="next"){step=Math.min(8,step+1);state.currentId=current.id;state.currentStep=step;save();return showStep();}
       if(act==="check-gap"||act==="check-retrieval"){
         const id=act==="check-gap"?"gap-input":"retrieval-input", out=act==="check-gap"?"gap-result":"retrieval-result";
         const v=(document.getElementById(id)?.value||"").trim().toLowerCase();
