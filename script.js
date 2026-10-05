@@ -1282,6 +1282,8 @@ if(document.getElementById('flashcardGrid')){
 
 /* =========================
    LEARN & PLAY MODE
+   One concept at a time: LEARN -> RETRIEVE -> APPLY -> EXPLAIN
+   The application scenario always matches the concept just learned.
    ========================= */
 (function initLearnMode(){
   const topicSelect=document.getElementById('learnTopic');
@@ -1290,88 +1292,238 @@ if(document.getElementById('flashcardGrid')){
   if(!topicSelect || !area) return;
 
   const state={topic:null,factIndex:0,stage:'start',score:0,segmentsDone:0};
-  const learnStoreKey='pmqLearnProgressV1';
+  const learnStoreKey='pmqLearnProgressV2';
   const loadLearn=()=>{try{return JSON.parse(localStorage.getItem(learnStoreKey)||'{}')}catch(e){return {}}};
   const saveLearn=x=>localStorage.setItem(learnStoreKey,JSON.stringify(x));
   const learnProgress=loadLearn();
 
   topics.forEach((t,i)=>{
-    const o=document.createElement('option');o.value=t.id;o.textContent=t.title;o.dataset.index=i;topicSelect.appendChild(o);
+    const o=document.createElement('option');
+    o.value=t.id;
+    o.textContent=t.title;
+    o.dataset.index=i;
+    topicSelect.appendChild(o);
   });
 
   function getTopic(){return topics.find(t=>t.id===topicSelect.value)||topics[0];}
+
   function meaningfulWord(sentence){
     const cleaned=sentence.replace(/^\s*(linear|iterative|hybrid|incremental|evolutionary|extended)\s*:\s*/i,'');
     const words=cleaned.match(/[A-Za-z][A-Za-z-]{5,}/g)||[];
-    const stop=new Set(['project','projects','through','where','which','rather','should','their','these','those','because','rather','using','within','important','relevant','appropriate','support','provides','provide','management','delivery','process','activities']);
+    const stop=new Set(['project','projects','through','where','which','rather','should','their','these','those','because','using','within','important','relevant','appropriate','support','provides','provide','management','delivery','process','activities','including','benefits','requirements','organisation','organisational','information']);
     const pick=words.find(w=>!stop.has(w.toLowerCase()));
     if(pick) return pick;
-    const all=sentence.match(/[A-Za-z][A-Za-z-]{5,}/g)||[];
-    return all[0]||'';
+    return words[0]||'';
   }
+
   function gapData(sentence){
     const term=meaningfulWord(sentence);
-    const re=new RegExp('\\b'+term.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\$&')+'\\b','i');
+    const re=new RegExp('\\b'+term.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&')+'\\b','i');
     return {term,masked:sentence.replace(re,'________')};
   }
+
   function setHeader(stage,total,index){
     const label=document.getElementById('learnStageLabel'), prog=document.getElementById('learnProgressLabel');
     const names={learn:'1 • LEARN',recall:'2 • RETRIEVE',apply:'3 • APPLY',explain:'4 • EXPLAIN',complete:'Complete'};
-    label.textContent=names[stage]||stage;prog.textContent=`Segment ${Math.min(index+1,total)} / ${total}`;
+    label.textContent=names[stage]||stage;
+    prog.textContent=`Segment ${Math.min(index+1,total)} / ${total}`;
   }
+
+  function keywordsFor(topic, fact, model){
+    if(topic.id==='life-cycles'){
+      const f=fact.toLowerCase();
+      if(f.startsWith('linear')) return ['Linear','Defined stages','Relatively stable scope','Planned sequencing','Predictable progression'];
+      if(f.startsWith('iterative')) return ['Iterative','Repeated cycles','Feedback','Refinement','Learning'];
+      if(f.startsWith('hybrid')) return ['Hybrid','Combination of approaches','Different project parts','Different needs','Fit the environment'];
+      if(f.includes('phases')) return ['Phases','Decision points','Progressive approval','Viability','Further investment'];
+      if(f.startsWith('extended')) return ['Extended life cycle','Beyond delivery','Transition','Adoption','Benefits realisation'];
+      return ['Knowledge management','Capture learning','Share learning','Information management','Support decisions'];
+    }
+    const first=topic.title.replace(/^\d+\.\s*/,'');
+    const terms=[];
+    const text=(model||fact||'').replace(/[^A-Za-z0-9\s-]/g,' ');
+    const words=text.split(/\s+/).filter(Boolean);
+    const stop=new Set(['the','and','that','this','with','from','into','should','would','could','where','when','what','which','project','projects','because','rather','than','have','been','being','their','them','they','will','then','also','only','more','less','about','through','using','directly','appropriate','relevant','ensure','consider','provide','provides','does','not','for','are','is','to','of','a','an','in','on','as','by','or','it','if','be','can','has','may']);
+    for(const w of words){
+      const clean=w.toLowerCase();
+      if(clean.length>=6 && !stop.has(clean) && !terms.some(x=>x.toLowerCase()===clean)) terms.push(w);
+      if(terms.length>=4) break;
+    }
+    return [first,...terms].filter((v,i,a)=>v && a.findIndex(x=>x.toLowerCase()===v.toLowerCase())===i).slice(0,5);
+  }
+
+  function applicationPack(t, factIndex){
+    const fact=t.know[factIndex%t.know.length];
+
+    // Life cycles get a deliberately matched scenario for each model/idea.
+    if(t.id==='life-cycles'){
+      const packs=[
+        {
+          focus:'Linear life cycle',
+          scenario:'A construction project has a stable specification, known statutory requirements and a sequence of activities that must be completed before handover. The sponsor wants detailed planning before work starts.',
+          answer:'A linear life cycle is a strong fit because the scope and requirements are relatively stable and the work can be planned through defined stages in a planned sequence. The project can use reviews between stages to confirm that it remains viable before committing further resources.',
+          keywords:['Linear','Defined stages','Stable scope','Planned sequencing','Reviews / decision points']
+        },
+        {
+          focus:'Iterative life cycle',
+          scenario:'Users are unsure exactly what they need from a new internal application. The team can build a prototype, obtain user feedback and refine the solution repeatedly.',
+          answer:'An iterative life cycle is suitable because there is uncertainty about the requirements and the team needs feedback to learn what works. Repeated cycles allow the solution to be developed, reviewed and refined as understanding improves.',
+          keywords:['Iterative','Repeated cycles','Uncertain requirements','Feedback','Refinement']
+        },
+        {
+          focus:'Hybrid life cycle',
+          scenario:'A major website transformation has fixed funding, governance and release milestones, but the user-facing software needs frequent development and user feedback within those boundaries.',
+          answer:'A hybrid life cycle is suitable because different parts of the project have different needs. Predictive or linear elements can provide governance, funding and major milestones, while iterative development can be used for the uncertain user-facing software work.',
+          keywords:['Hybrid','Combination','Different needs','Predictive / linear elements','Iterative elements']
+        },
+        {
+          focus:'Phases and reviews',
+          scenario:'A project is approaching the end of a phase. Costs have increased and the expected benefits have weakened. The organisation has not yet committed the resources required for the next phase.',
+          answer:'The phase review should test whether the project remains viable before further resources are committed. The review should consider the changed costs, benefits, risks, schedule and strategic alignment, then support a decision such as continue, re-plan, change direction or stop.',
+          keywords:['Phase review','Viability','Costs','Benefits','Decision before further investment']
+        },
+        {
+          focus:'Extended life cycle',
+          scenario:'A new HR system has been technically delivered, but users still need training, the operational owner needs to accept the system and the organisation needs to measure whether the expected efficiency benefits are realised.',
+          answer:'An extended life cycle is relevant because the work continues beyond technical delivery into transition, adoption and benefits realisation. Delivering the system is an output; the organisation still needs to adopt it and demonstrate the intended benefits.',
+          keywords:['Extended life cycle','Beyond delivery','Transition','Adoption','Benefits realisation']
+        },
+        {
+          focus:'Knowledge and information management',
+          scenario:'A project team has completed a major phase. Several decisions were made using lessons from earlier work, but those lessons are stored inconsistently and the next team cannot easily find the evidence behind previous decisions.',
+          answer:'Knowledge management should capture and share the learning so that experience can inform future decisions. Information management should make the relevant information accessible, reliable and usable. The aim is not simply to store documents but to support better decisions.',
+          keywords:['Knowledge management','Capture learning','Share learning','Information management','Support decisions']
+        }
+      ];
+      return packs[factIndex%packs.length];
+    }
+
+    // Every other topic uses its own scenario and model answer; no topic switching.
+    const model=t.applyAnswer || t.apply?.[0] || 'Link the concept directly to the scenario and explain why it matters.';
+    return {
+      focus:t.title.replace(/^\d+\.\s*/,''),
+      scenario:t.scenario||'Consider how this concept would affect a project decision.',
+      answer:model,
+      keywords:keywordsFor(t,fact,model)
+    };
+  }
+
   function renderStart(){
-    const t=getTopic(); state.topic=t;state.factIndex=0;state.stage='start';state.score=0;
+    const t=getTopic();
+    state.topic=t;
+    state.factIndex=0;
+    state.stage='start';
+    state.score=0;
+    state.segmentsDone=0;
     setHeader('learn',t.know.length,0);
-    area.innerHTML=`<div class="learn-start"><div class="learn-icon">🧠</div><h3>${esc(t.title)}</h3><p>${esc(t.summary)}</p><p class="learn-tip"><strong>Rule:</strong> do not scroll back after pressing Next. The point is retrieval, not rereading.</p><button class="primary" id="beginSegment">Begin segment 1</button></div>`;
+    const saved=learnProgress[t.id];
+    const progressNote=saved?.segmentsDone ? `<p class="learn-tip"><strong>Previous progress:</strong> ${saved.segmentsDone}/${t.know.length} segments completed. You can repeat the topic to strengthen recall.</p>` : '';
+    area.innerHTML=`<div class="learn-start"><div class="learn-icon">🧠</div><h3>${esc(t.title)}</h3><p>${esc(t.summary)}</p><p class="learn-tip"><strong>One concept at a time:</strong> you will learn one segment, hide it, retrieve it, apply that <em>same</em> concept, then explain that <em>same</em> concept.</p>${progressNote}<button class="primary" id="beginSegment">Begin segment 1</button></div>`;
     document.getElementById('beginSegment').onclick=()=>showLearn();
   }
+
   function showLearn(){
-    const t=state.topic||getTopic(), fact=t.know[state.factIndex%t.know.length]; state.stage='learn';setHeader('learn',t.know.length,state.factIndex);
-    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Read this segment</span><h3>${esc(t.title)}</h3><div class="learn-segment">${esc(fact)}</div><p class="learn-instruction">Take 20–40 seconds. Look for the idea, not a sentence to memorise.</p><div class="learn-actions"><button class="primary" id="hideAndRecall">Next — hide it</button></div></div>`;
+    const t=state.topic||getTopic();
+    const fact=t.know[state.factIndex%t.know.length];
+    state.stage='learn';
+    setHeader('learn',t.know.length,state.factIndex);
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Read this segment</span><h3>${esc(t.title)}</h3><div class="learn-segment"><strong>Focus:</strong> ${esc(fact)}</div><p class="learn-instruction">Take 20–40 seconds. Look for the idea, not a sentence to memorise.</p><div class="learn-actions"><button class="primary" id="hideAndRecall">Next — hide it</button></div></div>`;
     document.getElementById('hideAndRecall').onclick=()=>showRecall(fact);
   }
+
   function showRecall(fact){
-    state.stage='recall';setHeader('recall',state.topic.know.length,state.factIndex);const g=gapData(fact);
+    state.stage='recall';
+    setHeader('recall',state.topic.know.length,state.factIndex);
+    const g=gapData(fact);
     area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Retrieve</span><h3>Can you reconstruct the idea?</h3><p class="learn-instruction">Fill the gap from memory. Do not look back.</p><div class="learn-segment">${esc(g.masked)}</div><input class="gap-input" id="gapInput" autocomplete="off" placeholder="Type the missing word or phrase"><div class="learn-actions"><button class="primary" id="checkGap">Check</button><button class="secondary" id="revealGap">Reveal</button></div><div id="gapFeedback"></div></div>`;
+    let checked=false;
+    const enableContinue=()=>{const btn=document.getElementById('continueApply');if(btn)btn.disabled=false;};
     const check=()=>{
-      const val=document.getElementById('gapInput').value.trim().toLowerCase(), ok=val===g.term.toLowerCase() || val.includes(g.term.toLowerCase());
-      const fb=document.getElementById('gapFeedback');fb.className='learn-feedback '+(ok?'good':'review');fb.innerHTML=ok?`<strong>Correct.</strong> ${esc(g.term)} was the missing idea.`:`<strong>Not quite.</strong> The key word was <strong>${esc(g.term)}</strong>. Read the full statement once, then continue.`;
+      if(checked)return;
+      checked=true;
+      const val=document.getElementById('gapInput').value.trim().toLowerCase();
+      const ok=val===g.term.toLowerCase() || val.includes(g.term.toLowerCase());
+      const fb=document.getElementById('gapFeedback');
+      fb.className='learn-feedback '+(ok?'good':'review');
+      fb.innerHTML=ok?`<strong>Correct.</strong> ${esc(g.term)} was the missing idea.`:`<strong>Not quite.</strong> The key word was <strong>${esc(g.term)}</strong>. Read the full statement once, then continue.`;
       if(!ok) recordWeak('Learn & Play',`${state.topic.title}: retrieval`,state.topic.area,false,'Gap recall'); else state.score++;
       document.getElementById('checkGap').disabled=true;
+      enableContinue();
     };
     document.getElementById('checkGap').onclick=check;
-    document.getElementById('revealGap').onclick=()=>{const fb=document.getElementById('gapFeedback');fb.className='learn-feedback review';fb.innerHTML=`<strong>Answer:</strong> ${esc(g.term)}<br><span>${esc(fact)}</span>`;document.getElementById('checkGap').disabled=true;recordWeak('Learn & Play',`${state.topic.title}: retrieval`,state.topic.area,false,'Answer revealed');};
+    document.getElementById('revealGap').onclick=()=>{
+      if(checked)return;
+      checked=true;
+      const fb=document.getElementById('gapFeedback');
+      fb.className='learn-feedback review';
+      fb.innerHTML=`<strong>Answer:</strong> ${esc(g.term)}<br><span>${esc(fact)}</span>`;
+      document.getElementById('checkGap').disabled=true;
+      recordWeak('Learn & Play',`${state.topic.title}: retrieval`,state.topic.area,false,'Answer revealed');
+      enableContinue();
+    };
     document.getElementById('gapInput').focus();
     document.getElementById('gapInput').addEventListener('keydown',e=>{if(e.key==='Enter')check();});
     const actions=document.querySelector('.learn-actions');
-    const next=document.createElement('button');next.className='primary';next.textContent='Continue to application';next.disabled=true;next.id='continueApply';actions.appendChild(next);
-    const obs=new MutationObserver(()=>{if(document.getElementById('gapFeedback')?.textContent)next.disabled=false;});obs.observe(document.getElementById('gapFeedback'),{childList:true,subtree:true});
+    const next=document.createElement('button');
+    next.className='primary';
+    next.textContent='Continue to application';
+    next.disabled=true;
+    next.id='continueApply';
+    actions.appendChild(next);
     next.onclick=()=>showApply();
   }
+
   function showApply(){
-    state.stage='apply';setHeader('apply',state.topic.know.length,state.factIndex);
+    state.stage='apply';
+    setHeader('apply',state.topic.know.length,state.factIndex);
     const t=state.topic;
-    let scenario=t.scenario||'Consider how this concept would affect a project decision.';
-    let model=t.applyAnswer;
-    if(!model && t.applyScenarios?.length){scenario=t.applyScenarios[Math.min(state.factIndex,t.applyScenarios.length-1)].scenario;model=t.applyScenarios[Math.min(state.factIndex,t.applyScenarios.length-1)].answer;}
-    if(!model) model=t.apply?.[0]||'Link your answer directly to the scenario and explain why the concept matters.';
-    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Apply</span><h3>Use the idea in a project</h3><div class="learn-scenario"><strong>Scenario</strong><p>${esc(scenario)}</p></div><p class="learn-instruction">Before revealing the model, say or type what you would do and <strong>why</strong>.</p><textarea id="applyText" class="gap-input" rows="5" placeholder="Write your reasoning here, or answer aloud..."></textarea><div class="learn-actions"><button class="primary" id="revealModel">Reveal model approach</button></div><div id="applyModel" class="learn-model" hidden><strong>Model approach</strong><p>${esc(model)}</p></div></div>`;
-    document.getElementById('revealModel').onclick=()=>{document.getElementById('applyModel').hidden=false;document.getElementById('revealModel').disabled=true;const b=document.createElement('button');b.className='primary';b.textContent='Next — explain it';b.onclick=()=>showExplain();document.querySelector('.learn-actions').appendChild(b);};
+    const fact=t.know[state.factIndex%t.know.length];
+    const pack=applicationPack(t,state.factIndex);
+    const checklist=pack.keywords.map(k=>`<li>${esc(k)}</li>`).join('');
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Apply</span><h3>${esc(pack.focus)}</h3><div class="learn-focus"><strong>What you are applying:</strong><span>${esc(fact)}</span></div><div class="learn-scenario"><strong>Scenario</strong><p>${esc(pack.scenario)}</p></div><p class="learn-instruction">Before revealing anything, answer the scenario in your own words. Your job is to connect the concept <strong>${esc(pack.focus)}</strong> directly to the situation.</p><textarea id="applyText" class="gap-input" rows="5" placeholder="Write your reasoning here, or answer aloud..."></textarea><div class="learn-actions"><button class="primary" id="revealModel">Reveal model approach</button></div><div id="applyModel" class="learn-model" hidden><div class="model-answer-heading">🎯 Model approach</div><p>${esc(pack.answer)}</p><div class="keyword-checklist"><strong>🔑 What a strong answer should contain</strong><ul>${checklist}</ul></div><p class="learn-exam-tip"><strong>Exam habit:</strong> do not just name the concept. Explain why it fits the scenario and use the facts in the scenario as evidence.</p></div></div>`;
+    document.getElementById('revealModel').onclick=()=>{
+      document.getElementById('applyModel').hidden=false;
+      document.getElementById('revealModel').disabled=true;
+      const b=document.createElement('button');
+      b.className='primary';
+      b.textContent='Next — explain it';
+      b.onclick=()=>showExplain(pack);
+      document.querySelector('.learn-actions').appendChild(b);
+    };
   }
-  function showExplain(){
-    state.stage='explain';setHeader('explain',state.topic.know.length,state.factIndex);
-    const t=state.topic, fact=t.know[state.factIndex%t.know.length];
-    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Explain</span><h3>Teach it without looking</h3><div class="learn-explain"><p><strong>Prompt:</strong> Explain this idea to someone who knows nothing about project management.</p><p class="hint">Mention what it is, why it matters, and how it affects a project. You can answer aloud — typing is optional.</p><textarea id="explainText" placeholder="Explain it in your own words..."></textarea></div><div class="learn-actions"><button class="primary" id="finishSegment">I can explain it</button><button class="secondary" id="explainWeak">I still need to work on it</button></div>`;
-    document.getElementById('finishSegment').onclick=()=>finishSegment(true);document.getElementById('explainWeak').onclick=()=>finishSegment(false);
+
+  function showExplain(pack){
+    state.stage='explain';
+    setHeader('explain',state.topic.know.length,state.factIndex);
+    const t=state.topic;
+    const fact=t.know[state.factIndex%t.know.length];
+    const checklist=pack.keywords.map(k=>`<li>${esc(k)}</li>`).join('');
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Explain</span><h3>Teach it: ${esc(pack.focus)}</h3><div class="learn-explain"><p><strong>Prompt:</strong> Explain <em>${esc(pack.focus)}</em> to someone who knows nothing about project management.</p><p class="hint">Stay on this one concept. Say what it is, why it matters and how it affects a project. You can answer aloud — typing is optional.</p><p class="learn-explain-focus"><strong>Your original segment:</strong> ${esc(fact)}</p><textarea id="explainText" placeholder="Explain it in your own words..."></textarea><details class="explain-support"><summary>Reveal keyword checklist</summary><ul>${checklist}</ul></details><details class="explain-support"><summary>Reveal model definition / explanation</summary><div class="model-answer"><p>${esc(pack.answer)}</p></div></details></div><div class="learn-actions"><button class="primary" id="finishSegment">🟢 Got it</button><button class="secondary" id="explainWeak">🟠 Need another go</button></div><p class="learn-instruction"><strong>Be honest.</strong> If you could not explain it without looking, mark it as needing another go. That is useful data, not failure.</p></div>`;
+    document.getElementById('finishSegment').onclick=()=>finishSegment(true);
+    document.getElementById('explainWeak').onclick=()=>finishSegment(false);
   }
+
   function finishSegment(gotIt){
-    const t=state.topic;recordWeak('Learn & Play',`${t.title}: explain`,t.area,gotIt,gotIt?'Self-rated understood':'Self-rated weak');
-    state.segmentsDone++; if(gotIt)state.score++;
-    const saved=loadLearn();saved[t.id]={segmentsDone:Math.max(saved[t.id]?.segmentsDone||0,state.segmentsDone),lastDone:new Date().toISOString()};saveLearn(saved);
+    const t=state.topic;
+    recordWeak('Learn & Play',`${t.title}: ${applicationPack(t,state.factIndex).focus}`,t.area,gotIt,gotIt?'Self-rated understood':'Self-rated weak');
+    state.segmentsDone++;
+    if(gotIt)state.score++;
+    const saved=loadLearn();
+    saved[t.id]={segmentsDone:Math.max(saved[t.id]?.segmentsDone||0,state.segmentsDone),lastDone:new Date().toISOString()};
+    saveLearn(saved);
     const nextIndex=state.factIndex+1;
-    if(nextIndex>=t.know.length){state.stage='complete';setHeader('complete',t.know.length,t.know.length-1);area.innerHTML=`<div class="learn-complete"><div class="learn-icon">🏆</div><h3>Topic segment set complete</h3><p>You worked through all ${t.know.length} knowledge points in <strong>${esc(t.title)}</strong>.</p><p class="xp">${state.score} retrieval points earned</p><p>Now test the topic properly: use the section test below or move to another topic.</p><div class="learn-actions" style="justify-content:center"><button class="primary" id="restartTopic">Repeat topic</button><button class="secondary" id="chooseTopic">Choose another topic</button></div></div>`;document.getElementById('restartTopic').onclick=()=>{state.factIndex=0;state.score=0;showLearn();};document.getElementById('chooseTopic').onclick=()=>{topicSelect.focus();topicSelect.scrollIntoView({behavior:'smooth',block:'center'});};return;}
-    state.factIndex=nextIndex;showLearn();
+    if(nextIndex>=t.know.length){
+      state.stage='complete';
+      setHeader('complete',t.know.length,t.know.length-1);
+      area.innerHTML=`<div class="learn-complete"><div class="learn-icon">🏆</div><h3>Topic segment set complete</h3><p>You worked through all ${t.know.length} knowledge points in <strong>${esc(t.title)}</strong>.</p><p class="xp">${state.score} retrieval/understanding points earned</p><p>Now test the topic properly: use the section test below or deliberately choose a different topic. If you marked anything as <strong>Need another go</strong>, it has been added to your weak-area tracking.</p><div class="learn-actions" style="justify-content:center"><button class="primary" id="restartTopic">Repeat topic</button><button class="secondary" id="chooseTopic">Choose another topic</button></div></div>`;
+      document.getElementById('restartTopic').onclick=()=>{state.factIndex=0;state.score=0;state.segmentsDone=0;showLearn();};
+      document.getElementById('chooseTopic').onclick=()=>{topicSelect.focus();topicSelect.scrollIntoView({behavior:'smooth',block:'center'});};
+      return;
+    }
+    state.factIndex=nextIndex;
+    showLearn();
   }
+
   topicSelect.onchange=renderStart;
   start.onclick=renderStart;
   renderStart();
