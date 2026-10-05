@@ -1278,3 +1278,101 @@ if(document.getElementById('flashcardGrid')){
   document.getElementById('closeFreeType').onclick=()=>{panel.hidden=true;grid.parentElement.hidden=false;document.getElementById('flashModeHint').textContent='Click a card to reveal';};
   renderCards();
 }
+
+
+/* =========================
+   LEARN & PLAY MODE
+   ========================= */
+(function initLearnMode(){
+  const topicSelect=document.getElementById('learnTopic');
+  const area=document.getElementById('learnArea');
+  const start=document.getElementById('startLearn');
+  if(!topicSelect || !area) return;
+
+  const state={topic:null,factIndex:0,stage:'start',score:0,segmentsDone:0};
+  const learnStoreKey='pmqLearnProgressV1';
+  const loadLearn=()=>{try{return JSON.parse(localStorage.getItem(learnStoreKey)||'{}')}catch(e){return {}}};
+  const saveLearn=x=>localStorage.setItem(learnStoreKey,JSON.stringify(x));
+  const learnProgress=loadLearn();
+
+  topics.forEach((t,i)=>{
+    const o=document.createElement('option');o.value=t.id;o.textContent=t.title;o.dataset.index=i;topicSelect.appendChild(o);
+  });
+
+  function getTopic(){return topics.find(t=>t.id===topicSelect.value)||topics[0];}
+  function meaningfulWord(sentence){
+    const cleaned=sentence.replace(/^\s*(linear|iterative|hybrid|incremental|evolutionary|extended)\s*:\s*/i,'');
+    const words=cleaned.match(/[A-Za-z][A-Za-z-]{5,}/g)||[];
+    const stop=new Set(['project','projects','through','where','which','rather','should','their','these','those','because','rather','using','within','important','relevant','appropriate','support','provides','provide','management','delivery','process','activities']);
+    const pick=words.find(w=>!stop.has(w.toLowerCase()));
+    if(pick) return pick;
+    const all=sentence.match(/[A-Za-z][A-Za-z-]{5,}/g)||[];
+    return all[0]||'';
+  }
+  function gapData(sentence){
+    const term=meaningfulWord(sentence);
+    const re=new RegExp('\\b'+term.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\$&')+'\\b','i');
+    return {term,masked:sentence.replace(re,'________')};
+  }
+  function setHeader(stage,total,index){
+    const label=document.getElementById('learnStageLabel'), prog=document.getElementById('learnProgressLabel');
+    const names={learn:'1 • LEARN',recall:'2 • RETRIEVE',apply:'3 • APPLY',explain:'4 • EXPLAIN',complete:'Complete'};
+    label.textContent=names[stage]||stage;prog.textContent=`Segment ${Math.min(index+1,total)} / ${total}`;
+  }
+  function renderStart(){
+    const t=getTopic(); state.topic=t;state.factIndex=0;state.stage='start';state.score=0;
+    setHeader('learn',t.know.length,0);
+    area.innerHTML=`<div class="learn-start"><div class="learn-icon">🧠</div><h3>${esc(t.title)}</h3><p>${esc(t.summary)}</p><p class="learn-tip"><strong>Rule:</strong> do not scroll back after pressing Next. The point is retrieval, not rereading.</p><button class="primary" id="beginSegment">Begin segment 1</button></div>`;
+    document.getElementById('beginSegment').onclick=()=>showLearn();
+  }
+  function showLearn(){
+    const t=state.topic||getTopic(), fact=t.know[state.factIndex%t.know.length]; state.stage='learn';setHeader('learn',t.know.length,state.factIndex);
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Read this segment</span><h3>${esc(t.title)}</h3><div class="learn-segment">${esc(fact)}</div><p class="learn-instruction">Take 20–40 seconds. Look for the idea, not a sentence to memorise.</p><div class="learn-actions"><button class="primary" id="hideAndRecall">Next — hide it</button></div></div>`;
+    document.getElementById('hideAndRecall').onclick=()=>showRecall(fact);
+  }
+  function showRecall(fact){
+    state.stage='recall';setHeader('recall',state.topic.know.length,state.factIndex);const g=gapData(fact);
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Retrieve</span><h3>Can you reconstruct the idea?</h3><p class="learn-instruction">Fill the gap from memory. Do not look back.</p><div class="learn-segment">${esc(g.masked)}</div><input class="gap-input" id="gapInput" autocomplete="off" placeholder="Type the missing word or phrase"><div class="learn-actions"><button class="primary" id="checkGap">Check</button><button class="secondary" id="revealGap">Reveal</button></div><div id="gapFeedback"></div></div>`;
+    const check=()=>{
+      const val=document.getElementById('gapInput').value.trim().toLowerCase(), ok=val===g.term.toLowerCase() || val.includes(g.term.toLowerCase());
+      const fb=document.getElementById('gapFeedback');fb.className='learn-feedback '+(ok?'good':'review');fb.innerHTML=ok?`<strong>Correct.</strong> ${esc(g.term)} was the missing idea.`:`<strong>Not quite.</strong> The key word was <strong>${esc(g.term)}</strong>. Read the full statement once, then continue.`;
+      if(!ok) recordWeak('Learn & Play',`${state.topic.title}: retrieval`,state.topic.area,false,'Gap recall'); else state.score++;
+      document.getElementById('checkGap').disabled=true;
+    };
+    document.getElementById('checkGap').onclick=check;
+    document.getElementById('revealGap').onclick=()=>{const fb=document.getElementById('gapFeedback');fb.className='learn-feedback review';fb.innerHTML=`<strong>Answer:</strong> ${esc(g.term)}<br><span>${esc(fact)}</span>`;document.getElementById('checkGap').disabled=true;recordWeak('Learn & Play',`${state.topic.title}: retrieval`,state.topic.area,false,'Answer revealed');};
+    document.getElementById('gapInput').focus();
+    document.getElementById('gapInput').addEventListener('keydown',e=>{if(e.key==='Enter')check();});
+    const actions=document.querySelector('.learn-actions');
+    const next=document.createElement('button');next.className='primary';next.textContent='Continue to application';next.disabled=true;next.id='continueApply';actions.appendChild(next);
+    const obs=new MutationObserver(()=>{if(document.getElementById('gapFeedback')?.textContent)next.disabled=false;});obs.observe(document.getElementById('gapFeedback'),{childList:true,subtree:true});
+    next.onclick=()=>showApply();
+  }
+  function showApply(){
+    state.stage='apply';setHeader('apply',state.topic.know.length,state.factIndex);
+    const t=state.topic;
+    let scenario=t.scenario||'Consider how this concept would affect a project decision.';
+    let model=t.applyAnswer;
+    if(!model && t.applyScenarios?.length){scenario=t.applyScenarios[Math.min(state.factIndex,t.applyScenarios.length-1)].scenario;model=t.applyScenarios[Math.min(state.factIndex,t.applyScenarios.length-1)].answer;}
+    if(!model) model=t.apply?.[0]||'Link your answer directly to the scenario and explain why the concept matters.';
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Apply</span><h3>Use the idea in a project</h3><div class="learn-scenario"><strong>Scenario</strong><p>${esc(scenario)}</p></div><p class="learn-instruction">Before revealing the model, say or type what you would do and <strong>why</strong>.</p><textarea id="applyText" class="gap-input" rows="5" placeholder="Write your reasoning here, or answer aloud..."></textarea><div class="learn-actions"><button class="primary" id="revealModel">Reveal model approach</button></div><div id="applyModel" class="learn-model" hidden><strong>Model approach</strong><p>${esc(model)}</p></div></div>`;
+    document.getElementById('revealModel').onclick=()=>{document.getElementById('applyModel').hidden=false;document.getElementById('revealModel').disabled=true;const b=document.createElement('button');b.className='primary';b.textContent='Next — explain it';b.onclick=()=>showExplain();document.querySelector('.learn-actions').appendChild(b);};
+  }
+  function showExplain(){
+    state.stage='explain';setHeader('explain',state.topic.know.length,state.factIndex);
+    const t=state.topic, fact=t.know[state.factIndex%t.know.length];
+    area.innerHTML=`<div class="learn-stage"><span class="learn-stage-badge">Explain</span><h3>Teach it without looking</h3><div class="learn-explain"><p><strong>Prompt:</strong> Explain this idea to someone who knows nothing about project management.</p><p class="hint">Mention what it is, why it matters, and how it affects a project. You can answer aloud — typing is optional.</p><textarea id="explainText" placeholder="Explain it in your own words..."></textarea></div><div class="learn-actions"><button class="primary" id="finishSegment">I can explain it</button><button class="secondary" id="explainWeak">I still need to work on it</button></div>`;
+    document.getElementById('finishSegment').onclick=()=>finishSegment(true);document.getElementById('explainWeak').onclick=()=>finishSegment(false);
+  }
+  function finishSegment(gotIt){
+    const t=state.topic;recordWeak('Learn & Play',`${t.title}: explain`,t.area,gotIt,gotIt?'Self-rated understood':'Self-rated weak');
+    state.segmentsDone++; if(gotIt)state.score++;
+    const saved=loadLearn();saved[t.id]={segmentsDone:Math.max(saved[t.id]?.segmentsDone||0,state.segmentsDone),lastDone:new Date().toISOString()};saveLearn(saved);
+    const nextIndex=state.factIndex+1;
+    if(nextIndex>=t.know.length){state.stage='complete';setHeader('complete',t.know.length,t.know.length-1);area.innerHTML=`<div class="learn-complete"><div class="learn-icon">🏆</div><h3>Topic segment set complete</h3><p>You worked through all ${t.know.length} knowledge points in <strong>${esc(t.title)}</strong>.</p><p class="xp">${state.score} retrieval points earned</p><p>Now test the topic properly: use the section test below or move to another topic.</p><div class="learn-actions" style="justify-content:center"><button class="primary" id="restartTopic">Repeat topic</button><button class="secondary" id="chooseTopic">Choose another topic</button></div></div>`;document.getElementById('restartTopic').onclick=()=>{state.factIndex=0;state.score=0;showLearn();};document.getElementById('chooseTopic').onclick=()=>{topicSelect.focus();topicSelect.scrollIntoView({behavior:'smooth',block:'center'});};return;}
+    state.factIndex=nextIndex;showLearn();
+  }
+  topicSelect.onchange=renderStart;
+  start.onclick=renderStart;
+  renderStart();
+})();

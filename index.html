@@ -14,6 +14,7 @@
     <p class="tagline">Understand → Apply → Explain</p>
     <nav class="main-nav">
       <a href="#dashboard">Dashboard</a>
+      <a href="#learn">🎮 Learn & Play</a>
       <a href="#topics">Topics</a>
       <a href="#quiz">Test Yourself</a>
       <a href="#exam">Exam Strategy</a>
@@ -54,6 +55,29 @@
     <li><strong>Explain:</strong> practise giving a clear, structured exam answer.</li>
   </ol>
   <p class="warning"><strong>Important:</strong> Your course workbook, instructor material and any updated course guidance take priority over this revision tool. This site is a study aid, not an official APM publication.</p>
+</section>
+
+<section id="learn" class="content-section learn-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">ACTIVE LEARNING</p>
+      <h2>🎮 Learn & Play</h2>
+      <p>Learn one small segment at a time, hide it, retrieve it, apply it to a scenario, then explain it. This mode is deliberately harder than simply reading.</p>
+    </div>
+    <div class="learn-controls">
+      <label for="learnTopic"><strong>Topic</strong></label>
+      <select id="learnTopic" aria-label="Choose a learning topic"></select>
+    </div>
+  </div>
+  <div class="learn-progress"><span id="learnStageLabel">Ready</span><span id="learnProgressLabel">0 / 0</span></div>
+  <div id="learnArea" class="learn-area">
+    <div class="learn-start">
+      <div class="learn-icon">🧠</div>
+      <h3>How this works</h3>
+      <p><strong>Read → Recall → Apply → Explain.</strong> You will only see a small amount of information at once. When you press Next, it disappears and you have to retrieve it.</p>
+      <button class="primary" id="startLearn">Start learning</button>
+    </div>
+  </div>
 </section>
 
 <section id="topics" class="content-section">
