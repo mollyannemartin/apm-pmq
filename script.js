@@ -1026,6 +1026,58 @@ function renderTopics(filter=""){
       }
       body.appendChild(scenario);
       body.innerHTML += `<div class="explain-box"><h4>🗣️ EXPLAIN</h4><p>Close this card and explain the topic aloud in your own words. If you cannot, it is not understood yet.</p></div>`;
+      const life = (window.pmqLifeTranslations || []).find(x => x.id === topic.id);
+      if (life) {
+        const lifeWrap = document.createElement("div");
+        lifeWrap.className = "life-translation-wrap";
+
+        const lifeBtn = document.createElement("button");
+        lifeBtn.className = "life-translation-btn";
+        lifeBtn.type = "button";
+        lifeBtn.innerHTML = "🧠 Translate to my life";
+        lifeWrap.appendChild(lifeBtn);
+
+        const panel = document.createElement("div");
+        panel.className = "life-translation-panel";
+        panel.hidden = true;
+        panel.innerHTML = `
+          <div class="life-translation-head">
+            <div>
+              <p class="eyebrow">MEMORY HOOK — NOT THE PMQ DEFINITION</p>
+              <h4>${esc(life.label || "A real-life example")}</h4>
+            </div>
+            <button type="button" class="life-close">Close</button>
+          </div>
+          <p><strong>The PMQ idea:</strong> ${esc(life.definition || "")}</p>
+          <div class="life-example">
+            <strong>💡 Think of your own life:</strong>
+            <p>${esc(life.anchor || "")}</p>
+          </div>
+          <div class="life-bridge">
+            <strong>🔄 Now translate that experience into PMQ language:</strong>
+            <p>${esc(life.model || "")}</p>
+          </div>
+          <p><strong>🔑 Keywords to recognise:</strong>
+            ${(life.keywords || []).map(k => `<span class="life-keyword">${esc(k)}</span>`).join(" ")}
+          </p>
+          <div class="life-exam">
+            <strong>🎯 Exam bridge:</strong>
+            <p>${esc(life.exam || "")}</p>
+          </div>
+        `;
+        lifeBtn.addEventListener("click", () => {
+          panel.hidden = !panel.hidden;
+          lifeBtn.textContent = panel.hidden ? "🧠 Translate to my life" : "🧠 Hide my-life example";
+        });
+        panel.querySelector(".life-close").addEventListener("click", () => {
+          panel.hidden = true;
+          lifeBtn.textContent = "🧠 Translate to my life";
+        });
+
+        lifeWrap.appendChild(panel);
+        body.appendChild(lifeWrap);
+      }
+
       const actions=document.createElement("div"); actions.className="topic-actions";
       const b=document.createElement("button"); b.className=progress[topic.id]?"secondary understood":"primary"; b.textContent=progress[topic.id]?"✓ Understood — click to reset":"Mark understood";
       b.onclick=()=>{ const p=getProgress(); p[topic.id]=!p[topic.id]; saveProgress(p); renderTopics(searchInput.value); updateStats(); };

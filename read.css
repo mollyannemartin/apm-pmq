@@ -1,0 +1,165 @@
+/* Deep reference page: keep the information-rich page, but avoid duplicate learning modes. */
+.reference-banner{max-width:1200px;margin:18px auto 0;padding:14px 18px;border-left:5px solid #172A3A;background:#eef6fa;border-radius:10px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.reference-banner strong{white-space:nowrap}
+#learn,#life,#quiz,#written,#mock,#weak,#learn-with-me{display:none!important}
+
+
+/* Inline personalised memory hooks — replaces the old standalone My Life page */
+.life-translation-wrap{
+  margin:18px 0 10px;
+}
+.life-translation-btn{
+  appearance:none;
+  border:1px solid #172A3A;
+  background:#eef6fa;
+  color:#172A3A;
+  border-radius:9px;
+  padding:10px 14px;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+.life-translation-btn:hover{
+  background:#dfeef5;
+}
+.life-translation-panel{
+  margin-top:10px;
+  padding:18px;
+  border-radius:12px;
+  border-left:5px solid #172A3A;
+  background:#f7fafb;
+}
+.life-translation-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:10px;
+}
+.life-translation-head h4{margin:2px 0 0}
+.life-close{
+  border:1px solid #bbb;
+  background:#fff;
+  border-radius:7px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+.life-example{
+  margin:12px 0;
+  padding:12px 14px;
+  background:#fff;
+  border-radius:9px;
+  border:1px solid #e1e5e8;
+}
+.life-bridge{
+  margin:12px 0;
+  padding:12px 14px;
+  background:#eaf3f7;
+  border-radius:9px;
+}
+.life-exam{
+  margin-top:12px;
+  padding:12px 14px;
+  background:#fff8e8;
+  border-radius:9px;
+}
+.life-keyword{
+  display:inline-block;
+  margin:3px 4px 3px 0;
+  padding:4px 8px;
+  border-radius:14px;
+  background:#e5edf2;
+  font-size:.9em;
+}
+.life-translation-panel p:last-child{margin-bottom:0}
+
+
+/* Official APM evidence / pre-workbook section */
+.apm-evidence-section{position:relative}
+.evidence-badge{
+  min-width:120px;
+  padding:14px 18px;
+  border-radius:12px;
+  background:#eef6fa;
+  border:1px solid #c9dce5;
+  text-align:center;
+}
+.evidence-badge strong{display:block;font-size:1.6rem}
+.evidence-badge span{font-size:.85rem}
+.evidence-verdict{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:16px;
+  margin:18px 0;
+}
+.evidence-verdict-main,.evidence-warning{
+  padding:18px;
+  border-radius:12px;
+  border:1px solid #dfe5e8;
+}
+.evidence-verdict-main{background:#f4faf7}
+.evidence-warning{background:#fff8e8}
+.evidence-verdict p{margin:.5rem 0 0}
+.coverage-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:18px 0 24px;
+}
+.coverage-grid article{
+  padding:16px;
+  border-radius:11px;
+  background:#f7f9fa;
+  border:1px solid #e0e5e8;
+}
+.coverage-grid strong{display:block;font-size:1.35rem}
+.coverage-grid span{display:block;font-weight:700;margin:4px 0 8px}
+.coverage-grid small{line-height:1.4}
+.radar-intro{margin-top:12px}
+.exam-radar-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:14px 0 22px;
+}
+.exam-radar-grid article{
+  padding:14px 16px;
+  border:1px solid #e0e5e8;
+  border-radius:10px;
+  background:#fff;
+}
+.exam-radar-grid h4{margin:0 0 6px}
+.exam-radar-grid p{margin:0;line-height:1.45}
+.evidence-detail{
+  margin:18px 0;
+  padding:2px 16px;
+  border:1px solid #dfe5e8;
+  border-radius:10px;
+  background:#fafbfc;
+}
+.evidence-detail summary{cursor:pointer;font-weight:700;padding:14px 0}
+.evidence-detail-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  padding:0 0 16px;
+}
+.evidence-detail-grid div{padding:12px;background:#fff;border-radius:8px}
+.evidence-detail-grid p{margin:.4rem 0 0}
+.before-workbook{
+  margin-top:20px;
+  padding:18px;
+  border-radius:12px;
+  background:#eef6fa;
+  border:1px solid #c9dce5;
+}
+.before-workbook h3{margin-top:0}
+.before-workbook li{margin:8px 0}
+.evidence-source-note{margin-top:16px}
+@media (max-width:900px){
+  .coverage-grid{grid-template-columns:repeat(2,1fr)}
+  .evidence-verdict{grid-template-columns:1fr}
+}
+@media (max-width:650px){
+  .coverage-grid,.exam-radar-grid,.evidence-detail-grid{grid-template-columns:1fr}
+}
