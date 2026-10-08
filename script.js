@@ -963,6 +963,82 @@ const definitionCardSections = {
 };
 
 
+// Expanded topic coverage: add enough keyword cards for every PMQ topic to have
+// at least three cards available in the section filter. These are revision
+// summaries based on the topic notes already in this hub, not official APM wording.
+const expandedDefinitionCards = [
+  // 3. Sustainability (+2)
+  ['Whole-life value', 'Considering the longer-term costs, impacts and value of an option rather than only its initial cost.'],
+  ['Sustainability requirements', 'Requirements or measures that address relevant environmental, social or economic impacts.'],
+  // 4. Business case (+3)
+  ['Business case', 'The justification for undertaking a project, considering benefits, costs, risks, options and strategic alignment.'],
+  ['Business case review', 'Rechecking whether the project remains justified when significant costs, risks, assumptions or benefits change.'],
+  ['Output vs outcome vs benefit', 'Output is delivered; outcome is the resulting change; benefit is the measurable improvement or value.'],
+  // 5. Procurement (+2)
+  ['Make or buy', 'A procurement decision about whether required capability or goods/services should be provided internally or obtained externally.'],
+  ['Supplier selection criteria', 'Defined factors used to evaluate suppliers fairly against project needs such as capability, quality, cost, risk and delivery.'],
+  // 6. Reviews (+1)
+  ['Decision gate', 'A review point where evidence is used to decide whether a project should continue, change direction or stop.'],
+  // 7. Assurance (+3)
+  ['Assurance', 'Independent or appropriately objective confidence that a project is being governed and controlled appropriately.'],
+  ['Assurance vs management', 'Assurance provides confidence about governance and control; management is responsible for directing and controlling delivery.'],
+  ['Assurance points', 'Assurance can be carried out at multiple points during a project rather than only at the end.'],
+  // 8. Transition (+3)
+  ['Transition', 'The activities needed to move a project output into use, including handover, readiness, adoption and operational integration.'],
+  ['Transition readiness', 'Checking that people, processes, support, knowledge and the receiving environment are ready to use the delivered output.'],
+  ['Poor transition', 'A weak handover can prevent adoption, lose knowledge and stop delivered outputs from producing intended outcomes and benefits.'],
+  // 9. Benefits management (+2)
+  ['Benefit identification', 'Defining the improvements or value expected from the project and linking them to the intended outcomes.'],
+  ['Benefits tracking', 'Measuring and monitoring expected benefits to see whether they are being realised and whether action is needed.'],
+  // 10. Stakeholder engagement & communication (+2)
+  ['Stakeholder analysis', 'Understanding stakeholders, including their interests, influence, needs and potential impact on the project.'],
+  ['Communication planning', 'Deciding what information stakeholders need, when they need it, how it will be provided and by whom.'],
+  // 11. Conflict resolution (+2)
+  ['Conflict', 'A disagreement or tension between people or groups that can affect project performance and relationships.'],
+  ['Thomas-Kilmann conflict modes', 'Approaches to conflict include competing, collaborating, compromising, avoiding and accommodating.'],
+  // 12. Leadership (+2)
+  ['Emotional intelligence', 'Recognising and managing your own emotions and responding appropriately to other people’s emotions.'],
+  ['Leadership in uncertainty', 'Providing direction and support while adapting style and helping people respond constructively to uncertainty.'],
+  // 13. Team management (+2)
+  ['Team cohesion', 'The extent to which team members work together effectively, communicate and support a shared project purpose.'],
+  ['Team accountability', 'Clear responsibility for work and outcomes, supported by agreed roles, expectations and open communication.'],
+  // 14. Diversity & inclusion (+2)
+  ['Diversity', 'The presence of differences between people, such as perspectives, experiences, backgrounds and capabilities.'],
+  ['Inclusion', 'Creating conditions where people can contribute, participate and be treated fairly and respectfully.'],
+  // 16. Requirements management (+2)
+  ['Requirements prioritisation', 'Ranking requirements so decisions reflect factors such as value, need, feasibility and stakeholder priorities.'],
+  ['Requirements validation', 'Checking that requirements are understood, appropriate and capable of being satisfied by the proposed solution.'],
+  // 17. Solutions development (+2)
+  ['Solution development', 'Developing and refining a solution so that it satisfies agreed requirements and enables intended outcomes.'],
+  ['Iterative solution refinement', 'Using feedback and learning from repeated development cycles to improve the solution.'],
+  // 19. Integrated planning (+2)
+  ['Integrated plan', 'A coordinated approach linking scope, schedule, resources, cost, risk and other project plans.'],
+  ['Plan interdependencies', 'Recognising that a change in one project plan can affect other areas such as cost, resources, risk, quality or benefits.'],
+  // 22. Budgeting & cost control (+1)
+  ['Cost variance', 'The difference between planned or authorised cost and actual or forecast cost that needs to be understood and controlled.']
+];
+
+definitionCards.push(...expandedDefinitionCards);
+Object.assign(definitionCardSections, {
+  'Whole-life value':'3', 'Sustainability requirements':'3',
+  'Business case':'4', 'Business case review':'4', 'Output vs outcome vs benefit':'4',
+  'Make or buy':'5', 'Supplier selection criteria':'5',
+  'Decision gate':'6',
+  'Assurance':'7', 'Assurance vs management':'7', 'Assurance points':'7',
+  'Transition':'8', 'Transition readiness':'8', 'Poor transition':'8',
+  'Benefit identification':'9', 'Benefits tracking':'9',
+  'Stakeholder analysis':'10', 'Communication planning':'10',
+  'Conflict':'11', 'Thomas-Kilmann conflict modes':'11',
+  'Emotional intelligence':'12', 'Leadership in uncertainty':'12',
+  'Team cohesion':'13', 'Team accountability':'13',
+  'Diversity':'14', 'Inclusion':'14',
+  'Requirements prioritisation':'16', 'Requirements validation':'16',
+  'Solution development':'17', 'Iterative solution refinement':'17',
+  'Integrated plan':'19', 'Plan interdependencies':'19',
+  'Cost variance':'22'
+});
+
+
 const progressKey = "pmqProgress";
 const sectionScoreKey = "pmqSectionScores";
 const searchInput = document.getElementById("search");
