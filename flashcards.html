@@ -1,70 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APM PMQ Key Definitions</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMQ Flashcards</title>
+<link rel="stylesheet" href="standalone.css">
+<link rel="stylesheet" href="flashcards.css">
 </head>
 <body>
-<header class="site-header compact-header">
-  <div class="header-inner">
-    <p class="eyebrow">APM PMQ REVISION</p>
-    <h1>Key Definitions Flashcards</h1>
-    <p class="tagline">Five minutes? Pick a few. Twenty minutes? Work through the deck.</p>
-    <nav class="main-nav">
-      <a href="index.html#dashboard">Dashboard</a>
-      <a href="index.html#topics">Topics</a>
-      <a href="index.html#mock">Mini Mock</a>
-      <a href="index.html#weak">Weak Areas</a>
-      <a href="index.html#exam">Exam Strategy</a>
+<header class="site-header">
+  <div class="site-bar">
+    <a class="site-brand" href="index.html">APM PMQ Revision</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="learn.html">⚡ Learn</a>
+      <a href="flashcards.html" class="active" aria-current="page">🧠 Flashcards</a>
+      <a href="tests.html">🎯 Tests</a>
+      <a href="topics.html">📚 Topics</a>
+      <a href="read.html">📖 Read</a>
+      <a href="weak-areas.html">🚨 Weak Areas</a>
     </nav>
   </div>
 </header>
-<main>
-  <section class="content-section flashcard-page">
+
+<main class="page flashcards-page">
+  <section class="hero">
+    <p class="eyebrow">ACTIVE RECALL</p>
+    <h1>🧠 Flashcards</h1>
+    <p>Pick the mode that matches how your brain needs to practise today.</p>
+    <p class="hero-small">Quick recall → Free type → Fill the blanks</p>
+  </section>
+
+  <section class="card flashcard-hub">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">QUICK REVISION</p>
-        <h2>PMQ Key Definitions</h2>
-        <p>Look at the term, say the definition from memory, then click to reveal it. The deck covers the main terminology across the PMQ learning objectives.</p>
+        <p class="eyebrow">PMQ KEY DEFINITIONS</p>
+        <h2>Choose your flashcard mode</h2>
+        <p>All three modes use the same definition deck, so you can learn the wording first and then make retrieval harder.</p>
       </div>
       <div class="flash-controls">
-        <input id="flashcardSearch" type="search" placeholder="Search definitions..." aria-label="Search definitions">
-        <button id="shuffleCards" class="secondary">Shuffle</button>
-        <button id="freeTypeMode" class="primary">Free-type mode</button>
+        <label class="section-select">
+          <span>Study section</span>
+          <select id="flashcardSection" aria-label="Filter flashcards by PMQ topic">
+            <option value="all">All sections (44 cards)</option>
+            <option value="1">1. Life cycles</option>
+            <option value="2">2. Governance arrangements</option>
+            <option value="3">3. Sustainability</option>
+            <option value="4">4. Business case</option>
+            <option value="5">5. Procurement</option>
+            <option value="6">6. Reviews</option>
+            <option value="7">7. Assurance</option>
+            <option value="8">8. Transition</option>
+            <option value="9">9. Benefits management</option>
+            <option value="10">10. Stakeholder engagement & communication</option>
+            <option value="11">11. Conflict resolution</option>
+            <option value="12">12. Leadership</option>
+            <option value="13">13. Team management</option>
+            <option value="14">14. Diversity & inclusion</option>
+            <option value="15">15. Ethics, compliance & professionalism</option>
+            <option value="16">16. Requirements management</option>
+            <option value="17">17. Solutions development</option>
+            <option value="18">18. Quality management</option>
+            <option value="19">19. Integrated planning</option>
+            <option value="20">20. Schedule management</option>
+            <option value="21">21. Resource management</option>
+            <option value="22">22. Budgeting & cost control</option>
+            <option value="23">23. Risk & issue management</option>
+            <option value="24">24. Change control</option>
+          </select>
+        </label>
+        <label class="search-wrap">
+          <span>Search within section</span>
+          <input id="flashcardSearch" type="search" placeholder="Search definitions..." aria-label="Search definitions">
+        </label>
+        <button id="shuffleCards" class="button secondary" type="button">Shuffle</button>
       </div>
     </div>
-    <div class="flash-stats">
-      <span><strong id="flashCount">0</strong> cards shown</span>
-      <span>•</span>
-      <span id="flashModeHint">Click a card to reveal</span>
+
+    <div class="mode-tabs" role="tablist" aria-label="Flashcard modes">
+      <button class="mode-tab active" id="flipMode" type="button" role="tab" aria-selected="true">🃏 Flip cards</button>
+      <button class="mode-tab" id="freeTypeMode" type="button" role="tab" aria-selected="false">⌨️ Free type</button>
+      <button class="mode-tab" id="fillBlanksMode" type="button" role="tab" aria-selected="false">✏️ Fill the blanks</button>
     </div>
+
+    <div class="flash-stats">
+      <span><strong id="flashCount">0</strong> cards</span>
+      <span>•</span>
+      <span id="flashModeHint">Click a card to reveal the definition.</span>
+    </div>
+
     <div id="flashcardGrid" class="flashcard-grid"></div>
   </section>
 
-  <section id="freeTypePanel" class="content-section free-type-panel" hidden>
-    <div class="section-heading">
-      <div><p class="eyebrow">ACTIVE RECALL</p><h2>Free-type Flashcards</h2><p>Type your answer before revealing the model. Then mark yourself honestly: <strong>Got it</strong> or <strong>Need to revise</strong>.</p></div>
-      <button id="closeFreeType" class="secondary">Back to cards</button>
+  <section id="freeTypePanel" class="card mode-panel" hidden>
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">ACTIVE RECALL</p>
+        <h2>⌨️ Free-type mode</h2>
+        <p>See the term, type the definition in your own words, then reveal the model answer.</p>
+      </div>
+      <button id="closeFreeType" class="button secondary" type="button">Back to flip cards</button>
     </div>
     <div id="freeTypeCard" class="free-type-card"></div>
   </section>
 
-  <section class="callout">
-    <h2>How to use this page</h2>
-    <ol>
-      <li><strong>Look at the term.</strong></li>
-      <li><strong>Say the definition aloud</strong> before revealing it.</li>
-      <li>Click the card and compare your answer.</li>
-      <li>If you missed it, don't just reread it — explain what the term means in a project scenario.</li>
-      <li>Shuffle the deck so you cannot rely on remembering the order.</li>
-    </ol>
-    <p><strong>Five minutes:</strong> do 5–10 cards. <strong>Twenty minutes:</strong> work through the deck. <strong>After the course:</strong> add any instructor-specific definitions or wording that differs.</p>
-    <p class="warning"><strong>Important:</strong> These are revision summaries, not official APM wording. Your course workbook and instructor teaching take priority.</p>
+  <section id="fillBlanksPanel" class="card mode-panel" hidden>
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">RETRIEVAL WITH SCAFFOLDING</p>
+        <h2>✏️ Fill the blanks</h2>
+        <p>Turn the card over. The definition is still there — but key words have been removed. Fill them in before revealing the complete answer.</p>
+      </div>
+      <button id="closeFillBlanks" class="button secondary" type="button">Back to flip cards</button>
+    </div>
+    <div class="fill-progress" aria-live="polite">
+      <strong id="fillProgress">Card 1</strong>
+      <span id="fillScore">0 correct</span>
+    </div>
+    <div id="fillBlankCard" class="fill-blank-card-wrap"></div>
+  </section>
+
+  <section class="card how-to-card">
+    <h2>How to use the modes</h2>
+    <div class="mode-guide">
+      <article><strong>🃏 Flip cards</strong><span>Look at the term and recall the definition before you reveal it.</span></article>
+      <article><strong>⌨️ Free type</strong><span>Harder. Produce the definition yourself before seeing the model.</span></article>
+      <article><strong>✏️ Fill the blanks</strong><span>Middle difficulty. The description is visible, but important PMQ words are missing.</span></article>
+    </div>
+    <p class="warning"><strong>Remember:</strong> These are revision summaries, not official APM wording. Your course workbook and instructor teaching take priority when you receive them.</p>
   </section>
 </main>
-<footer><p>APM PMQ Revision Hub • Personal study tool</p></footer>
+
+<footer class="site-footer"><p>APM PMQ Revision Hub • Personal study tool</p></footer>
 <script src="script.js"></script>
 </body>
 </html>

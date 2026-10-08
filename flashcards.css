@@ -1,0 +1,70 @@
+/* Flashcards page — matches the compact navigation used across the hub. */
+.flashcards-page{max-width:1250px}
+.flashcards-page .hero{margin-bottom:22px}
+.hero-small{opacity:.85;margin-top:8px;font-weight:700}
+.flashcard-hub{margin-bottom:22px}
+.section-heading,.panel-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:18px}
+.section-heading h2,.panel-heading h2{margin:4px 0 6px}
+.section-heading p,.panel-heading p{margin:0;color:var(--muted)}
+.flash-controls{display:flex;gap:10px;align-items:flex-end;justify-content:flex-end;flex-wrap:wrap;flex-shrink:0;max-width:100%}
+.search-wrap,.section-select{display:flex;flex-direction:column;gap:5px;font-size:.85rem;font-weight:700;color:var(--muted)}
+.search-wrap input,.section-select select{width:min(330px,70vw);padding:12px 13px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--text)}
+.section-select select{min-width:270px;cursor:pointer}
+.mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.mode-tab{border:1px solid var(--line);background:#fff;color:var(--nav);padding:10px 14px;border-radius:10px;font:inherit;font-weight:800;cursor:pointer}
+.mode-tab:hover{background:#f1f5f7}
+.mode-tab.active{background:var(--nav);color:#fff;border-color:var(--nav)}
+.flash-stats{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted);margin-bottom:16px}
+.flash-stats strong{color:var(--nav)}
+.flashcard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.flashcard{min-height:190px;border:1px solid var(--line);border-radius:16px;background:#fff;padding:22px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:12px;font:inherit;color:var(--text);box-shadow:0 2px 8px #00000008;transition:transform .15s ease,box-shadow .15s ease}
+.flashcard:hover{transform:translateY(-2px);box-shadow:0 7px 18px #00000012}
+.flash-term{font-size:1.2rem;font-weight:800;color:var(--nav)}
+.flash-answer{display:block;color:var(--muted);margin-top:8px}
+.flashcard:not(.flipped) .flash-answer{visibility:hidden}
+.flashcard .tap{margin-top:auto;color:var(--muted);font-size:.85rem;font-weight:700}
+.empty{padding:25px;background:#f7f9fa;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+.mode-panel{margin-bottom:22px}
+.mode-panel[hidden]{display:none}
+.free-type-card{max-width:850px;margin:8px auto 0;background:#f7f9fa;border:1px solid var(--line);border-radius:16px;padding:24px}
+.free-type-term{font-size:1.55rem;font-weight:800;color:var(--nav);margin-bottom:8px}
+.free-type-card .hint{color:var(--muted)}
+.free-type-card textarea{width:100%;min-height:145px;box-sizing:border-box;padding:14px;border:1px solid var(--line);border-radius:10px;font:inherit;margin:12px 0}
+.free-type-actions{display:flex;gap:10px;flex-wrap:wrap}
+.free-type-answer{display:none;margin-top:18px;padding:17px;background:#fff;border-left:5px solid var(--nav);border-radius:10px}
+.free-type-card.revealed .free-type-answer{display:block}
+.self-rating{display:none;gap:10px;flex-wrap:wrap;margin-top:15px}
+.free-type-card.revealed .self-rating{display:flex}
+.rating-good{background:#dceee2!important;color:#245a34!important}
+.rating-bad{background:#f6dddd!important;color:#7a2e2e!important}
+.fill-progress{display:flex;justify-content:space-between;gap:12px;align-items:center;max-width:850px;margin:0 auto 14px;color:var(--muted)}
+.fill-progress strong{color:var(--nav)}
+.fill-blank-card-wrap{max-width:850px;margin:0 auto}
+.fill-blank-card{perspective:1000px;min-height:330px;position:relative}
+.fill-card-inner{position:relative;width:100%;min-height:330px;transition:transform .5s;transform-style:preserve-3d}
+.fill-blank-card.flipped .fill-card-inner{transform:rotateY(180deg)}
+.fill-face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 4px 15px #0000000b;padding:28px;display:flex;flex-direction:column}
+.fill-front{justify-content:center;text-align:center}
+.fill-front .fill-term{font-size:1.65rem;font-weight:800;color:var(--nav);margin-bottom:10px}
+.fill-front p{color:var(--muted);max-width:620px;margin:0 auto 22px}
+.fill-back{transform:rotateY(180deg);overflow:auto}
+.fill-back h3{margin:0 0 10px;color:var(--nav)}
+.fill-definition{font-size:1.08rem;line-height:1.75;color:var(--text);margin:8px 0 14px}
+.blank-input{width:9.5em;max-width:100%;padding:4px 7px;border:0;border-bottom:2px solid var(--nav);background:#eef5f8;border-radius:5px;font:inherit;font-weight:800;text-align:center}
+.blank-input:focus{outline:2px solid #9db8c7;outline-offset:2px}
+.blank-input.correct{background:#dceee2;border-bottom-color:#2f7d4a}
+.blank-input.wrong{background:#f6dddd;border-bottom-color:#b24a4a}
+.fill-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:15px}
+.fill-result{margin-top:14px;padding:14px 16px;border-radius:10px;background:#eef5f8;border-left:5px solid var(--nav)}
+.fill-result.good{background:#edf8f0;border-left-color:#2f7d4a}
+.fill-result.review{background:#fff0f0;border-left-color:#b24a4a}
+.fill-complete{padding:24px;text-align:center;background:#f7f9fa;border:1px solid var(--line);border-radius:16px}
+.fill-complete h3{margin-top:0;color:var(--nav)}
+.how-to-card{margin-bottom:28px}
+.mode-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0}
+.mode-guide article{background:#f7f9fa;border:1px solid var(--line);border-radius:12px;padding:16px}
+.mode-guide strong{display:block;color:var(--nav);margin-bottom:5px}
+.mode-guide span{display:block;color:var(--muted)}
+.site-footer{text-align:center;padding:20px;color:var(--muted);font-size:.9rem}
+@media(max-width:800px){.section-heading,.panel-heading{align-items:stretch;flex-direction:column}.flash-controls{width:100%}.search-wrap,.section-select{width:100%}.search-wrap input,.section-select select{width:100%}.mode-guide{grid-template-columns:1fr}.fill-face{padding:22px}.fill-blank-card,.fill-card-inner{min-height:360px}}
+@media(max-width:600px){.flashcards-page{padding:0 12px}.hero{padding:28px 22px}.flashcard-grid{grid-template-columns:1fr}.fill-front .fill-term{font-size:1.4rem}.fill-definition{font-size:1rem}}
