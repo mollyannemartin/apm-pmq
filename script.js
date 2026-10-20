@@ -936,109 +936,6 @@ const sectionTests = {
 
 const definitionCards = [['Project life cycle', 'The sequence of phases and activities through which a project progresses from start through delivery and closure.'], ['Linear life cycle', 'A life cycle in which work progresses through defined phases with relatively stable scope and planned sequencing.'], ['Iterative life cycle', 'A life cycle in which the solution is developed in repeated cycles using feedback to refine what is delivered.'], ['Hybrid life cycle', 'A life cycle combining linear and iterative approaches where different parts of a project need different delivery methods.'], ['Project sponsor', "The senior role providing ownership, direction and support for the project's business need and governance."], ['Project manager', 'The person responsible for managing and coordinating project delivery within agreed authority, controls and objectives.'], ['PMO', 'A project, programme or portfolio support function that can provide standards, methods, reporting, assurance support and coordination.'], ['Sustainability', 'Considering environmental, social and economic impacts and whole-life value when making project decisions.'], ['Procurement strategy', 'The approach for obtaining required goods or services in a way that supports project objectives, value, quality and risk control.'], ['Review', 'A structured assessment of project progress, status, viability, decisions, risks or learning at an appropriate point.'], ['Benefits management', 'The process of identifying, planning, measuring, tracking and realising the benefits expected from project outputs and outcomes.'], ['Stakeholder engagement', 'The deliberate process of understanding, involving and communicating with stakeholders to support project objectives.'], ['Conflict resolution', 'The process of addressing disagreement constructively and reaching an acceptable way forward.'], ['Leadership', 'The ability to provide direction, influence behaviour and create the conditions for people to work towards project objectives.'], ['Team management', 'Organising, supporting and developing people so the project team can perform effectively.'], ['Diversity and inclusion', 'Creating conditions in which differences are respected and people can contribute and participate fairly.'], ['Ethics', 'Principles of right conduct that guide professional decisions and behaviour.'], ['Compliance', 'Meeting applicable laws, regulations, policies, standards and agreed requirements.'], ['Professionalism', 'Applying appropriate competence, behaviour, judgement and standards in project work.'], ['Requirements management', 'Identifying, documenting, analysing, prioritising, validating and controlling what the project or solution needs to satisfy.'], ['Solution development', 'Developing and refining a solution that satisfies agreed requirements and enables the intended outcomes.'], ['Quality management', 'The coordinated activities used to direct and control quality, including planning, assurance and control.'], ['Integrated planning', 'Coordinating scope, schedule, resources, cost, risk and other plans so they work together as one delivery approach.'], ['Schedule management', 'Planning, developing, maintaining and controlling the timing and sequence of project work.'], ['Resource management', 'Planning and controlling the people, equipment, materials and other resources needed to deliver the project.'], ['Budget', 'An authorised financial plan for expected project expenditure and/or income.'], ['Cost control', 'Monitoring and controlling project costs against the agreed budget or cost baseline.'], ['Risk management', 'The systematic process of identifying, assessing, responding to and monitoring uncertainty that could affect objectives.'], ['Risk response', 'An agreed action or strategy for dealing with a project risk, such as avoiding, reducing, transferring or accepting it.'], ['Issue management', 'The process of recording, assessing, responding to, escalating and closing issues that require management action.'], ['Change', 'A modification to an approved project baseline, requirement, product, plan or other controlled element.'], ['Change request', 'A formal request to modify an agreed project baseline or controlled element.'], ['Configuration item', 'A controlled product, document or component whose identity, version and status need to be managed.'], ['Quality plan', 'A plan describing the quality requirements, standards, responsibilities, methods and controls for the project.'], ['Acceptance criteria', 'Defined conditions that a deliverable or output must satisfy to be accepted.'], ['Dependency', 'A relationship in which one activity, deliverable or decision relies on another.'], ['Float', 'The amount of time an activity can move without causing a defined schedule consequence.'], ['Critical path', 'The sequence of dependent activities that determines the shortest possible project duration under the schedule model.'], ['Critical chain', 'A resource-constrained scheduling approach that considers dependencies, resource availability and buffers.'], ['Resource smoothing', 'Adjusting resource timing within available float where possible without changing the project end date.'], ['Resource levelling', 'Adjusting activity timing to resolve resource over-allocation, potentially changing project dates.'], ['Baseline', 'An agreed reference point used to control and assess changes to project scope, schedule, cost or other controlled information.'], ['Tolerance', 'The permitted variation from an agreed target or baseline before escalation or further approval is required.'], ['Lessons learned', 'Knowledge captured from experience that can be used to improve current or future project performance.']];
 
-// Each core definition is linked to the PMQ topic it supports. This powers the
-// section filter so you can study one topic without changing the underlying cards.
-const definitionCardSections = {
-  'Project life cycle':'1', 'Linear life cycle':'1', 'Iterative life cycle':'1', 'Hybrid life cycle':'1',
-  'Project sponsor':'2', 'Project manager':'2', 'PMO':'2',
-  'Sustainability':'3',
-  'Procurement strategy':'5',
-  'Review':'6', 'Lessons learned':'6',
-  'Benefits management':'9',
-  'Stakeholder engagement':'10',
-  'Conflict resolution':'11',
-  'Leadership':'12',
-  'Team management':'13',
-  'Diversity and inclusion':'14',
-  'Ethics':'15', 'Compliance':'15', 'Professionalism':'15',
-  'Requirements management':'16',
-  'Solution development':'17',
-  'Quality management':'18', 'Quality plan':'18', 'Acceptance criteria':'18',
-  'Integrated planning':'19',
-  'Schedule management':'20', 'Dependency':'20', 'Float':'20', 'Critical path':'20', 'Critical chain':'20',
-  'Resource management':'21', 'Resource smoothing':'21', 'Resource levelling':'21',
-  'Budget':'22', 'Cost control':'22',
-  'Risk management':'23', 'Risk response':'23', 'Issue management':'23',
-  'Change':'24', 'Change request':'24', 'Configuration item':'24', 'Baseline':'24', 'Tolerance':'24'
-};
-
-
-// Expanded topic coverage: add enough keyword cards for every PMQ topic to have
-// at least three cards available in the section filter. These are revision
-// summaries based on the topic notes already in this hub, not official APM wording.
-const expandedDefinitionCards = [
-  // 3. Sustainability (+2)
-  ['Whole-life value', 'Considering the longer-term costs, impacts and value of an option rather than only its initial cost.'],
-  ['Sustainability requirements', 'Requirements or measures that address relevant environmental, social or economic impacts.'],
-  // 4. Business case (+3)
-  ['Business case', 'The justification for undertaking a project, considering benefits, costs, risks, options and strategic alignment.'],
-  ['Business case review', 'Rechecking whether the project remains justified when significant costs, risks, assumptions or benefits change.'],
-  ['Output vs outcome vs benefit', 'Output is delivered; outcome is the resulting change; benefit is the measurable improvement or value.'],
-  // 5. Procurement (+2)
-  ['Make or buy', 'A procurement decision about whether required capability or goods/services should be provided internally or obtained externally.'],
-  ['Supplier selection criteria', 'Defined factors used to evaluate suppliers fairly against project needs such as capability, quality, cost, risk and delivery.'],
-  // 6. Reviews (+1)
-  ['Decision gate', 'A review point where evidence is used to decide whether a project should continue, change direction or stop.'],
-  // 7. Assurance (+3)
-  ['Assurance', 'Independent or appropriately objective confidence that a project is being governed and controlled appropriately.'],
-  ['Assurance vs management', 'Assurance provides confidence about governance and control; management is responsible for directing and controlling delivery.'],
-  ['Assurance points', 'Assurance can be carried out at multiple points during a project rather than only at the end.'],
-  // 8. Transition (+3)
-  ['Transition', 'The activities needed to move a project output into use, including handover, readiness, adoption and operational integration.'],
-  ['Transition readiness', 'Checking that people, processes, support, knowledge and the receiving environment are ready to use the delivered output.'],
-  ['Poor transition', 'A weak handover can prevent adoption, lose knowledge and stop delivered outputs from producing intended outcomes and benefits.'],
-  // 9. Benefits management (+2)
-  ['Benefit identification', 'Defining the improvements or value expected from the project and linking them to the intended outcomes.'],
-  ['Benefits tracking', 'Measuring and monitoring expected benefits to see whether they are being realised and whether action is needed.'],
-  // 10. Stakeholder engagement & communication (+2)
-  ['Stakeholder analysis', 'Understanding stakeholders, including their interests, influence, needs and potential impact on the project.'],
-  ['Communication planning', 'Deciding what information stakeholders need, when they need it, how it will be provided and by whom.'],
-  // 11. Conflict resolution (+2)
-  ['Conflict', 'A disagreement or tension between people or groups that can affect project performance and relationships.'],
-  ['Thomas-Kilmann conflict modes', 'Approaches to conflict include competing, collaborating, compromising, avoiding and accommodating.'],
-  // 12. Leadership (+2)
-  ['Emotional intelligence', 'Recognising and managing your own emotions and responding appropriately to other people’s emotions.'],
-  ['Leadership in uncertainty', 'Providing direction and support while adapting style and helping people respond constructively to uncertainty.'],
-  // 13. Team management (+2)
-  ['Team cohesion', 'The extent to which team members work together effectively, communicate and support a shared project purpose.'],
-  ['Team accountability', 'Clear responsibility for work and outcomes, supported by agreed roles, expectations and open communication.'],
-  // 14. Diversity & inclusion (+2)
-  ['Diversity', 'The presence of differences between people, such as perspectives, experiences, backgrounds and capabilities.'],
-  ['Inclusion', 'Creating conditions where people can contribute, participate and be treated fairly and respectfully.'],
-  // 16. Requirements management (+2)
-  ['Requirements prioritisation', 'Ranking requirements so decisions reflect factors such as value, need, feasibility and stakeholder priorities.'],
-  ['Requirements validation', 'Checking that requirements are understood, appropriate and capable of being satisfied by the proposed solution.'],
-  // 17. Solutions development (+2)
-  ['Solution development', 'Developing and refining a solution so that it satisfies agreed requirements and enables intended outcomes.'],
-  ['Iterative solution refinement', 'Using feedback and learning from repeated development cycles to improve the solution.'],
-  // 19. Integrated planning (+2)
-  ['Integrated plan', 'A coordinated approach linking scope, schedule, resources, cost, risk and other project plans.'],
-  ['Plan interdependencies', 'Recognising that a change in one project plan can affect other areas such as cost, resources, risk, quality or benefits.'],
-  // 22. Budgeting & cost control (+1)
-  ['Cost variance', 'The difference between planned or authorised cost and actual or forecast cost that needs to be understood and controlled.']
-];
-
-definitionCards.push(...expandedDefinitionCards);
-Object.assign(definitionCardSections, {
-  'Whole-life value':'3', 'Sustainability requirements':'3',
-  'Business case':'4', 'Business case review':'4', 'Output vs outcome vs benefit':'4',
-  'Make or buy':'5', 'Supplier selection criteria':'5',
-  'Decision gate':'6',
-  'Assurance':'7', 'Assurance vs management':'7', 'Assurance points':'7',
-  'Transition':'8', 'Transition readiness':'8', 'Poor transition':'8',
-  'Benefit identification':'9', 'Benefits tracking':'9',
-  'Stakeholder analysis':'10', 'Communication planning':'10',
-  'Conflict':'11', 'Thomas-Kilmann conflict modes':'11',
-  'Emotional intelligence':'12', 'Leadership in uncertainty':'12',
-  'Team cohesion':'13', 'Team accountability':'13',
-  'Diversity':'14', 'Inclusion':'14',
-  'Requirements prioritisation':'16', 'Requirements validation':'16',
-  'Solution development':'17', 'Iterative solution refinement':'17',
-  'Integrated plan':'19', 'Plan interdependencies':'19',
-  'Cost variance':'22'
-});
-
-
 const progressKey = "pmqProgress";
 const sectionScoreKey = "pmqSectionScores";
 const searchInput = document.getElementById("search");
@@ -1102,6 +999,26 @@ function renderTopics(filter=""){
       body.innerHTML = `<p class="topic-summary">${esc(topic.summary)}</p>`;
       body.innerHTML += `<div class="revision-grid"><div><h4>🧠 KNOW</h4><ul>${topic.know.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><h4>🔍 UNDERSTAND / APPLY</h4><ul>${topic.apply.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
       body.innerHTML += `<div class="distinctions"><h4>⚖️ KEY DISTINCTIONS</h4><ul>${topic.distinctions.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+      if(topic.classFocus){
+        const focus=document.createElement("section"); focus.className="class-focus";
+        focus.innerHTML=`<div class="class-focus-heading"><p class="eyebrow">CLASS RECAP • TODAY</p><h4>${esc(topic.classFocus.heading)}</h4><p>${esc(topic.classFocus.intro)}</p></div>`;
+        (topic.classFocus.sections||[]).forEach(section=>{
+          const block=document.createElement("details"); block.className="class-focus-section";
+          block.innerHTML=`<summary>${esc(section.title)}</summary><ul>${section.items.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`;
+          focus.appendChild(block);
+        });
+        if(topic.classFocus.checks && topic.classFocus.checks.length){
+          const checks=document.createElement("div"); checks.className="class-checks";
+          checks.innerHTML='<h4>🧪 Quick checks — answer before revealing</h4>';
+          topic.classFocus.checks.forEach((item,i)=>{
+            const card=document.createElement("details"); card.className="class-check";
+            card.innerHTML=`<summary><span class="check-number">${i+1}</span>${esc(item.q)}</summary><div class="reveal-answer"><strong>Suggested answer</strong><p>${esc(item.a)}</p></div>`;
+            checks.appendChild(card);
+          });
+          focus.appendChild(checks);
+        }
+        body.appendChild(focus);
+      }
       const scenario=document.createElement("div"); scenario.className="scenario";
       if(topic.applyScenarios){
         scenario.innerHTML=`<h4>🎯 APPLY — Six life-cycle scenarios</h4><p class="hint">For each scenario, identify the most suitable model <strong>before</strong> revealing the answer. Then explain why the model fits the uncertainty, requirements, feedback, delivery pattern and project context.</p>`;
@@ -1408,221 +1325,29 @@ function finishMock(){const secs=Math.round((Date.now()-mockStart)/1000);mockAre
 if(document.getElementById('startMock')) document.getElementById('startMock').onclick=startMock;
 
 if(document.getElementById('flashcardGrid')){
-  const grid=document.getElementById('flashcardGrid'), filter=document.getElementById('flashcardSearch'), sectionFilter=document.getElementById('flashcardSection');
+  const grid=document.getElementById('flashcardGrid'), filter=document.getElementById('flashcardSearch');
   let cards=[...definitionCards], freeIndex=0, freeShuffled=[...definitionCards];
-  let fillIndex=0, fillShuffled=[...definitionCards], fillScore=0, fillAnswered=false;
-
-  function visibleCards(){
-    const t=(filter.value||'').toLowerCase();
-    const section=sectionFilter?.value||'all';
-    return cards.filter(c=>{
-      const matchesSection=section==='all' || definitionCardSections[c[0]]===section;
-      const matchesSearch=c.join(' ').toLowerCase().includes(t);
-      return matchesSection && matchesSearch;
-    });
-  }
-
-  function selectedSectionName(){
-    const option=sectionFilter?.selectedOptions?.[0];
-    return option ? option.textContent.replace(/ \(\d+ cards\)/,'') : 'All sections';
-  }
-
-  function setMode(active){
-    const modes=[
-      ['flipMode','flip'],
-      ['freeTypeMode','free'],
-      ['fillBlanksMode','fill']
-    ];
-    modes.forEach(([id,mode])=>{
-      const b=document.getElementById(id);
-      if(!b)return;
-      const on=mode===active;
-      b.classList.toggle('active',on);
-      b.setAttribute('aria-selected',on?'true':'false');
-    });
-  }
-
+  function visibleCards(){const t=filter.value.toLowerCase();return cards.filter(c=>c.join(' ').toLowerCase().includes(t));}
   function renderCards(){
-    const shown=visibleCards();
-    document.getElementById('flashCount').textContent=shown.length;
-    const selected=sectionFilter?.value||'all';
-    document.getElementById('flashModeHint').textContent=selected==='all' ? 'Click a card to reveal the definition.' : `Showing ${selectedSectionName()}. Click a card to reveal the definition.`;
-    grid.innerHTML='';
-    shown.forEach(c=>{
-      const card=document.createElement('button');
-      card.className='flashcard';
-      card.type='button';
-      card.setAttribute('aria-label',`Flashcard ${c[0]}`);
-      card.innerHTML=`<span class="flash-term">${esc(c[0])}</span><span class="flash-answer">${esc(c[1])}</span><span class="tap">Click to reveal</span>`;
-      card.onclick=()=>{
-        card.classList.toggle('flipped');
-        card.querySelector('.tap').textContent=card.classList.contains('flipped')?'Click to hide':'Click to reveal';
-      };
-      grid.appendChild(card);
-    });
-    if(!shown.length)grid.innerHTML='<div class="empty">No definitions matched this section/search. Try another section or clear the search.</div>';
+    const shown=visibleCards(); document.getElementById('flashCount').textContent=shown.length; grid.innerHTML='';
+    shown.forEach(c=>{const card=document.createElement('button');card.className='flashcard';card.setAttribute('aria-label',`Flashcard ${c[0]}`);card.innerHTML=`<span class="flash-term">${esc(c[0])}</span><span class="flash-answer">${esc(c[1])}</span><span class="tap">Click to reveal</span>`;card.onclick=()=>{card.classList.toggle('flipped');card.querySelector('.tap').textContent=card.classList.contains('flipped')?'Click to hide':'Click to reveal';};grid.appendChild(card);});
+    if(!shown.length)grid.innerHTML='<div class="empty">No definitions matched your search.</div>';
   }
-
   function renderFreeType(){
     if(!freeShuffled.length)return;
     const c=freeShuffled[freeIndex%freeShuffled.length], box=document.getElementById('freeTypeCard');
     box.className='free-type-card';
-    box.innerHTML=`<div class="free-type-term">${esc(c[0])}</div><p class="hint">Type the definition in your own words before revealing the answer.</p><textarea id="freeAnswer" placeholder="Type your answer here..."></textarea><div class="free-type-actions"><button class="button" id="revealFree" type="button">Reveal answer</button><button class="button secondary" id="skipFree" type="button">Skip</button></div><div class="free-type-answer"><strong>Model answer</strong><p>${esc(c[1])}</p></div><div class="self-rating"><button class="button rating-good" id="gotFree" type="button">✓ Got it</button><button class="button rating-bad" id="missedFree" type="button">✗ Need to revise</button></div>`;
+    box.innerHTML=`<div class="free-type-term">${esc(c[0])}</div><p class="hint">Type the definition in your own words before revealing the answer.</p><textarea id="freeAnswer" placeholder="Type your answer here..."></textarea><div class="free-type-actions"><button class="primary" id="revealFree">Reveal answer</button><button class="secondary" id="skipFree">Skip</button></div><div class="free-type-answer"><strong>Model answer</strong><p>${esc(c[1])}</p></div><div class="self-rating"><button class="primary rating-good" id="gotFree">✓ Got it</button><button class="secondary rating-bad" id="missedFree">✗ Need to revise</button></div>`;
     document.getElementById('revealFree').onclick=()=>box.classList.add('revealed');
     document.getElementById('skipFree').onclick=()=>{freeIndex++;renderFreeType();};
     document.getElementById('gotFree').onclick=()=>{recordWeak('Flashcard',c[0],'Key definitions',true);freeIndex++;renderFreeType();};
     document.getElementById('missedFree').onclick=()=>{recordWeak('Flashcard',c[0],'Key definitions',false,'Definition flagged for revision');freeIndex++;renderFreeType();};
   }
-
-  function normaliseAnswer(value){
-    return String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
-  }
-
-  const blankStopWords=new Set(['about','after','again','being','between','could','from','have','into','more','other','over','project','their','there','these','those','through','using','which','while','with','would','your','that','this','what','when','where','whose','will','work','works','used','uses','such','than','then','they','them','were','been','each','also','only','some','into','from','under','across','against','before','during','must','should','need','needs','does','doesn']);
-
-  function makeBlanks(definition){
-    const words=[...definition.matchAll(/\b[A-Za-z][A-Za-z-]{4,}\b/g)].map(m=>({word:m[0],index:m.index}));
-    const useful=words.filter(x=>!blankStopWords.has(x.word.toLowerCase()));
-    const target=Math.min(4, Math.max(2, Math.round(useful.length/5)));
-    const chosen=[];
-    useful.forEach(item=>{
-      if(chosen.length>=target)return;
-      if(chosen.some(x=>Math.abs(x.index-item.index)<12))return;
-      chosen.push(item);
-    });
-    if(chosen.length<target){
-      useful.forEach(item=>{if(chosen.length<target&&!chosen.includes(item))chosen.push(item);});
-    }
-    chosen.sort((a,b)=>a.index-b.index);
-    return chosen.map(x=>x.word);
-  }
-
-  function blankedDefinition(definition, blanks){
-    let html='';
-    let cursor=0;
-    const re=/\b[A-Za-z][A-Za-z-]{4,}\b/g;
-    let match;
-    let blankNo=0;
-    while((match=re.exec(definition))){
-      html+=esc(definition.slice(cursor,match.index));
-      const word=match[0];
-      const shouldBlank=blanks.some(b=>b.toLowerCase()===word.toLowerCase());
-      if(shouldBlank){
-        blankNo++;
-        html+=`<input class="blank-input" id="blank${blankNo}" aria-label="Missing word ${blankNo}" autocomplete="off" spellcheck="false">`;
-      }else{
-        html+=esc(word);
-      }
-      cursor=match.index+word.length;
-    }
-    html+=esc(definition.slice(cursor));
-    return html;
-  }
-
-  function renderFillCard(){
-    const wrap=document.getElementById('fillBlankCard');
-    if(!fillShuffled.length)return;
-    const c=fillShuffled[fillIndex%fillShuffled.length];
-    const blanks=makeBlanks(c[1]);
-    fillAnswered=false;
-    document.getElementById('fillProgress').textContent=`Card ${(fillIndex%fillShuffled.length)+1} of ${fillShuffled.length}`;
-    document.getElementById('fillScore').textContent=`${fillScore} correct`;
-    wrap.innerHTML=`
-      <article class="fill-blank-card" id="activeFillCard">
-        <div class="fill-card-inner">
-          <div class="fill-face fill-front">
-            <div class="fill-term">${esc(c[0])}</div>
-            <p>First, recall what the definition is about. Then turn the card over and fill in the missing PMQ words.</p>
-            <div><button class="button" id="turnFillCard" type="button">Turn card over →</button></div>
-          </div>
-          <div class="fill-face fill-back">
-            <h3>${esc(c[0])}</h3>
-            <p class="hint">Fill every blank. Think about the exact PMQ idea, not just a word that sounds plausible.</p>
-            <div class="fill-definition">${blankedDefinition(c[1],blanks)}</div>
-            <div class="fill-actions">
-              <button class="button" id="checkBlanks" type="button">Check my answers</button>
-              <button class="button secondary" id="nextBlank" type="button" disabled>Next card</button>
-            </div>
-            <div id="fillResult"></div>
-          </div>
-        </div>
-      </article>`;
-
-    document.getElementById('turnFillCard').onclick=()=>document.getElementById('activeFillCard').classList.add('flipped');
-    document.getElementById('checkBlanks').onclick=()=>checkBlanks(c,blanks);
-    document.getElementById('nextBlank').onclick=()=>{fillIndex++;renderFillCard();};
-  }
-
-  function checkBlanks(card,blanks){
-    if(fillAnswered)return;
-    const inputs=[...document.querySelectorAll('.blank-input')];
-    const results=inputs.map((input,i)=>{
-      const ok=normaliseAnswer(input.value)===normaliseAnswer(blanks[i]);
-      input.classList.add(ok?'correct':'wrong');
-      input.disabled=true;
-      return ok;
-    });
-    const correct=results.filter(Boolean).length;
-    const allCorrect=correct===results.length;
-    fillAnswered=true;
-    if(allCorrect)fillScore++;
-    document.getElementById('fillScore').textContent=`${fillScore} correct`;
-    const result=document.getElementById('fillResult');
-    result.className=`fill-result ${allCorrect?'good':'review'}`;
-    result.innerHTML=`<strong>${allCorrect?'Perfect — all the key words were right.':'Review this one.'}</strong><p>${correct} of ${results.length} blanks correct.</p><p><strong>Complete definition:</strong> ${esc(card[1])}</p>${allCorrect?'':'<p class="hint">The red blanks show where your answer did not match the target word. In revision, think about why that word matters.</p>'}`;
-    document.getElementById('checkBlanks').disabled=true;
-    document.getElementById('nextBlank').disabled=false;
-    recordWeak('Fill the blanks',card[0],'Key definitions',allCorrect,allCorrect?'All missing keywords recalled':'Definition flagged for revision');
-  }
-
   document.getElementById('shuffleCards').onclick=()=>{cards=shuffle(cards);renderCards();};
-  function refreshFilteredModes(){
-    renderCards();
-    freeShuffled=shuffle(visibleCards());
-    if(!freeShuffled.length)freeShuffled=shuffle(cards);
-    freeIndex=0;
-    fillShuffled=visibleCards();
-    if(!fillShuffled.length)fillShuffled=[...definitionCards];
-    fillIndex=0;fillScore=0;
-    if(document.getElementById('fillBlanksPanel').hidden===false)renderFillCard();
-    if(document.getElementById('freeTypePanel').hidden===false)renderFreeType();
-  }
-
-  filter.oninput=refreshFilteredModes;
-  sectionFilter.onchange=refreshFilteredModes;
-
-  const flipBtn=document.getElementById('flipMode'), freeBtn=document.getElementById('freeTypeMode'), fillBtn=document.getElementById('fillBlanksMode');
-  const gridPanel=document.querySelector('.flashcard-hub');
-  const freePanel=document.getElementById('freeTypePanel'), fillPanel=document.getElementById('fillBlanksPanel');
-
-  function showFlip(){
-    setMode('flip');
-    gridPanel.hidden=false;freePanel.hidden=true;fillPanel.hidden=true;
-    document.getElementById('flashModeHint').textContent='Click a card to reveal the definition.';
-    renderCards();
-  }
-  function showFree(){
-    setMode('free');
-    gridPanel.hidden=true;freePanel.hidden=false;fillPanel.hidden=true;
-    document.getElementById('flashModeHint').textContent=`Free type • ${selectedSectionName()}: produce the definition, then reveal and self-rate.`;
-    freeShuffled=shuffle(visibleCards());
-    if(!freeShuffled.length)freeShuffled=shuffle(cards);
-    freeIndex=0;renderFreeType();freePanel.scrollIntoView({behavior:'smooth',block:'start'});
-  }
-  function showFill(){
-    setMode('fill');
-    gridPanel.hidden=true;freePanel.hidden=true;fillPanel.hidden=false;
-    document.getElementById('flashModeHint').textContent=`Fill the blanks • ${selectedSectionName()}: turn the card over, fill the missing words, then check yourself.`;
-    fillShuffled=visibleCards();
-    if(!fillShuffled.length)fillShuffled=[...definitionCards];
-    fillIndex=0;fillScore=0;renderFillCard();fillPanel.scrollIntoView({behavior:'smooth',block:'start'});
-  }
-
-  flipBtn.onclick=showFlip;
-  freeBtn.onclick=showFree;
-  fillBtn.onclick=showFill;
-  document.getElementById('closeFreeType').onclick=showFlip;
-  document.getElementById('closeFillBlanks').onclick=showFlip;
+  filter.oninput=renderCards;
+  const freeBtn=document.getElementById('freeTypeMode'), panel=document.getElementById('freeTypePanel');
+  freeBtn.onclick=()=>{panel.hidden=false;grid.parentElement.hidden=true;document.getElementById('flashModeHint').textContent='Free-type mode: type first, then reveal and self-rate';freeShuffled=shuffle(cards);freeIndex=0;renderFreeType();panel.scrollIntoView({behavior:'smooth',block:'start'});};
+  document.getElementById('closeFreeType').onclick=()=>{panel.hidden=true;grid.parentElement.hidden=false;document.getElementById('flashModeHint').textContent='Click a card to reveal';};
   renderCards();
 }
 

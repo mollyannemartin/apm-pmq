@@ -163,3 +163,21 @@
 @media (max-width:650px){
   .coverage-grid,.exam-radar-grid,.evidence-detail-grid{grid-template-columns:1fr}
 }
+
+/* Class-specific recap panels for the first two taught topics */
+.class-focus{margin:1.25rem 0;padding:1rem;border:1px solid #c9d8e8;border-radius:16px;background:linear-gradient(135deg,rgba(225,238,250,.62),rgba(255,255,255,.96));}
+.class-focus-heading{margin-bottom:.8rem}
+.class-focus-heading .eyebrow{margin:0 0 .25rem;font-size:.72rem;letter-spacing:.08em;font-weight:800;color:#315b7d}
+.class-focus-heading h4{margin:.15rem 0 .45rem;font-size:1.12rem}
+.class-focus-heading p:last-child{margin:.25rem 0;color:var(--muted,#5d6874)}
+.class-focus-section,.class-check{margin:.55rem 0;border:1px solid #d9e2ec;border-radius:10px;background:rgba(255,255,255,.9);overflow:hidden}
+.class-focus-section>summary,.class-check>summary{cursor:pointer;padding:.75rem .85rem;font-weight:750;display:flex;align-items:center;gap:.55rem}
+.class-focus-section>ul{padding:0 1.1rem 1rem 2.2rem;margin:.1rem 0}
+.class-focus-section li{margin:.45rem 0;line-height:1.5}
+.class-checks{margin-top:1rem}
+.class-checks>h4{margin:.2rem 0 .65rem}
+.class-check>summary{align-items:flex-start;line-height:1.45}
+.check-number{display:inline-flex;align-items:center;justify-content:center;flex:0 0 1.55rem;width:1.55rem;height:1.55rem;border-radius:50%;background:#e3edf6;color:#244f73;font-size:.8rem}
+.class-check .reveal-answer{padding:0 .95rem .85rem 2.9rem}
+.class-check .reveal-answer p{margin:.35rem 0 0;line-height:1.5}
+@media(max-width:640px){.class-focus{padding:.75rem}.class-check .reveal-answer{padding-left:.9rem}.class-focus-section>ul{padding-left:1.7rem}}

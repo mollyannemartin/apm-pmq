@@ -3,24 +3,35 @@ const PMQ_TOPICS = [
     "id": "life-cycles",
     "area": "Setting up for success",
     "title": "1. Life cycles",
-    "summary": "Understand how linear, iterative and hybrid life cycles structure project delivery, why phases and reviews are used, and how knowledge and information support decisions.",
+    "summary": "Today’s focus: how a project is structured from concept through delivery and transition; how the wider product life cycle continues into operations and termination; and how to choose a delivery approach that fits uncertainty, requirements, culture and project needs.",
     "know": [
-      "Linear: work progresses through defined phases with relatively stable scope and planned sequencing.",
-      "Iterative: the solution is developed in repeated cycles, using feedback to refine what is delivered.",
-      "Hybrid: combines linear and iterative approaches where different parts of the project need different delivery approaches.",
-      "Projects may be structured into phases to create decision points, manage uncertainty and support progressive approval.",
-      "Extended life cycle includes the period beyond project delivery into transition, adoption and benefits realisation.",
-      "Knowledge management captures and shares learning; information management makes relevant information available for decisions."
+      "Project life cycle: the phases used to take a project from concept through definition and development/build to transition and delivery of outputs.",
+      "A typical sequence in your class notes was: concept → definition → development/build → transition/closure → outputs handed over. The exact phase names and boundaries can vary by project.",
+      "Extended project life cycle: looks beyond delivery to adoption and benefits realisation, so the work is not treated as finished just because an output has been produced.",
+      "Product life cycle: includes the extended project life cycle plus the product’s operational life and eventual termination/disposal. Operations support and maintain the product; termination shuts it down safely and disposes of it.",
+      "Linear life cycle: work is planned through defined phases; it suits relatively clear requirements and a sequence that can be planned in advance.",
+      "Iterative life cycle: the team develops, reviews, learns and refines repeatedly. It is useful when requirements are uncertain or feedback is needed to work out the right solution.",
+      "Incremental delivery releases parts of the solution in usable pieces. Evolutionary development allows the solution to change and mature through successive releases informed by learning.",
+      "A hybrid approach combines approaches where different parts of a project have different needs.",
+      "A product backlog is a prioritised list of desired product work. MoSCoW can group requirements as Must have, Should have, Could have and Won’t have (this time).",
+      "Your notes show iterative work being organised into timeboxed cycles, with short daily planning/check-ins, reviews and retrospectives, followed by further releases.",
+      "The project management triangle highlights trade-offs between time, scope, cost and quality. Do not assume every constraint can stay fixed when another changes; identify what is fixed and what can flex in the scenario."
     ],
     "apply": [
-      "Choose a life cycle that fits the level of uncertainty, how stable requirements are, the need for feedback, and the environment in which the project operates.",
-      "Use phase reviews or decision gates to assess whether the project remains viable before committing further resources.",
-      "Use lessons learned and reliable information to improve decisions rather than simply storing documents."
+      "Choose the life cycle using three headings from class: context, culture and project needs. Consider complexity, how clear/stable the requirements are, technology uncertainty, delivery constraints and how much feedback is needed.",
+      "Use a linear approach when the desired outcome and requirements are sufficiently clear to plan the work in a defined sequence.",
+      "Use iterative/evolutionary development when the solution is uncertain or likely to improve through feedback and repeated releases.",
+      "For a product backlog, prioritise by value and need rather than treating every requested feature as equally urgent. MoSCoW helps distinguish essential requirements from desirable ones.",
+      "Use reviews and decision points to check whether the project should continue, change direction or move into the next phase.",
+      "When answering an exam question, name the suitable approach and link it to facts in the scenario: for example, uncertain requirements → iterations and feedback."
     ],
     "distinctions": [
-      "Linear vs iterative: planned sequence and relatively stable scope vs repeated development and feedback.",
-      "Project life cycle vs extended life cycle: delivery of the project vs the wider period through transition/adoption and benefits realisation.",
-      "Review vs assurance: a review assesses progress/viability; assurance provides confidence to governance that the project is on track."
+      "Project life cycle vs product life cycle: the project life cycle focuses on the project work; the product life cycle continues through operations and eventual termination.",
+      "Output vs outcome/benefit: an output is what is delivered; adoption and use of that output can create outcomes, from which benefits may be realised.",
+      "Linear vs iterative: plan and progress through defined phases vs repeat development/refinement using feedback.",
+      "Incremental vs iterative: incremental means delivering the solution in usable pieces; iterative means refining the solution through repeated cycles. They can be used together.",
+      "Must / Should / Could / Won’t (MoSCoW): essential for the current delivery / important but not essential / desirable if possible / deliberately not included in this timebox or release.",
+      "Context, culture and project needs are factors to assess; no single life cycle is automatically best for every project."
     ],
     "scenario": "A project has uncertain user requirements and needs regular user feedback. Which life cycle is likely to be more suitable, and why?",
     "applyScenarios": [
@@ -54,30 +65,100 @@ const PMQ_TOPICS = [
         "scenario": "A new HR system has been delivered, but the project team remains accountable for training, adoption, operational handover and measuring whether the expected efficiency benefits are actually realised.",
         "answer": "An extended life cycle is appropriate because the work does not stop at technical delivery. It adds adoption and benefits-realisation activity so that the outputs become embedded in operations and the intended benefits can be measured."
       }
-    ]
+    ],
+    "classFocus": {
+      "heading": "Today’s class notes — Life cycles",
+      "intro": "Use this as your class recap. The wording below follows the diagrams and notes you sent; phase labels can vary between projects.",
+      "sections": [
+        {
+          "title": "1. Follow the work from idea to use",
+          "items": [
+            "Concept: clarify the need and outline the idea/business case.",
+            "Definition: define what is needed and how the project will be approached. Your notes place the project management plan (PMP) around this planning/definition stage.",
+            "Development/build/deployment: create and deploy the outputs, with stage boundaries or reviews where appropriate.",
+            "Transition/closure: hand over outputs and close the project work.",
+            "Adoption and benefits realisation: users take up the outputs and the intended benefits can start to be measured.",
+            "Operations and termination belong to the wider product life cycle: maintain/support the product during use, then shut it down and dispose of it when appropriate."
+          ]
+        },
+        {
+          "title": "2. Linear or iterative?",
+          "items": [
+            "Linear: more suitable when the requirements and route to delivery are clear enough to plan up front.",
+            "Iterative: more suitable when the problem/solution is more complex or requirements are uncertain; learn from feedback and refine.",
+            "Your notes show timeboxed evolutionary releases, with planning, reviews and retrospectives between releases.",
+            "The product owner represents customer/user needs and helps prioritise the product backlog with the development team."
+          ]
+        },
+        {
+          "title": "3. Product backlog and MoSCoW",
+          "items": [
+            "Must have — essential for the release.",
+            "Should have — important, but the release can still work without it.",
+            "Could have — desirable if time/resources allow.",
+            "Won’t have this time — explicitly left out of this release/timebox.",
+            "Your kitchen/diner example is a memory hook: prioritise the essential loft/kitchen work before optional landscaping or driveway work if those are not needed for the current goal. Treat it as an example, not a universal priority order."
+          ]
+        },
+        {
+          "title": "4. Choosing a life cycle",
+          "items": [
+            "Context: the wider environment and constraints around the project.",
+            "Culture: how the organisation and people work, make decisions and respond to change.",
+            "Project needs: complexity, requirements clarity, technology, feedback needs and delivery constraints.",
+            "The triangle in your notes is a reminder to consider trade-offs between time, scope, cost and quality. Read the scenario to identify what is fixed and what has room to flex."
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "q": "A team does not yet know exactly what users need and can test prototypes with users every few weeks. Which approach fits best, and why?",
+          "a": "An iterative approach: uncertainty is high and repeated user feedback will help the team refine the solution."
+        },
+        {
+          "q": "A project delivers a new system. Is the project necessarily finished when the system is handed over?",
+          "a": "The project work may be closing, but the extended life cycle considers transition, adoption and benefits realisation. The product life cycle also includes ongoing operations and eventual termination."
+        },
+        {
+          "q": "What does “Won’t have this time” mean in MoSCoW?",
+          "a": "The item is deliberately excluded from the current release/timebox; it is not simply an item the team forgot."
+        }
+      ]
+    }
   },
   {
     "id": "governance",
     "area": "Setting up for success",
     "title": "2. Governance arrangements",
-    "summary": "Understand how governance provides direction, accountability, decision rights, controls and oversight.",
+    "summary": "Today’s focus: governance is the framework for direction, authority, accountability and control; organisational governance provides the rules and decision routes; project structures define who does what and who can decide or escalate.",
     "know": [
-      "Governance defines how a project is directed, controlled and held accountable.",
-      "Know the purpose of policies, regulations, functions, processes, procedures and delegated responsibilities.",
-      "Understand the roles of the project sponsor, project manager, project team, users and governance board/steering group.",
-      "Project managers manage delivery within delegated authority; sponsors provide senior ownership, direction and support.",
-      "Governance should be proportionate: enough control to protect the project without creating unnecessary bureaucracy.",
-      "PMOs can provide support, standards, reporting, methods and coordination."
+      "Governance is the framework of authority and accountability that defines and controls project outputs, outcomes and benefits, including how decisions are made and how the project is overseen.",
+      "Organisational governance applies organisational standards and practices across projects and helps ensure work supports the organisation’s strategy and objectives.",
+      "Governance arrangements should include a relevant business case, a recognised project life cycle, control points (such as reviews/audits/evaluations), a structured project management method, defined processes and project management documentation.",
+      "Governance processes commonly include risk and issue management, quality management, change control, decision gates and routes for reporting issues and escalating decisions.",
+      "Roles and responsibilities must be clear: who owns the business need, who manages day-to-day delivery, who performs the work, who represents users, and who makes higher-level decisions.",
+      "Project sponsor: senior ownership of the business need and business case; secures support/resources, makes or sponsors key decisions, sets tolerances, supports the PM and ensures benefits remain in view.",
+      "Project steering group/board: provides direction and oversight, checks alignment with strategy and business case, considers escalated issues and makes decisions within its authority.",
+      "Project manager: manages day-to-day delivery; plans and monitors work, manages risks/issues and budget/schedule within authority, coordinates stakeholders/team members, reports progress and escalates when needed.",
+      "Project team members: carry out specialist/project work, produce outputs, report progress and issues, and contribute expertise and estimates.",
+      "Product owner (especially in iterative/hybrid work): represents customer/user needs, clarifies and prioritises requirements/backlog, and helps ensure the team delivers useful value.",
+      "Users: help identify and clarify requirements, provide feedback, define/confirm acceptance criteria, take part in testing and use the outputs to realise benefits.",
+      "A project organisation structure may show reporting lines, project roles and links to the wider organisation; it should make accountability and communication routes clear."
     ],
     "apply": [
-      "Escalate decisions when they exceed your authority or agreed tolerances.",
-      "Make roles, responsibilities and decision rights clear at project initiation.",
-      "Use governance arrangements to maintain alignment with organisational objectives."
+      "Check who has authority before making a decision. The PM should manage within delegated authority and escalate when an agreed tolerance or decision boundary will be exceeded.",
+      "Check that the project still supports organisational objectives and that its business case remains valid when costs, risks, expected benefits or circumstances change.",
+      "Use defined processes and control points rather than informal decisions for major risk, issue, quality or change matters.",
+      "When a scenario describes confusion, duplicated work or an unauthorised decision, look for unclear roles, responsibilities, decision rights or escalation routes.",
+      "Match the role to the action: sponsor = business ownership/senior support; PM = day-to-day management; team = delivery; product owner = prioritised user value; users = requirements, feedback, acceptance and use."
     ],
     "distinctions": [
-      "Governance vs management: governance sets direction, oversight and accountability; management coordinates and controls delivery.",
-      "Project manager vs sponsor: the PM manages day-to-day delivery; the sponsor owns the business need and provides senior direction.",
-      "PMO vs project team: a PMO supports governance, standards and coordination; the project team performs delivery work."
+      "Governance vs management: governance sets direction, accountability, oversight and decision authority; management plans and coordinates day-to-day delivery within that framework.",
+      "Sponsor vs project manager: sponsor owns the business need and senior direction; PM manages day-to-day delivery and escalates beyond delegated authority.",
+      "Steering group/board vs project team: board provides oversight and higher-level decisions; team performs the work and creates outputs.",
+      "Product owner vs project manager: product owner prioritises product requirements/value in iterative work; PM coordinates overall project delivery, plans, risks, resources and controls.",
+      "Users vs project team: users clarify needs, give feedback, test/accept and use outputs; team members perform the specialist work to produce the outputs.",
+      "Governance is not just paperwork: it provides actual decision routes, control points and accountability."
     ],
     "scenario": "A project is forecast to exceed an agreed tolerance. What should the project manager do rather than quietly absorbing the variance?",
     "applyAnswer": "The PM should assess the forecast against the agreed tolerance and escalate through the governance route if the tolerance will be exceeded. The PM should not simply absorb the variance because tolerances define the authority delegated to the PM. The appropriate decision maker can then decide the response, such as corrective action, re-planning or accepting a justified change.",
@@ -92,7 +173,62 @@ const PMQ_TOPICS = [
         "scenario": "A project team member wants to approve a significant scope decision because the sponsor is unavailable. What should the PM check first?",
         "answer": "The PM should check the agreed governance arrangements and delegated authority. A decision should be made by the person or body with the appropriate authority, or escalated if the decision exceeds the team member's authority."
       }
-    ]
+    ],
+    "classFocus": {
+      "heading": "Today’s class notes — Governance arrangements",
+      "intro": "The slide set starts with the organisational governance approach and then compares project roles. Learn the purpose of each role, not just the job title.",
+      "sections": [
+        {
+          "title": "1. What organisational governance provides",
+          "items": [
+            "Applies organisation-wide standards and practices, including to projects.",
+            "Keeps projects aligned with organisational strategy and objectives.",
+            "Uses a recognised project life cycle and defined control points such as reviews, audits and evaluations.",
+            "Uses a structured project management method, management plans and defined processes.",
+            "Includes risk/issue management, quality management and change control.",
+            "Defines decision gates, roles/responsibilities, reporting routes and escalation routes."
+          ]
+        },
+        {
+          "title": "2. Who is responsible for what?",
+          "items": [
+            "Project sponsor: sets high-level expectations, secures support/funding, owns the business case, sets tolerances, makes business decisions and ensures benefits are realised.",
+            "Project manager: manages day-to-day delivery, maintains plans, monitors/controls progress, coordinates the team and stakeholders, manages risks/issues and reports/escalates.",
+            "Steering group/board: keeps the project aligned with business strategy, oversees feasibility/business case/outcomes, releases funds or sanctions key decisions where authorised, and handles escalated issues.",
+            "Project team members: deliver specialist work and outputs, report progress and changes, provide estimates/expertise and manage their assigned work packages.",
+            "Product owner: common in iterative/hybrid delivery; acts as intermediary with users/stakeholders, clarifies scope and requirements, prioritises the backlog and accepts completed functionality against agreed criteria.",
+            "Users: identify requirements and constraints, clarify needs, help define acceptance criteria, test, potentially support/maintain outputs and use the product to realise benefits."
+          ]
+        },
+        {
+          "title": "3. How to use this in a scenario",
+          "items": [
+            "If someone makes a decision outside their authority, check the governance arrangements and escalate to the authorised person/body.",
+            "If a project no longer aligns with organisational objectives or the business case, raise it through governance rather than carrying on automatically.",
+            "If reporting, decisions or ownership are unclear, identify which roles/responsibilities or escalation routes need to be defined.",
+            "A PM is accountable for managing delivery, but does not automatically own every business decision or have unlimited authority."
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "q": "A project manager forecasts that the cost will exceed the agreed tolerance. What should they do?",
+          "a": "Assess the impact and escalate through the agreed governance route to the authorised decision maker; do not quietly exceed the tolerance."
+        },
+        {
+          "q": "Who is most directly responsible for day-to-day project delivery?",
+          "a": "The project manager, working with the project team and within delegated authority."
+        },
+        {
+          "q": "Who prioritises requirements/backlog items to represent user value in iterative delivery?",
+          "a": "The product owner, informed by users and stakeholders."
+        },
+        {
+          "q": "Why have reviews, decision gates and escalation routes?",
+          "a": "They provide control points, make decision authority clear and allow risks/issues or changes to reach the right decision maker at the right time."
+        }
+      ]
+    }
   },
   {
     "id": "sustainability",
