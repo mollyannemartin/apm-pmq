@@ -3,26 +3,35 @@ const topics = [
     "id": "life-cycles",
     "area": "Setting up for success",
     "title": "1. Life cycles",
-    "summary": "Understand how linear, iterative and hybrid life cycles structure project delivery, why phases and reviews are used, and how knowledge and information support decisions.",
+    "summary": "Topic 1 — Life cycles. Learn what a life cycle is, the linear/iterative/hybrid approaches, the phases of a linear life cycle, strengths and limitations, extended/product life cycles, and how context, culture, project needs and complexity influence the choice.",
     "know": [
-      "Linear: work progresses through defined phases with relatively stable scope and planned sequencing.",
-      "Iterative: the solution is developed in repeated cycles, using feedback to refine what is delivered.",
-      "Hybrid: combines linear and iterative approaches where different parts of the project need different delivery approaches.",
-      "Projects may be structured into phases to create decision points, manage uncertainty and support progressive approval.",
-      "Extended life cycle includes the period beyond project delivery into transition, adoption and benefits realisation.",
-      "Knowledge management captures and shares learning; information management makes relevant information available for decisions."
+      "A project life cycle is the framework of phases used to organise a project from its beginning through delivery. Different life cycles provide different ways to manage uncertainty and work.",
+      "Linear life cycle: a structured, largely sequential approach. It suits work where scope and requirements can be understood early and the output can be delivered in a single pass.",
+      "Linear phases in the course material: Concept → Definition → Deployment → Transition. Concept explores the opportunity and business case; Definition develops requirements and the Project Management Plan (PMP); Deployment creates/tests/procures/builds the output; Transition accepts and hands the output over for use.",
+      "Concept output: Business Case. Definition output: Project Management Plan (PMP). Deployment output: product/output. Transition includes acceptance, handover, closing contracts/resources, archiving information and preparing for benefits realisation.",
+      "Linear strengths: structured and predictable; supports rolling-wave planning, more accurate estimates, risk planning for later phases, lessons learned between phases, funding in chunks, go/no-go decision points and stakeholder commitment.",
+      "Linear limitations: requires more definition up front; changes can be expensive or slow to process; scope is harder to adapt once agreed; benefits may arrive later; early versions may not be usable/released.",
+      "Iterative life cycle: repeats one or more phases so the solution can evolve as learning and discovery reduce uncertainty. It is useful where scope is unclear, requirements evolve, the market is uncertain or feedback is valuable.",
+      "Iterative features in the course material: time and cost may be fixed while scope/quality flex; early prototypes or increments can be released; teams may self-organise; regular feedback informs refinement. A timebox has a defined duration, even if all planned work is not completed.",
+      "Hybrid life cycle: combines linear and iterative approaches, for example fixed governance/funding/release milestones with iterative development inside them.",
+      "Extended project life cycle includes adoption and benefits realisation beyond producing the output. The product life cycle can continue through operations and termination; operations support/maintain/upgrade the product, and termination closes down its use and disposes of it safely.",
+      "Life-cycle choice depends on three headings from the slides: Context, Culture and Project needs. Also consider uncertainty, complexity, technology, predictability, ability to release early, stakeholder/customer openness to change, team capability and supplier/organisational culture."
     ],
     "apply": [
-      "Choose a life cycle that fits the level of uncertainty, how stable requirements are, the need for feedback, and the environment in which the project operates.",
-      "Use phase reviews or decision gates to assess whether the project remains viable before committing further resources.",
-      "Use lessons learned and reliable information to improve decisions rather than simply storing documents."
+      "Choose linear when scope is understood, requirements are stable, the work is predictable, and a single-pass delivery or fixed sequence is needed.",
+      "Choose iterative when scope or solution is uncertain, users can give feedback, early versions are valuable, and the team can learn and adapt through timeboxes.",
+      "Choose hybrid when some elements need fixed structure and control while others need experimentation or feedback.",
+      "Explain your choice by linking the clues in the scenario to the approach. Do not just name the life cycle: say why it fits.",
+      "Use phase reviews/decision gates to decide whether to continue, change direction or stop before committing further resources."
     ],
     "distinctions": [
-      "Linear vs iterative: planned sequence and relatively stable scope vs repeated development and feedback.",
-      "Project life cycle vs extended life cycle: delivery of the project vs the wider period through transition/adoption and benefits realisation.",
-      "Review vs assurance: a review assesses progress/viability; assurance provides confidence to governance that the project is on track."
+      "Linear vs iterative: planned, sequential phases and relatively stable scope vs repeated cycles, feedback and evolving understanding.",
+      "Iterative vs incremental: iterative improves/refines the solution through cycles; incremental delivers usable parts or added functionality in stages. A project may be both.",
+      "Hybrid vs a single approach: hybrid deliberately combines approaches for different parts or stages of the same project.",
+      "Project life cycle vs extended life cycle: delivery phases vs also including adoption and benefits realisation after delivery.",
+      "Output vs outcome/benefit: the product/service delivered vs the change from using it vs the measurable improvement/value that results."
     ],
-    "scenario": "A project has uncertain user requirements and needs regular user feedback. Which life cycle is likely to be more suitable, and why?",
+    "scenario": "A project has unclear user requirements, a volatile market and customers who are willing to review prototypes. Which life cycle is the best fit? Explain the clues and one limitation to manage.",
     "applyScenarios": [
       {
         "model": "Linear",
@@ -54,43 +63,158 @@ const topics = [
         "scenario": "A new HR system has been delivered, but the project team remains accountable for training, adoption, operational handover and measuring whether the expected efficiency benefits are actually realised.",
         "answer": "An extended life cycle is appropriate because the work does not stop at technical delivery. It adds adoption and benefits-realisation activity so that the outputs become embedded in operations and the intended benefits can be measured."
       }
+    ],
+    "applyAnswer": "An iterative life cycle is likely to fit because requirements and the market are uncertain, and customer feedback can be used to refine the solution. Timeboxes and early prototypes can support learning. The team still needs to manage the risk that scope expands or that the planned work may not all fit within a timebox.",
+    "studyNotes": [
+      {
+        "heading": "Linear life cycle — phases and outputs",
+        "body": "Concept: understand the problem/opportunity, investigate feasibility, identify stakeholders and preferred solution, prepare the Business Case, and obtain approval to proceed. Definition: develop requirements, plan the project, produce the PMP, and obtain approval/funding. Deployment: further define requirements as needed, build/test/procure/manufacture/configure and check readiness. Transition: commission and accept the output, hand it to the sponsor/users/operations, release resources, close contracts, archive documentation and prepare for post-project review and benefits realisation."
+      },
+      {
+        "heading": "Why use a linear life cycle?",
+        "body": "It can make planning and estimating easier, support risk management by looking ahead to later phases, allow lessons from one phase to improve the next, release funding in chunks, create go/no-go decision points and help secure stakeholder commitment. It works best when enough is known up front."
+      },
+      {
+        "heading": "Iterative, hybrid and timeboxes",
+        "body": "Iterative work repeats development to learn and refine. Early versions/prototypes can be tested by users. A timebox fixes the period available; the team prioritises what can be achieved, rather than assuming every planned activity will fit. Hybrid combines approaches, such as a linear business case and governance structure with iterative product development."
+      },
+      {
+        "heading": "Lifecycle selection — the three headings",
+        "body": "Context: external conditions, regulation, supplier/customer environment and uncertainty. Culture: how the organisation and suppliers make decisions, respond to change and empower teams. Project needs: clarity of scope, complexity, technology, need for early benefits/releases, feedback and predictability. The best choice follows the situation, not a favourite method."
+      },
+      {
+        "heading": "Extended and product life cycles",
+        "body": "The extended life cycle recognises that delivery alone is not enough: transition, adoption and benefits realisation matter. The product life cycle can continue through operations (use, support, maintenance and upgrades) and termination (safe shutdown/disposal). Costs and benefits after delivery may need to be included in the business case."
+      }
+    ],
+    "quickCheck": [
+      {
+        "q": "Scope is understood and can be planned in detail early. Which life cycle?",
+        "a": "Linear — the Big Design Up Front clue points to stable requirements and planned phases."
+      },
+      {
+        "q": "The team needs to explore higher-risk options and learn from user feedback. Which life cycle?",
+        "a": "Iterative — repeated cycles let the team test, learn and refine."
+      },
+      {
+        "q": "Time and cost are fixed but scope can flex, with early prototypes. Which approach does this suggest?",
+        "a": "Iterative, often organised into timeboxes."
+      },
+      {
+        "q": "Name the four linear phases in the course slides.",
+        "a": "Concept → Definition → Deployment → Transition."
+      },
+      {
+        "q": "What three headings influence life-cycle choice in the slides?",
+        "a": "Context, Culture and Project needs."
+      },
+      {
+        "q": "Does delivery automatically mean benefits have been realised?",
+        "a": "No. Adoption and use must lead to the intended outcomes and measurable benefits."
+      }
     ]
   },
   {
     "id": "governance",
     "area": "Setting up for success",
     "title": "2. Governance arrangements",
-    "summary": "Understand how governance provides direction, accountability, decision rights, controls and oversight.",
+    "summary": "Topic 2 — Governance arrangements. Learn how projects fit into organisational structures, what governance does, how decision rights and escalation work, and the responsibilities of the sponsor, project manager, steering group/board, product owner, team and users.",
     "know": [
-      "Governance defines how a project is directed, controlled and held accountable.",
-      "Know the purpose of policies, regulations, functions, processes, procedures and delegated responsibilities.",
-      "Understand the roles of the project sponsor, project manager, project team, users and governance board/steering group.",
-      "Project managers manage delivery within delegated authority; sponsors provide senior ownership, direction and support.",
-      "Governance should be proportionate: enough control to protect the project without creating unnecessary bureaucracy.",
-      "PMOs can provide support, standards, reporting, methods and coordination."
+      "Governance is the framework of authority and accountability that directs and controls project work and helps ensure outputs, outcomes and benefits align with organisational objectives.",
+      "Organisational governance sets standards and expectations for how projects are identified, approved, managed and controlled. It may require a business case, recognised life cycle, agreed method, risk/issue/change processes, a PMP, reviews/audits, decision gates, clear roles and escalation routes.",
+      "Functional structure: people are grouped by specialist function; functional managers retain significant authority and project resources may be shared across work.",
+      "Matrix structure: authority is shared between functional managers and project managers. It can improve cross-functional coordination, but dual reporting and competing priorities can create tension.",
+      "Projectised structure: project manager has stronger authority and a dedicated team focused on the project; resources may move when the project ends.",
+      "Permanent organisation structures support ongoing functions; temporary project structures bring people together for a defined change and period.",
+      "Project sponsor: accountable for effective governance and achieving the objectives/needs; communicates vision and high-level expectations; secures funding; owns/develops the business case with the PM; provides senior support; makes or secures business decisions and may manage the transition to the project manager.",
+      "Project manager: manages day-to-day delivery, plans and coordinates work, manages risks/issues/resources/schedule/cost/quality and communications, reports progress, and escalates matters outside delegated authority.",
+      "Steering group/board: provides direction and oversight, reviews progress and continued viability, resolves escalated issues and makes decisions within its authority.",
+      "Project team members: deliver assigned work, provide specialist input, communicate progress and risks, collaborate and take responsibility for their outputs.",
+      "Product owner: represents product/user value, helps prioritise requirements and provides direction on what should deliver the greatest value (especially in iterative approaches).",
+      "Users: contribute requirements and feedback, help test whether the solution meets needs, support acceptance and ultimately use the outputs.",
+      "Governance should be clear and proportionate: decision rights, responsibilities, tolerances, reporting and escalation routes should be understood rather than assumed."
     ],
     "apply": [
-      "Escalate decisions when they exceed your authority or agreed tolerances.",
-      "Make roles, responsibilities and decision rights clear at project initiation.",
-      "Use governance arrangements to maintain alignment with organisational objectives."
+      "Check the agreed governance arrangements and delegated authority before making a significant decision.",
+      "If a forecast exceeds the PM’s agreed tolerance or authority, assess the impact and escalate through the agreed route; do not quietly absorb or conceal the variance.",
+      "Choose an organisational structure by considering project manager authority, resource availability, specialist control, coordination needs and whether people report to more than one manager.",
+      "Use the sponsor for senior ownership, business justification, funding and decisions; use the PM for day-to-day planning and delivery; use the board/steering group for oversight and decisions assigned to it.",
+      "Governance is not just paperwork: it connects the project to organisational objectives and makes accountability and decisions explicit."
     ],
     "distinctions": [
-      "Governance vs management: governance sets direction, oversight and accountability; management coordinates and controls delivery.",
-      "Project manager vs sponsor: the PM manages day-to-day delivery; the sponsor owns the business need and provides senior direction.",
-      "PMO vs project team: a PMO supports governance, standards and coordination; the project team performs delivery work."
+      "Governance vs management: governance sets direction, authority, oversight and accountability; management plans and controls the work within that framework.",
+      "Sponsor vs project manager: sponsor owns senior business justification/direction and governance; PM manages day-to-day delivery.",
+      "Functional vs matrix vs projectised: authority mainly with functional managers vs shared authority vs stronger dedicated project authority.",
+      "Project board/steering group vs project team: oversight and decisions vs carrying out the work.",
+      "Product owner vs project manager: prioritises product value/requirements vs coordinates delivery and project constraints.",
+      "Delegated authority/tolerance vs unlimited authority: the PM can decide within agreed boundaries; exceptions must be escalated to the authorised decision-maker."
     ],
-    "scenario": "A project is forecast to exceed an agreed tolerance. What should the project manager do rather than quietly absorbing the variance?",
-    "applyAnswer": "The PM should assess the forecast against the agreed tolerance and escalate through the governance route if the tolerance will be exceeded. The PM should not simply absorb the variance because tolerances define the authority delegated to the PM. The appropriate decision maker can then decide the response, such as corrective action, re-planning or accepting a justified change.",
+    "scenario": "A project manager forecasts that the project will exceed an agreed cost tolerance. The team suggests keeping it quiet until the next monthly report. What should the PM do, and why?",
+    "applyAnswer": "The PM should assess and report the forecast promptly through the agreed governance and escalation route. The tolerance defines the PM’s delegated authority, so an expected breach requires the appropriate sponsor/board or other authorised decision-maker to consider the response. Hiding it would undermine governance, accountability and timely decision-making.",
     "extraScenarios": [
       {
-        "label": "Tolerance",
-        "scenario": "The PM can keep a delay within the agreed time tolerance, but a decision would affect the project sponsor's financial tolerance. What should happen?",
-        "answer": "The PM can manage within delegated authority only where the relevant tolerance remains within their authority. If the financial impact exceeds the PM's delegated tolerance, the matter should be escalated through governance for a decision."
+        "label": "Organisational structure",
+        "scenario": "A specialist department controls staff allocation and people report to both their functional manager and project manager. Which structure is this likely to be?",
+        "answer": "A matrix structure. Authority is shared, which supports cross-functional work but can create competing priorities or dual-reporting tension."
       },
       {
-        "label": "Decision rights",
-        "scenario": "A project team member wants to approve a significant scope decision because the sponsor is unavailable. What should the PM check first?",
-        "answer": "The PM should check the agreed governance arrangements and delegated authority. A decision should be made by the person or body with the appropriate authority, or escalated if the decision exceeds the team member's authority."
+        "label": "Sponsor or PM?",
+        "scenario": "The project needs senior funding approval and ownership of the business case. Who is primarily accountable?",
+        "answer": "The project sponsor is primarily accountable for senior ownership, funding and the business justification, working with the project manager as appropriate."
+      },
+      {
+        "label": "Board or team?",
+        "scenario": "A project decision exceeds the PM’s delegated authority and could change the business case. Who should decide?",
+        "answer": "Escalate through the governance arrangements to the sponsor, board or other authorised decision-maker identified for that decision. The delivery team should not make a decision beyond its authority."
+      },
+      {
+        "label": "Product owner",
+        "scenario": "In an iterative digital project, two features compete for the next release. Who helps prioritise based on user value?",
+        "answer": "The product owner typically represents user/product value and helps prioritise requirements. The PM still coordinates delivery constraints and the overall project."
+      }
+    ],
+    "studyNotes": [
+      {
+        "heading": "What governance does",
+        "body": "Governance defines authority and accountability and controls how the project is directed. It connects the project to organisational objectives and creates the agreed way to approve work, review progress, make decisions, manage risk/issues/change and escalate matters. Typical controls include a business case, life-cycle/methodology, project management plan, decision gates, reviews/audits, defined roles and reporting routes."
+      },
+      {
+        "heading": "Functional, matrix and projectised structures",
+        "body": "Functional: specialists sit in departments and functional managers control resources; project managers may have limited authority. Matrix: staff work across functions and projects, with authority shared between functional and project managers; coordination can improve, but competing priorities and dual reporting may occur. Projectised: a dedicated project team and stronger project manager authority can focus delivery, but resources may need reassignment when the project finishes."
+      },
+      {
+        "heading": "Who does what?",
+        "body": "Sponsor: senior accountability, vision, business case, funding, support and business-level decisions. Project manager: plans and manages day-to-day delivery, coordinates the team and controls performance. Steering group/board: oversight, direction, reviews and decisions within its remit. Team: performs and reports the work. Product owner: prioritises product requirements/value. Users: explain needs, provide feedback, help test and accept/use the output. Exact role boundaries depend on the project’s agreed governance."
+      },
+      {
+        "heading": "Authority, tolerances and escalation",
+        "body": "A tolerance is an agreed boundary within which the PM can manage. If a forecast indicates the boundary will be exceeded, the PM should assess the impact and escalate to the correct authority. Escalation is not failure; it ensures decisions are made at the right level and the business case and project remain under control."
+      }
+    ],
+    "quickCheck": [
+      {
+        "q": "What is governance in project management?",
+        "a": "The framework of authority and accountability that directs and controls project work."
+      },
+      {
+        "q": "Which structure has shared authority and can involve dual reporting?",
+        "a": "Matrix."
+      },
+      {
+        "q": "Who is primarily accountable for senior business ownership, funding and the business case?",
+        "a": "The project sponsor, working with the project manager as needed."
+      },
+      {
+        "q": "What should the PM do if a forecast exceeds delegated tolerance?",
+        "a": "Assess and escalate through the agreed governance route to the authorised decision-maker."
+      },
+      {
+        "q": "Governance or management: which sets oversight and decision rights?",
+        "a": "Governance. Management coordinates and controls the delivery work within that framework."
+      },
+      {
+        "q": "Who usually prioritises requirements based on product/user value in an iterative project?",
+        "a": "The product owner."
       }
     ]
   },
@@ -936,6 +1060,109 @@ const sectionTests = {
 
 const definitionCards = [['Project life cycle', 'The sequence of phases and activities through which a project progresses from start through delivery and closure.'], ['Linear life cycle', 'A life cycle in which work progresses through defined phases with relatively stable scope and planned sequencing.'], ['Iterative life cycle', 'A life cycle in which the solution is developed in repeated cycles using feedback to refine what is delivered.'], ['Hybrid life cycle', 'A life cycle combining linear and iterative approaches where different parts of a project need different delivery methods.'], ['Project sponsor', "The senior role providing ownership, direction and support for the project's business need and governance."], ['Project manager', 'The person responsible for managing and coordinating project delivery within agreed authority, controls and objectives.'], ['PMO', 'A project, programme or portfolio support function that can provide standards, methods, reporting, assurance support and coordination.'], ['Sustainability', 'Considering environmental, social and economic impacts and whole-life value when making project decisions.'], ['Procurement strategy', 'The approach for obtaining required goods or services in a way that supports project objectives, value, quality and risk control.'], ['Review', 'A structured assessment of project progress, status, viability, decisions, risks or learning at an appropriate point.'], ['Benefits management', 'The process of identifying, planning, measuring, tracking and realising the benefits expected from project outputs and outcomes.'], ['Stakeholder engagement', 'The deliberate process of understanding, involving and communicating with stakeholders to support project objectives.'], ['Conflict resolution', 'The process of addressing disagreement constructively and reaching an acceptable way forward.'], ['Leadership', 'The ability to provide direction, influence behaviour and create the conditions for people to work towards project objectives.'], ['Team management', 'Organising, supporting and developing people so the project team can perform effectively.'], ['Diversity and inclusion', 'Creating conditions in which differences are respected and people can contribute and participate fairly.'], ['Ethics', 'Principles of right conduct that guide professional decisions and behaviour.'], ['Compliance', 'Meeting applicable laws, regulations, policies, standards and agreed requirements.'], ['Professionalism', 'Applying appropriate competence, behaviour, judgement and standards in project work.'], ['Requirements management', 'Identifying, documenting, analysing, prioritising, validating and controlling what the project or solution needs to satisfy.'], ['Solution development', 'Developing and refining a solution that satisfies agreed requirements and enables the intended outcomes.'], ['Quality management', 'The coordinated activities used to direct and control quality, including planning, assurance and control.'], ['Integrated planning', 'Coordinating scope, schedule, resources, cost, risk and other plans so they work together as one delivery approach.'], ['Schedule management', 'Planning, developing, maintaining and controlling the timing and sequence of project work.'], ['Resource management', 'Planning and controlling the people, equipment, materials and other resources needed to deliver the project.'], ['Budget', 'An authorised financial plan for expected project expenditure and/or income.'], ['Cost control', 'Monitoring and controlling project costs against the agreed budget or cost baseline.'], ['Risk management', 'The systematic process of identifying, assessing, responding to and monitoring uncertainty that could affect objectives.'], ['Risk response', 'An agreed action or strategy for dealing with a project risk, such as avoiding, reducing, transferring or accepting it.'], ['Issue management', 'The process of recording, assessing, responding to, escalating and closing issues that require management action.'], ['Change', 'A modification to an approved project baseline, requirement, product, plan or other controlled element.'], ['Change request', 'A formal request to modify an agreed project baseline or controlled element.'], ['Configuration item', 'A controlled product, document or component whose identity, version and status need to be managed.'], ['Quality plan', 'A plan describing the quality requirements, standards, responsibilities, methods and controls for the project.'], ['Acceptance criteria', 'Defined conditions that a deliverable or output must satisfy to be accepted.'], ['Dependency', 'A relationship in which one activity, deliverable or decision relies on another.'], ['Float', 'The amount of time an activity can move without causing a defined schedule consequence.'], ['Critical path', 'The sequence of dependent activities that determines the shortest possible project duration under the schedule model.'], ['Critical chain', 'A resource-constrained scheduling approach that considers dependencies, resource availability and buffers.'], ['Resource smoothing', 'Adjusting resource timing within available float where possible without changing the project end date.'], ['Resource levelling', 'Adjusting activity timing to resolve resource over-allocation, potentially changing project dates.'], ['Baseline', 'An agreed reference point used to control and assess changes to project scope, schedule, cost or other controlled information.'], ['Tolerance', 'The permitted variation from an agreed target or baseline before escalation or further approval is required.'], ['Lessons learned', 'Knowledge captured from experience that can be used to improve current or future project performance.']];
 
+// Each core definition is linked to the PMQ topic it supports. This powers the
+// section filter so you can study one topic without changing the underlying cards.
+const definitionCardSections = {
+  'Project life cycle':'1', 'Linear life cycle':'1', 'Iterative life cycle':'1', 'Hybrid life cycle':'1',
+  'Project sponsor':'2', 'Project manager':'2', 'PMO':'2',
+  'Sustainability':'3',
+  'Procurement strategy':'5',
+  'Review':'6', 'Lessons learned':'6',
+  'Benefits management':'9',
+  'Stakeholder engagement':'10',
+  'Conflict resolution':'11',
+  'Leadership':'12',
+  'Team management':'13',
+  'Diversity and inclusion':'14',
+  'Ethics':'15', 'Compliance':'15', 'Professionalism':'15',
+  'Requirements management':'16',
+  'Solution development':'17',
+  'Quality management':'18', 'Quality plan':'18', 'Acceptance criteria':'18',
+  'Integrated planning':'19',
+  'Schedule management':'20', 'Dependency':'20', 'Float':'20', 'Critical path':'20', 'Critical chain':'20',
+  'Resource management':'21', 'Resource smoothing':'21', 'Resource levelling':'21',
+  'Budget':'22', 'Cost control':'22',
+  'Risk management':'23', 'Risk response':'23', 'Issue management':'23',
+  'Change':'24', 'Change request':'24', 'Configuration item':'24', 'Baseline':'24', 'Tolerance':'24'
+};
+
+
+// Expanded topic coverage: add enough keyword cards for every PMQ topic to have
+// at least three cards available in the section filter. These are revision
+// summaries based on the topic notes already in this hub, not official APM wording.
+const expandedDefinitionCards = [
+  // 3. Sustainability (+2)
+  ['Whole-life value', 'Considering the longer-term costs, impacts and value of an option rather than only its initial cost.'],
+  ['Sustainability requirements', 'Requirements or measures that address relevant environmental, social or economic impacts.'],
+  // 4. Business case (+3)
+  ['Business case', 'The justification for undertaking a project, considering benefits, costs, risks, options and strategic alignment.'],
+  ['Business case review', 'Rechecking whether the project remains justified when significant costs, risks, assumptions or benefits change.'],
+  ['Output vs outcome vs benefit', 'Output is delivered; outcome is the resulting change; benefit is the measurable improvement or value.'],
+  // 5. Procurement (+2)
+  ['Make or buy', 'A procurement decision about whether required capability or goods/services should be provided internally or obtained externally.'],
+  ['Supplier selection criteria', 'Defined factors used to evaluate suppliers fairly against project needs such as capability, quality, cost, risk and delivery.'],
+  // 6. Reviews (+1)
+  ['Decision gate', 'A review point where evidence is used to decide whether a project should continue, change direction or stop.'],
+  // 7. Assurance (+3)
+  ['Assurance', 'Independent or appropriately objective confidence that a project is being governed and controlled appropriately.'],
+  ['Assurance vs management', 'Assurance provides confidence about governance and control; management is responsible for directing and controlling delivery.'],
+  ['Assurance points', 'Assurance can be carried out at multiple points during a project rather than only at the end.'],
+  // 8. Transition (+3)
+  ['Transition', 'The activities needed to move a project output into use, including handover, readiness, adoption and operational integration.'],
+  ['Transition readiness', 'Checking that people, processes, support, knowledge and the receiving environment are ready to use the delivered output.'],
+  ['Poor transition', 'A weak handover can prevent adoption, lose knowledge and stop delivered outputs from producing intended outcomes and benefits.'],
+  // 9. Benefits management (+2)
+  ['Benefit identification', 'Defining the improvements or value expected from the project and linking them to the intended outcomes.'],
+  ['Benefits tracking', 'Measuring and monitoring expected benefits to see whether they are being realised and whether action is needed.'],
+  // 10. Stakeholder engagement & communication (+2)
+  ['Stakeholder analysis', 'Understanding stakeholders, including their interests, influence, needs and potential impact on the project.'],
+  ['Communication planning', 'Deciding what information stakeholders need, when they need it, how it will be provided and by whom.'],
+  // 11. Conflict resolution (+2)
+  ['Conflict', 'A disagreement or tension between people or groups that can affect project performance and relationships.'],
+  ['Thomas-Kilmann conflict modes', 'Approaches to conflict include competing, collaborating, compromising, avoiding and accommodating.'],
+  // 12. Leadership (+2)
+  ['Emotional intelligence', 'Recognising and managing your own emotions and responding appropriately to other people’s emotions.'],
+  ['Leadership in uncertainty', 'Providing direction and support while adapting style and helping people respond constructively to uncertainty.'],
+  // 13. Team management (+2)
+  ['Team cohesion', 'The extent to which team members work together effectively, communicate and support a shared project purpose.'],
+  ['Team accountability', 'Clear responsibility for work and outcomes, supported by agreed roles, expectations and open communication.'],
+  // 14. Diversity & inclusion (+2)
+  ['Diversity', 'The presence of differences between people, such as perspectives, experiences, backgrounds and capabilities.'],
+  ['Inclusion', 'Creating conditions where people can contribute, participate and be treated fairly and respectfully.'],
+  // 16. Requirements management (+2)
+  ['Requirements prioritisation', 'Ranking requirements so decisions reflect factors such as value, need, feasibility and stakeholder priorities.'],
+  ['Requirements validation', 'Checking that requirements are understood, appropriate and capable of being satisfied by the proposed solution.'],
+  // 17. Solutions development (+2)
+  ['Solution development', 'Developing and refining a solution so that it satisfies agreed requirements and enables intended outcomes.'],
+  ['Iterative solution refinement', 'Using feedback and learning from repeated development cycles to improve the solution.'],
+  // 19. Integrated planning (+2)
+  ['Integrated plan', 'A coordinated approach linking scope, schedule, resources, cost, risk and other project plans.'],
+  ['Plan interdependencies', 'Recognising that a change in one project plan can affect other areas such as cost, resources, risk, quality or benefits.'],
+  // 22. Budgeting & cost control (+1)
+  ['Cost variance', 'The difference between planned or authorised cost and actual or forecast cost that needs to be understood and controlled.']
+];
+
+definitionCards.push(...expandedDefinitionCards);
+Object.assign(definitionCardSections, {
+  'Whole-life value':'3', 'Sustainability requirements':'3',
+  'Business case':'4', 'Business case review':'4', 'Output vs outcome vs benefit':'4',
+  'Make or buy':'5', 'Supplier selection criteria':'5',
+  'Decision gate':'6',
+  'Assurance':'7', 'Assurance vs management':'7', 'Assurance points':'7',
+  'Transition':'8', 'Transition readiness':'8', 'Poor transition':'8',
+  'Benefit identification':'9', 'Benefits tracking':'9',
+  'Stakeholder analysis':'10', 'Communication planning':'10',
+  'Conflict':'11', 'Thomas-Kilmann conflict modes':'11',
+  'Emotional intelligence':'12', 'Leadership in uncertainty':'12',
+  'Team cohesion':'13', 'Team accountability':'13',
+  'Diversity':'14', 'Inclusion':'14',
+  'Requirements prioritisation':'16', 'Requirements validation':'16',
+  'Solution development':'17', 'Iterative solution refinement':'17',
+  'Integrated plan':'19', 'Plan interdependencies':'19',
+  'Cost variance':'22'
+});
+
+
 const progressKey = "pmqProgress";
 const sectionScoreKey = "pmqSectionScores";
 const searchInput = document.getElementById("search");
@@ -999,25 +1226,15 @@ function renderTopics(filter=""){
       body.innerHTML = `<p class="topic-summary">${esc(topic.summary)}</p>`;
       body.innerHTML += `<div class="revision-grid"><div><h4>🧠 KNOW</h4><ul>${topic.know.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><h4>🔍 UNDERSTAND / APPLY</h4><ul>${topic.apply.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
       body.innerHTML += `<div class="distinctions"><h4>⚖️ KEY DISTINCTIONS</h4><ul>${topic.distinctions.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
-      if(topic.classFocus){
-        const focus=document.createElement("section"); focus.className="class-focus";
-        focus.innerHTML=`<div class="class-focus-heading"><p class="eyebrow">CLASS RECAP • TODAY</p><h4>${esc(topic.classFocus.heading)}</h4><p>${esc(topic.classFocus.intro)}</p></div>`;
-        (topic.classFocus.sections||[]).forEach(section=>{
-          const block=document.createElement("details"); block.className="class-focus-section";
-          block.innerHTML=`<summary>${esc(section.title)}</summary><ul>${section.items.map(item=>`<li>${esc(item)}</li>`).join("")}</ul>`;
-          focus.appendChild(block);
-        });
-        if(topic.classFocus.checks && topic.classFocus.checks.length){
-          const checks=document.createElement("div"); checks.className="class-checks";
-          checks.innerHTML='<h4>🧪 Quick checks — answer before revealing</h4>';
-          topic.classFocus.checks.forEach((item,i)=>{
-            const card=document.createElement("details"); card.className="class-check";
-            card.innerHTML=`<summary><span class="check-number">${i+1}</span>${esc(item.q)}</summary><div class="reveal-answer"><strong>Suggested answer</strong><p>${esc(item.a)}</p></div>`;
-            checks.appendChild(card);
-          });
-          focus.appendChild(checks);
-        }
-        body.appendChild(focus);
+      if(topic.studyNotes){
+        const notes=document.createElement("div"); notes.className="trainer-notes";
+        notes.innerHTML=`<h4>📘 TODAY'S COURSE NOTES — STUDY IN YOUR OWN WAY</h4>`+topic.studyNotes.map(n=>`<details class="trainer-note"><summary>${esc(n.heading)}</summary><p>${esc(n.body)}</p></details>`).join("");
+        body.appendChild(notes);
+      }
+      if(topic.quickCheck){
+        const checks=document.createElement("div"); checks.className="quick-checks";
+        checks.innerHTML=`<h4>⚡ QUICK CHECK — ANSWER BEFORE REVEALING</h4>`+topic.quickCheck.map((q,i)=>`<details class="quick-check"><summary>${i+1}. ${esc(q.q)}</summary><p><strong>Answer:</strong> ${esc(q.a)}</p></details>`).join("");
+        body.appendChild(checks);
       }
       const scenario=document.createElement("div"); scenario.className="scenario";
       if(topic.applyScenarios){
@@ -1325,29 +1542,221 @@ function finishMock(){const secs=Math.round((Date.now()-mockStart)/1000);mockAre
 if(document.getElementById('startMock')) document.getElementById('startMock').onclick=startMock;
 
 if(document.getElementById('flashcardGrid')){
-  const grid=document.getElementById('flashcardGrid'), filter=document.getElementById('flashcardSearch');
+  const grid=document.getElementById('flashcardGrid'), filter=document.getElementById('flashcardSearch'), sectionFilter=document.getElementById('flashcardSection');
   let cards=[...definitionCards], freeIndex=0, freeShuffled=[...definitionCards];
-  function visibleCards(){const t=filter.value.toLowerCase();return cards.filter(c=>c.join(' ').toLowerCase().includes(t));}
-  function renderCards(){
-    const shown=visibleCards(); document.getElementById('flashCount').textContent=shown.length; grid.innerHTML='';
-    shown.forEach(c=>{const card=document.createElement('button');card.className='flashcard';card.setAttribute('aria-label',`Flashcard ${c[0]}`);card.innerHTML=`<span class="flash-term">${esc(c[0])}</span><span class="flash-answer">${esc(c[1])}</span><span class="tap">Click to reveal</span>`;card.onclick=()=>{card.classList.toggle('flipped');card.querySelector('.tap').textContent=card.classList.contains('flipped')?'Click to hide':'Click to reveal';};grid.appendChild(card);});
-    if(!shown.length)grid.innerHTML='<div class="empty">No definitions matched your search.</div>';
+  let fillIndex=0, fillShuffled=[...definitionCards], fillScore=0, fillAnswered=false;
+
+  function visibleCards(){
+    const t=(filter.value||'').toLowerCase();
+    const section=sectionFilter?.value||'all';
+    return cards.filter(c=>{
+      const matchesSection=section==='all' || definitionCardSections[c[0]]===section;
+      const matchesSearch=c.join(' ').toLowerCase().includes(t);
+      return matchesSection && matchesSearch;
+    });
   }
+
+  function selectedSectionName(){
+    const option=sectionFilter?.selectedOptions?.[0];
+    return option ? option.textContent.replace(/ \(\d+ cards\)/,'') : 'All sections';
+  }
+
+  function setMode(active){
+    const modes=[
+      ['flipMode','flip'],
+      ['freeTypeMode','free'],
+      ['fillBlanksMode','fill']
+    ];
+    modes.forEach(([id,mode])=>{
+      const b=document.getElementById(id);
+      if(!b)return;
+      const on=mode===active;
+      b.classList.toggle('active',on);
+      b.setAttribute('aria-selected',on?'true':'false');
+    });
+  }
+
+  function renderCards(){
+    const shown=visibleCards();
+    document.getElementById('flashCount').textContent=shown.length;
+    const selected=sectionFilter?.value||'all';
+    document.getElementById('flashModeHint').textContent=selected==='all' ? 'Click a card to reveal the definition.' : `Showing ${selectedSectionName()}. Click a card to reveal the definition.`;
+    grid.innerHTML='';
+    shown.forEach(c=>{
+      const card=document.createElement('button');
+      card.className='flashcard';
+      card.type='button';
+      card.setAttribute('aria-label',`Flashcard ${c[0]}`);
+      card.innerHTML=`<span class="flash-term">${esc(c[0])}</span><span class="flash-answer">${esc(c[1])}</span><span class="tap">Click to reveal</span>`;
+      card.onclick=()=>{
+        card.classList.toggle('flipped');
+        card.querySelector('.tap').textContent=card.classList.contains('flipped')?'Click to hide':'Click to reveal';
+      };
+      grid.appendChild(card);
+    });
+    if(!shown.length)grid.innerHTML='<div class="empty">No definitions matched this section/search. Try another section or clear the search.</div>';
+  }
+
   function renderFreeType(){
     if(!freeShuffled.length)return;
     const c=freeShuffled[freeIndex%freeShuffled.length], box=document.getElementById('freeTypeCard');
     box.className='free-type-card';
-    box.innerHTML=`<div class="free-type-term">${esc(c[0])}</div><p class="hint">Type the definition in your own words before revealing the answer.</p><textarea id="freeAnswer" placeholder="Type your answer here..."></textarea><div class="free-type-actions"><button class="primary" id="revealFree">Reveal answer</button><button class="secondary" id="skipFree">Skip</button></div><div class="free-type-answer"><strong>Model answer</strong><p>${esc(c[1])}</p></div><div class="self-rating"><button class="primary rating-good" id="gotFree">✓ Got it</button><button class="secondary rating-bad" id="missedFree">✗ Need to revise</button></div>`;
+    box.innerHTML=`<div class="free-type-term">${esc(c[0])}</div><p class="hint">Type the definition in your own words before revealing the answer.</p><textarea id="freeAnswer" placeholder="Type your answer here..."></textarea><div class="free-type-actions"><button class="button" id="revealFree" type="button">Reveal answer</button><button class="button secondary" id="skipFree" type="button">Skip</button></div><div class="free-type-answer"><strong>Model answer</strong><p>${esc(c[1])}</p></div><div class="self-rating"><button class="button rating-good" id="gotFree" type="button">✓ Got it</button><button class="button rating-bad" id="missedFree" type="button">✗ Need to revise</button></div>`;
     document.getElementById('revealFree').onclick=()=>box.classList.add('revealed');
     document.getElementById('skipFree').onclick=()=>{freeIndex++;renderFreeType();};
     document.getElementById('gotFree').onclick=()=>{recordWeak('Flashcard',c[0],'Key definitions',true);freeIndex++;renderFreeType();};
     document.getElementById('missedFree').onclick=()=>{recordWeak('Flashcard',c[0],'Key definitions',false,'Definition flagged for revision');freeIndex++;renderFreeType();};
   }
+
+  function normaliseAnswer(value){
+    return String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
+  }
+
+  const blankStopWords=new Set(['about','after','again','being','between','could','from','have','into','more','other','over','project','their','there','these','those','through','using','which','while','with','would','your','that','this','what','when','where','whose','will','work','works','used','uses','such','than','then','they','them','were','been','each','also','only','some','into','from','under','across','against','before','during','must','should','need','needs','does','doesn']);
+
+  function makeBlanks(definition){
+    const words=[...definition.matchAll(/\b[A-Za-z][A-Za-z-]{4,}\b/g)].map(m=>({word:m[0],index:m.index}));
+    const useful=words.filter(x=>!blankStopWords.has(x.word.toLowerCase()));
+    const target=Math.min(4, Math.max(2, Math.round(useful.length/5)));
+    const chosen=[];
+    useful.forEach(item=>{
+      if(chosen.length>=target)return;
+      if(chosen.some(x=>Math.abs(x.index-item.index)<12))return;
+      chosen.push(item);
+    });
+    if(chosen.length<target){
+      useful.forEach(item=>{if(chosen.length<target&&!chosen.includes(item))chosen.push(item);});
+    }
+    chosen.sort((a,b)=>a.index-b.index);
+    return chosen.map(x=>x.word);
+  }
+
+  function blankedDefinition(definition, blanks){
+    let html='';
+    let cursor=0;
+    const re=/\b[A-Za-z][A-Za-z-]{4,}\b/g;
+    let match;
+    let blankNo=0;
+    while((match=re.exec(definition))){
+      html+=esc(definition.slice(cursor,match.index));
+      const word=match[0];
+      const shouldBlank=blanks.some(b=>b.toLowerCase()===word.toLowerCase());
+      if(shouldBlank){
+        blankNo++;
+        html+=`<input class="blank-input" id="blank${blankNo}" aria-label="Missing word ${blankNo}" autocomplete="off" spellcheck="false">`;
+      }else{
+        html+=esc(word);
+      }
+      cursor=match.index+word.length;
+    }
+    html+=esc(definition.slice(cursor));
+    return html;
+  }
+
+  function renderFillCard(){
+    const wrap=document.getElementById('fillBlankCard');
+    if(!fillShuffled.length)return;
+    const c=fillShuffled[fillIndex%fillShuffled.length];
+    const blanks=makeBlanks(c[1]);
+    fillAnswered=false;
+    document.getElementById('fillProgress').textContent=`Card ${(fillIndex%fillShuffled.length)+1} of ${fillShuffled.length}`;
+    document.getElementById('fillScore').textContent=`${fillScore} correct`;
+    wrap.innerHTML=`
+      <article class="fill-blank-card" id="activeFillCard">
+        <div class="fill-card-inner">
+          <div class="fill-face fill-front">
+            <div class="fill-term">${esc(c[0])}</div>
+            <p>First, recall what the definition is about. Then turn the card over and fill in the missing PMQ words.</p>
+            <div><button class="button" id="turnFillCard" type="button">Turn card over →</button></div>
+          </div>
+          <div class="fill-face fill-back">
+            <h3>${esc(c[0])}</h3>
+            <p class="hint">Fill every blank. Think about the exact PMQ idea, not just a word that sounds plausible.</p>
+            <div class="fill-definition">${blankedDefinition(c[1],blanks)}</div>
+            <div class="fill-actions">
+              <button class="button" id="checkBlanks" type="button">Check my answers</button>
+              <button class="button secondary" id="nextBlank" type="button" disabled>Next card</button>
+            </div>
+            <div id="fillResult"></div>
+          </div>
+        </div>
+      </article>`;
+
+    document.getElementById('turnFillCard').onclick=()=>document.getElementById('activeFillCard').classList.add('flipped');
+    document.getElementById('checkBlanks').onclick=()=>checkBlanks(c,blanks);
+    document.getElementById('nextBlank').onclick=()=>{fillIndex++;renderFillCard();};
+  }
+
+  function checkBlanks(card,blanks){
+    if(fillAnswered)return;
+    const inputs=[...document.querySelectorAll('.blank-input')];
+    const results=inputs.map((input,i)=>{
+      const ok=normaliseAnswer(input.value)===normaliseAnswer(blanks[i]);
+      input.classList.add(ok?'correct':'wrong');
+      input.disabled=true;
+      return ok;
+    });
+    const correct=results.filter(Boolean).length;
+    const allCorrect=correct===results.length;
+    fillAnswered=true;
+    if(allCorrect)fillScore++;
+    document.getElementById('fillScore').textContent=`${fillScore} correct`;
+    const result=document.getElementById('fillResult');
+    result.className=`fill-result ${allCorrect?'good':'review'}`;
+    result.innerHTML=`<strong>${allCorrect?'Perfect — all the key words were right.':'Review this one.'}</strong><p>${correct} of ${results.length} blanks correct.</p><p><strong>Complete definition:</strong> ${esc(card[1])}</p>${allCorrect?'':'<p class="hint">The red blanks show where your answer did not match the target word. In revision, think about why that word matters.</p>'}`;
+    document.getElementById('checkBlanks').disabled=true;
+    document.getElementById('nextBlank').disabled=false;
+    recordWeak('Fill the blanks',card[0],'Key definitions',allCorrect,allCorrect?'All missing keywords recalled':'Definition flagged for revision');
+  }
+
   document.getElementById('shuffleCards').onclick=()=>{cards=shuffle(cards);renderCards();};
-  filter.oninput=renderCards;
-  const freeBtn=document.getElementById('freeTypeMode'), panel=document.getElementById('freeTypePanel');
-  freeBtn.onclick=()=>{panel.hidden=false;grid.parentElement.hidden=true;document.getElementById('flashModeHint').textContent='Free-type mode: type first, then reveal and self-rate';freeShuffled=shuffle(cards);freeIndex=0;renderFreeType();panel.scrollIntoView({behavior:'smooth',block:'start'});};
-  document.getElementById('closeFreeType').onclick=()=>{panel.hidden=true;grid.parentElement.hidden=false;document.getElementById('flashModeHint').textContent='Click a card to reveal';};
+  function refreshFilteredModes(){
+    renderCards();
+    freeShuffled=shuffle(visibleCards());
+    if(!freeShuffled.length)freeShuffled=shuffle(cards);
+    freeIndex=0;
+    fillShuffled=visibleCards();
+    if(!fillShuffled.length)fillShuffled=[...definitionCards];
+    fillIndex=0;fillScore=0;
+    if(document.getElementById('fillBlanksPanel').hidden===false)renderFillCard();
+    if(document.getElementById('freeTypePanel').hidden===false)renderFreeType();
+  }
+
+  filter.oninput=refreshFilteredModes;
+  sectionFilter.onchange=refreshFilteredModes;
+
+  const flipBtn=document.getElementById('flipMode'), freeBtn=document.getElementById('freeTypeMode'), fillBtn=document.getElementById('fillBlanksMode');
+  const gridPanel=document.querySelector('.flashcard-hub');
+  const freePanel=document.getElementById('freeTypePanel'), fillPanel=document.getElementById('fillBlanksPanel');
+
+  function showFlip(){
+    setMode('flip');
+    gridPanel.hidden=false;freePanel.hidden=true;fillPanel.hidden=true;
+    document.getElementById('flashModeHint').textContent='Click a card to reveal the definition.';
+    renderCards();
+  }
+  function showFree(){
+    setMode('free');
+    gridPanel.hidden=true;freePanel.hidden=false;fillPanel.hidden=true;
+    document.getElementById('flashModeHint').textContent=`Free type • ${selectedSectionName()}: produce the definition, then reveal and self-rate.`;
+    freeShuffled=shuffle(visibleCards());
+    if(!freeShuffled.length)freeShuffled=shuffle(cards);
+    freeIndex=0;renderFreeType();freePanel.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function showFill(){
+    setMode('fill');
+    gridPanel.hidden=true;freePanel.hidden=true;fillPanel.hidden=false;
+    document.getElementById('flashModeHint').textContent=`Fill the blanks • ${selectedSectionName()}: turn the card over, fill the missing words, then check yourself.`;
+    fillShuffled=visibleCards();
+    if(!fillShuffled.length)fillShuffled=[...definitionCards];
+    fillIndex=0;fillScore=0;renderFillCard();fillPanel.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  flipBtn.onclick=showFlip;
+  freeBtn.onclick=showFree;
+  fillBtn.onclick=showFill;
+  document.getElementById('closeFreeType').onclick=showFlip;
+  document.getElementById('closeFillBlanks').onclick=showFlip;
   renderCards();
 }
 
