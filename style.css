@@ -100,3 +100,23 @@
     .site-header-inner{align-items:flex-start; flex-direction:column; gap:8px}
     .site-nav{justify-content:flex-start; width:100%}
 }
+
+/* Mobile-friendly answer controls for the 10-question mixed quiz */
+.quiz-radio-options{border:0;padding:0;min-width:0}
+.quiz-radio-options legend{margin-bottom:8px}
+.quiz-choice{display:flex;align-items:flex-start;gap:12px;width:100%;padding:15px 16px;border:1px solid #d4dade;border-radius:10px;background:#eef2f4;cursor:pointer;touch-action:manipulation;line-height:1.5}
+.quiz-choice input{flex:0 0 auto;width:20px;height:20px;margin-top:3px;accent-color:#172A3A}
+.quiz-choice span{flex:1}
+.quiz-choice:has(input:checked){border-color:#172A3A;background:#e3ebf0}
+.quiz-choice.correct{background:#dceee2;border-color:#8eb79a}
+.quiz-choice.wrong{background:#f6dddd;border-color:#c58c8c}
+#submitMixedAnswer{margin-top:4px;min-height:46px;touch-action:manipulation}
+#submitMixedAnswer:disabled{opacity:.5;cursor:not-allowed}
+/* Accessible, reliably tappable mixed-quiz answer cards */
+.quiz-answer-button{appearance:none;-webkit-appearance:none;font:inherit;color:#222;text-align:left;min-height:56px;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.quiz-answer-button.selected{outline:3px solid #172A3A;outline-offset:1px;background:#e3ebf0;border-color:#172A3A}
+.quiz-answer-button:disabled{cursor:default;opacity:1}
+.quiz-answer-button.correct{background:#dceee2;border-color:#8eb79a}
+.quiz-answer-button.wrong{background:#f6dddd;border-color:#c58c8c}
+.mock-submit{margin-top:10px;min-height:46px;touch-action:manipulation}
+.mock-submit:disabled{opacity:.65;cursor:default}
